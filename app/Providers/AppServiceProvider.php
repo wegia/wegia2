@@ -1,6 +1,6 @@
 <?php
 
-namespace wegia2\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -1,17 +1,17 @@
 <?php 
-namespace wegia2\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Request; 
 
-use wegia2\Person;
-use wegia2\PersonDocs;
-use wegia2\Employee;
-use wegia2\EmployeeDocs;
-//use wegia2\EmployeeSituation;
-use wegia2\EmployeeRole;
-use wegia2\EmployeeTimesheet;
-use wegia2\EmployeeShift;
-use wegia2\EmployeeShiftType;
+use App\Models\Person;
+use App\Models\PersonDocs;
+use App\Models\Employee;
+use App\Models\EmployeeDocs;
+use App\Models\EmployeeSituation;
+use App\Models\EmployeeRole;
+use App\Models\EmployeeTimesheet;
+use App\Models\EmployeeShift;
+use App\Models\EmployeeShiftType;
 
 
 

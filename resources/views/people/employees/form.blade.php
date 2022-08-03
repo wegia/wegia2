@@ -11,17 +11,17 @@ Cadastron
 
 @section('breadcrumbs')
 <li class="breadcrumb-item" aria-current="page">
-    <a href="{{action('HomeController@index')}}">
+    <a href="/">
         <i class="fa fa-home"></i>Home
     </a>
 </li>
 <li class="breadcrumb-item" aria-current="page">
-    <a href="{{action('PeopleController@index')}}">
+    <a href="/people">
         <i class="far fa-address-book"></i>Pessoa
     </a>
 </li>
 <li class="breadcrumb-item" aria-current="page">
-    <a href="{{action('PeopleController@employees')}}">
+    <a href="/people/employees/adm">
         <i class="far fa-address-book"></i>Funcionários
     </a>
 </li>
@@ -44,7 +44,7 @@ Cadastron
         </header>
         <div class="panel-body">
             
-            <form method="GET" action="{{action('EmployeeController@checkCPF')}}">
+            <form method="GET" action="/people/employees/checkCPF">
                 <input type="text" class="form-control" id="cpf" name="cpf" 
                 placeholder="Ex: 222.222.222-22" maxlength="14"
                 onblur="validarCPF(this.value)" onkeypress="return Onlynumbers(event)" 
@@ -73,7 +73,7 @@ Cadastron
         </header>
         <div class="panel-body">
             
-            <form method="GET" action="{{action('EmployeeController@checkCPF')}}">
+            <form method="GET" action="/people/employees/checkCPF">
                 <input type="text" class="form-control" id="cpf" name="cpf" 
                 placeholder="Ex: 222.222.222-22" maxlength="14"
                 onblur="validarCPF(this.value)" onkeypress="return Onlynumbers(event)" 
@@ -128,7 +128,7 @@ Cadastron
                     </ul>
                     <div class="tab-content">
                         <div id="overview" class="tab-pane active">
-                            <form method="POST" action="{{action('EmployeeController@save')}}" class="form-horizontal" >
+                            <form method="POST" action="/people/employees" class="form-horizontal" >
                                 @csrf
 
                                 <input type="hidden" name="personDoc.cpf" value="{{$cpf}}">

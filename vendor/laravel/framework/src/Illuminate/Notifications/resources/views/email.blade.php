@@ -19,14 +19,10 @@
 {{-- Action Button --}}
 @isset($actionText)
 <?php
-    switch ($level) {
-        case 'success':
-        case 'error':
-            $color = $level;
-            break;
-        default:
-            $color = 'primary';
-    }
+    $color = match ($level) {
+        'success', 'error' => $level,
+        default => 'primary',
+    };
 ?>
 @component('mail::button', ['url' => $actionUrl, 'color' => $color])
 {{ $actionText }}
@@ -51,13 +47,12 @@
 @isset($actionText)
 @slot('subcopy')
 @lang(
-    "If you’re having trouble clicking the \":actionText\" button, copy and paste the URL below\n".
-    'into your web browser: [:actionURL](:actionURL)',
+    "If you're having trouble clicking the \":actionText\" button, copy and paste the URL below\n".
+    'into your web browser:',
     [
         'actionText' => $actionText,
-        'actionURL' => $actionUrl,
     ]
-)
+) <span class="break-all">[{{ $displayableActionUrl }}]({{ $actionUrl }})</span>
 @endslot
 @endisset
 @endcomponent

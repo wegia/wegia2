@@ -1,5 +1,5 @@
 <?php 
-namespace wegia2\Http\Controllers;
+namespace App\Http\Controllers;
 
 class PeopleController extends Controller {
 

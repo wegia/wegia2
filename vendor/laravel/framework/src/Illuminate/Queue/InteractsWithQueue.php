@@ -11,7 +11,7 @@ trait InteractsWithQueue
      *
      * @var \Illuminate\Contracts\Queue\Job
      */
-    protected $job;
+    public $job;
 
     /**
      * Get the number of times the job has been attempted.
@@ -49,9 +49,9 @@ trait InteractsWithQueue
     }
 
     /**
-     * Release the job back into the queue.
+     * Release the job back into the queue after (n) seconds.
      *
-     * @param  int   $delay
+     * @param  int  $delay
      * @return void
      */
     public function release($delay = 0)

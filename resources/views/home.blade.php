@@ -15,7 +15,7 @@
 <div class="content-body">
     <div class="row" id="category-row" >
         <div class="col-lg-2 col-md-8 i category-item" data-toggle="collapse">
-            <a href="{{action('PeopleController@index')}}">
+             <a href="/people"> 
                 <i  class="far fa-address-book"></i>
                 <span>Pessoas</span>
             </a>

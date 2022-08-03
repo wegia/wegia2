@@ -43,7 +43,7 @@
                 </a>
                 <ul>
                     <li><a href="/"><i class="fa fa-home"></i><span>Início</span></a></li>
-                    <li><a href="{{action('PeopleController@index')}}"><i class="far fa-address-book"></i>Pessoas</a>
+                    <li><a href="/people"><i class="far fa-address-book"></i>Pessoas</a>
                             <!-- funcionarios, atendidos, ocorrências -->
                     </li>
                     <li><a href="#"><i class="fa fa-cubes"></i>Material e Patrimônio</a></li>

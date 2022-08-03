@@ -26,7 +26,7 @@ class TraceableEventDispatcher extends BaseTraceableEventDispatcher
     /**
      * {@inheritdoc}
      */
-    protected function beforeDispatch(string $eventName, $event)
+    protected function beforeDispatch(string $eventName, object $event)
     {
         switch ($eventName) {
             case KernelEvents::REQUEST:
@@ -52,7 +52,7 @@ class TraceableEventDispatcher extends BaseTraceableEventDispatcher
                 // which must be caught.
                 try {
                     $this->stopwatch->openSection($sectionId);
-                } catch (\LogicException $e) {
+                } catch (\LogicException) {
                 }
                 break;
         }
@@ -61,7 +61,7 @@ class TraceableEventDispatcher extends BaseTraceableEventDispatcher
     /**
      * {@inheritdoc}
      */
-    protected function afterDispatch(string $eventName, $event)
+    protected function afterDispatch(string $eventName, object $event)
     {
         switch ($eventName) {
             case KernelEvents::CONTROLLER_ARGUMENTS:
@@ -83,7 +83,7 @@ class TraceableEventDispatcher extends BaseTraceableEventDispatcher
                 }
                 try {
                     $this->stopwatch->stopSection($sectionId);
-                } catch (\LogicException $e) {
+                } catch (\LogicException) {
                 }
                 break;
         }
