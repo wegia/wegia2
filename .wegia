@@ -1,0 +1,10 @@
+TITLE=WeGIA
+SUBTITLE='Web Gerenciador Institucional'
+DESCRIPTION = 'O WEGIA é um software livre licenciado pela GNU/GPL v3.';
+GOALS = 'Promover uma boa administração ao fornecer serviços de ajuda e controle de estoques, gerenciamento de funcionários e pessoal, visando um maior proveito de recursos.';
+INSTRUCTIONS = 'Entre com suas credenciais padrão de administrador para configurar o sistema:</p><p>usuário: admin <br>senha: wegia';
+FOOTER = 'WeGIA - Desenvolvido pelo Cefet/RJ UnED Nova Friburgo';
+CONTRIBUTIONS_MSG = 'Contribua você também!';
+
+LOGO = '';
+IMAGE_BIG = '';

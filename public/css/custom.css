@@ -1,0 +1,30 @@
+header .navbar {
+    justify-content: space-between;
+}
+
+main footer {
+    display: flex;
+    justify-content: end;
+}
+
+main footer ul {
+    display: flex;
+    list-style: none;
+}
+
+.container-fluid{
+    display: flex;
+}
+
+.position-right {
+    justify-content: end;
+}
+
+.category-item {
+    background: #fff;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid #bdbdbd;
+    text-align: center;
+    font-size: 2em;
+}
