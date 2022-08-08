@@ -1,6 +1,6 @@
 <?php
 
-namespace wegia2;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

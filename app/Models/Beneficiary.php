@@ -1,8 +1,9 @@
 <?php
 
-namespace wegia2;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 
 class Beneficiary extends Model {
     protected $table = 'beneficiary';

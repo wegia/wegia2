@@ -1,4 +1,6 @@
-<?php namespace wegia2;
+<?php 
+
+namespace App\Models;
 
 use Illuminate\Support\Facades\DB;
 
