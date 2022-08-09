@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-{{ env('APP_TITLE') }} - Home
+{{ env('APP_NAME') }} - Home
 @endsection
 
 @section('breadcrumbs')

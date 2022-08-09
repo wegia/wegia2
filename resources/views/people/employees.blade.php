@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-{{ env('APP_TITLE') }} - Funcionários
+{{ env('APP_NAME') }} - Funcionários
 @endsection
 
 @section('breadcrumbs')
