@@ -5,7 +5,7 @@
 @endsection
 
 @section('operation-title')
-Cadastron
+Cadastro
 @endsection
 
 

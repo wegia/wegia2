@@ -17,13 +17,10 @@
 
 </head>
 
-<body class="bg-dark">
-
+<body>
     <header class="p-3 mb-3 border-bottom">
-
         <!-- HEADER -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <span class="navbar-brand"><img src="{{ env('APP_LOGO')}}"></span>
             <div class="dropdown">
                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,9 +35,6 @@
             </div>
         </nav>
     </header>
-
-
-
     <div class="container-fluid">
         <div class="row">
             <div id="sidebar" class="col-md-2 bg-dark">
@@ -60,7 +54,7 @@
                 </ul>
             </div>
             <main class="col-md-10">
-                <header class="container bg-dark">
+                <header class="container bg-light">
                     <div class="row">
                         <div class="col-md-1">
                             <a href="#">
@@ -70,7 +64,7 @@
                             </a>
                         </div>
                         <nav class="col-md-11" aria-label="breadcrumb">
-                            <ol class="breadcrumb position-right bg-dark">
+                            <ol class="breadcrumb position-right bg-light">
                                 @yield('breadcrumbs')
                             </ol>
                         </nav>
@@ -79,7 +73,6 @@
                 <div class="container-fluid">
                     @yield('content')
                 </div>
-
                 <footer>
                     <ul>
                         <li><a href="#"><img src="{{env('APP_LOGO_CEFET')}}"></a></li>
