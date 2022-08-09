@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-{{ env('APP_TITLE') }} - Cadastro de Funcionário
+{{ env('APP_NAME') }} - Cadastro de Funcionário
 @endsection
 
 @section('operation-title')

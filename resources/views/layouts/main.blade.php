@@ -72,12 +72,11 @@
                         <nav class="col-md-11" aria-label="breadcrumb">
                             <ol class="breadcrumb position-right bg-dark">
                                 @yield('breadcrumbs')
-
                             </ol>
                         </nav>
                     </div>
                 </header>
-                <div class="container">
+                <div class="container-fluid">
                     @yield('content')
                 </div>
 
