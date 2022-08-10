@@ -1,30 +1,67 @@
-header .navbar {
+header {
+    background-color: #f6f6f6;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    background-image: linear-gradient(#f6f6f6 0%, white 45%);
+    border-bottom: 1px solid #E9E9E6;
+    border-top: 3px solid #EDEDED;
 }
 
-main footer {
+header > div {
+    margin: 10px 15px;
+}
+
+.avatar {
     display: flex;
-    justify-content: end;
+    flex-direction: row;
 }
 
-main footer ul {
+.separator {
+    background-image: linear-gradient(#f6f6f6 60%, #ededed);
+    display: inline-block;
+    height: 100%;
+    margin: 0 25px 0;
+    width: 2px;
+    vertical-align: middle;
+}
+.dropdown-item {
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar {
+    width: 100%; 
+    color: var(--bs-gray);
+}
+
+.sidebar a {
+    color:var(--bs-gray);
+}
+
+.sidebar a:hover {
+    background-color: var(--bs-gray-800);
+    color:#fff;
+}
+
+.nav-link i {
+    float:right;
+    
+}
+.submenu {
+    list-style-type: none;
+    margin:0;
+}
+
+.content {
+    padding-left: 0;
+    padding-right: 0;
+}
+.breadcrumb-nav {
     display: flex;
-    list-style: none;
+    flex-direction: row;
+    justify-content: end;    
 }
 
-.container-fluid{
-    display: flex;
-}
-
-.position-right {
-    justify-content: end;
-}
-
-.category-item {
-    background: #fff;
-    height: 200px;
-    margin: 10px;
-    border: 1px solid #bdbdbd;
-    text-align: center;
-    font-size: 2em;
-}

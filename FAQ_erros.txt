@@ -1,0 +1,13 @@
+FAQ de erros
+
+======
+Erro ao importar projeto Laravel
+
+Erro composer - /autoload_real.php on line 66? 
+
+1. Apague a pasta composer. (vendor/composer).
+2. Apague o arquivo autoload.php (vendor/autoload.php).
+3. comando >    composer install.
+4. comando >    composer update.
+    
+

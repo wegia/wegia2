@@ -10,84 +10,138 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css"> <!-- era app.css -->
     <link rel="stylesheet" href="/css/custom.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
 
+
 </head>
 
 <body>
-    <header class="p-3 mb-3 border-bottom">
-        <!-- HEADER -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <span class="navbar-brand"><img src="{{ env('APP_LOGO')}}"></span>
+    <header>
+        <div>
+            <a href="#" class="logo">
+                <img src="/img/logowegia.png" 
+                        height="35" 
+                        alt="WeGIA - Web Gerenciador de Instituições Assistenciais" />
+            </a>
+        </div>
+        
+        <div class="avatar">
+            <span class="separator"></span>
+            
             <div class="dropdown">
-                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" 
+                            alt="foto do usuario" width="32" height="32" 
+                            class="rounded-circle">
+                    <span class="d-none d-sm-inline mx-1">Nome da pessoa</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu dropdown-menu-right" >
+                    <a class="dropdown-item user-profile-item">cargo da pessoa</a>
+                    <hr class="dropdown-divider">
                     <a class="dropdown-item" href="#">Configurações</a>
                     <a class="dropdown-item" href="#">Perfil</a>
                     <hr class="dropdown-divider">
                     <a class="dropdown-item" href="#">Sair</a>
                 </div>
             </div>
-        </nav>
+        </div>
+        
+        <!-- end: search & user box -->
     </header>
+
     <div class="container-fluid">
         <div class="row">
-            <div id="sidebar" class="col-md-2 bg-dark">
-                <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                    <span class="fs-5 fw-semibold">Menu</span>
-                </a>
-                <ul class="navbar-nav">
-                    <li><a href="/"><i class="fa fa-home"></i><span>Início</span></a></li>
-                    <li><a href="/people"><i class="far fa-address-book"></i>Pessoas</a></li>
-                    <!-- funcionarios, atendidos, ocorrências -->
-                    <li><a href="#"><i class="fa fa-cubes"></i>Material e Patrimônio</a></li>
-                    <li><a href="#"><i class="fa fa-book"></i>Memorando</a></li>
-                    <li><a href="#"><i class="fa fa-users"></i>Sócios</a></li>
-                    <li><a href="#"><i class="fa fa-hospital"></i>Saúde</a></li>
-                    <li><a href="#"><i class="fa fa-cogs"></i>Configurações</a></li>
-                    <li><a href="#"><i class="fa fa-cogs"></i>Manual</a></li>
-                </ul>
+            <div class="col-md-3 bg-dark">
+                <div>
+                    <a href="/" class="">
+                        <span class="fs-5 d-none d-sm-inline">Menu</span>
+                    </a>
+                    <nav class="sidebar py-2 bg-dark">
+                        <ul class="nav flex-column " id="nav_accordion">
+	                        <li class="nav-item">
+		                        <a class="nav-link" href="/">Início</a>
+                            </li>
+                            <li class="nav-item">
+                                <details>
+		                            <summary>Recursos Humanos</summary>
+                                    <p>
+                                       <a class="nav-link" href="">Funcionários</a>
+                                    </p>
+                                    <p>
+                                        <a class="nav-link" href="#">Voluntários</a>
+                                    </p>
+                                </details>
+                            </li>
+                            <li class="nav-item">
+                            <details>
+		                            <summary>Pessoas</summary>
+                                    <p>
+                                       <a class="nav-link" href="#">Atendidos</a>
+                                    </p>
+                                    <p>
+                                        <a class="nav-link" href="#">Assistidos</a>
+                                    </p>
+                                </details>
+                            </li>
+                        </ul>
+
+                        <!--
+                        <ul class="nav flex-column " id="nav_accordion">
+	                        <li class="nav-item">
+		                        <a class="nav-link" href="#">Início</a>
+                            </li>
+                            <li class="nav-item has-submenu">
+                                <a class="nav-link" href="#">Recursos Humanos<i class="fa-solid fa-caret-down"></i> </a>
+                                <ul class="submenu collapse">
+                                    <li><a class="nav-link" href="#">Funcionários</a></li>
+                                    <li><a class="nav-link" href="#">Voluntários</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-submenu">
+                                <a class="nav-link" href="#">Pessoas<i class="bi small bi-caret-down-fill"></i> </a>
+                                <ul class="submenu collapse">
+                                    <li><a class="nav-link" href="#">Atendidos</a></li>
+                                    <li><a class="nav-link" href="#">Assistidos</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+-->
+                    </nav>
+                </div>
             </div>
-            <main class="col-md-10">
-                <header class="container bg-light">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <a href="#">
-                                <span>
-                                    @yield('operation-title')
-                                </span>
-                            </a>
-                        </div>
-                        <nav class="col-md-11" aria-label="breadcrumb">
-                            <ol class="breadcrumb position-right bg-light">
-                                @yield('breadcrumbs')
-                            </ol>
-                        </nav>
-                    </div>
-                </header>
-                <div class="container-fluid">
+            <div class="content col-md-9">
+                <div class="bg-dark breadcrumb-nav">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" 
+                                    aria-current="page">
+                                <i class="fa-solid fa-home"></i>
+                                Início
+                            </li>
+                        </ol>
+                    </nav>
+                    <a class="sidebar-right-toggle">
+                        <i class="fa fa-chevron-left"></i>
+                    </a>
+                </div>
+                <div class="container">
                     @yield('content')
                 </div>
-                <footer>
-                    <ul>
-                        <li><a href="#"><img src="{{env('APP_LOGO_CEFET')}}"></a></li>
-                        <li><a href="#"><img src="{{env('APP_LOGO')}}"></a></li>
-                        <li><a href="#"><img src="{{env('APP_LOGO_LICENSE')}}"></a></li>
-                    </ul>
-                </footer>
-            </main>
+            </div>
         </div>
     </div>
+
+
 
     <script src="/js/app.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
     @yield('scripts-vendors')
+    
 </body>
 
 </html>

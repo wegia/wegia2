@@ -13,7 +13,7 @@ class PeopleController extends Controller {
     }
 
     public function employees() {
-        return view('people.employees');
+        return view('people.employees.employees');
     }
 
     public function beneficiaries() {

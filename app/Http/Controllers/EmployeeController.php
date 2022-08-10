@@ -104,8 +104,8 @@ class EmployeeController extends Controller {
 
     public function list() {
         $result = Employee::all();
-        return $result;
-        //return view('people.employees.list', compact('result'));
+        //return $result;
+        return view('people.employees.list')->with('result', $result);
     }
 
     public function get($id) {

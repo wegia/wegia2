@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit2b7dd2bae2ad3c4324dd57392f8591eb
+class ComposerStaticInit32ac4256bc1a432894370764fd51b056
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -530,7 +530,6 @@ class ComposerStaticInit2b7dd2bae2ad3c4324dd57392f8591eb
         'App\\Http\\Controllers\\EmployeeController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PeopleController' => __DIR__ . '/../..' . '/app/Http/Controllers/PeopleController.php',
-        'App\\Http\\Controllers\\teste2' => __DIR__ . '/../..' . '/app/Http/Controllers/teste2.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -1610,7 +1609,6 @@ class ComposerStaticInit2b7dd2bae2ad3c4324dd57392f8591eb
         'Illuminate\\Broadcasting\\PendingBroadcast' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Broadcasting/PendingBroadcast.php',
         'Illuminate\\Broadcasting\\PresenceChannel' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Broadcasting/PresenceChannel.php',
         'Illuminate\\Broadcasting\\PrivateChannel' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Broadcasting/PrivateChannel.php',
-        'Illuminate\\Broadcasting\\UniqueBroadcastEvent' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Broadcasting/UniqueBroadcastEvent.php',
         'Illuminate\\Bus\\Batch' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Bus/Batch.php',
         'Illuminate\\Bus\\BatchFactory' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Bus/BatchFactory.php',
         'Illuminate\\Bus\\BatchRepository' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Bus/BatchRepository.php',
@@ -1876,6 +1874,7 @@ class ComposerStaticInit2b7dd2bae2ad3c4324dd57392f8591eb
         'Illuminate\\Database\\Connectors\\PostgresConnector' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Connectors/PostgresConnector.php',
         'Illuminate\\Database\\Connectors\\SQLiteConnector' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Connectors/SQLiteConnector.php',
         'Illuminate\\Database\\Connectors\\SqlServerConnector' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Connectors/SqlServerConnector.php',
+        'Illuminate\\Database\\Console\\DatabaseInspectionCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/DatabaseInspectionCommand.php',
         'Illuminate\\Database\\Console\\DbCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/DbCommand.php',
         'Illuminate\\Database\\Console\\DumpCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/DumpCommand.php',
         'Illuminate\\Database\\Console\\Factories\\FactoryMakeCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/Factories/FactoryMakeCommand.php',
@@ -1889,10 +1888,13 @@ class ComposerStaticInit2b7dd2bae2ad3c4324dd57392f8591eb
         'Illuminate\\Database\\Console\\Migrations\\RollbackCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/Migrations/RollbackCommand.php',
         'Illuminate\\Database\\Console\\Migrations\\StatusCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/Migrations/StatusCommand.php',
         'Illuminate\\Database\\Console\\Migrations\\TableGuesser' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/Migrations/TableGuesser.php',
+        'Illuminate\\Database\\Console\\MonitorCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/MonitorCommand.php',
         'Illuminate\\Database\\Console\\PruneCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/PruneCommand.php',
         'Illuminate\\Database\\Console\\Seeds\\SeedCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php',
         'Illuminate\\Database\\Console\\Seeds\\SeederMakeCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/Seeds/SeederMakeCommand.php',
         'Illuminate\\Database\\Console\\Seeds\\WithoutModelEvents' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/Seeds/WithoutModelEvents.php',
+        'Illuminate\\Database\\Console\\ShowCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/ShowCommand.php',
+        'Illuminate\\Database\\Console\\TableCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/TableCommand.php',
         'Illuminate\\Database\\Console\\WipeCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/WipeCommand.php',
         'Illuminate\\Database\\DBAL\\TimestampType' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/DBAL/TimestampType.php',
         'Illuminate\\Database\\DatabaseManager' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/DatabaseManager.php',
@@ -1963,6 +1965,7 @@ class ComposerStaticInit2b7dd2bae2ad3c4324dd57392f8591eb
         'Illuminate\\Database\\Eloquent\\SoftDeletes' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Eloquent/SoftDeletes.php',
         'Illuminate\\Database\\Eloquent\\SoftDeletingScope' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Eloquent/SoftDeletingScope.php',
         'Illuminate\\Database\\Events\\ConnectionEvent' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Events/ConnectionEvent.php',
+        'Illuminate\\Database\\Events\\DatabaseBusy' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Events/DatabaseBusy.php',
         'Illuminate\\Database\\Events\\DatabaseRefreshed' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Events/DatabaseRefreshed.php',
         'Illuminate\\Database\\Events\\MigrationEnded' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Events/MigrationEnded.php',
         'Illuminate\\Database\\Events\\MigrationEvent' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Events/MigrationEvent.php',
@@ -5829,10 +5832,10 @@ class ComposerStaticInit2b7dd2bae2ad3c4324dd57392f8591eb
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit2b7dd2bae2ad3c4324dd57392f8591eb::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit2b7dd2bae2ad3c4324dd57392f8591eb::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit2b7dd2bae2ad3c4324dd57392f8591eb::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit2b7dd2bae2ad3c4324dd57392f8591eb::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit32ac4256bc1a432894370764fd51b056::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit32ac4256bc1a432894370764fd51b056::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit32ac4256bc1a432894370764fd51b056::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit32ac4256bc1a432894370764fd51b056::$classMap;
 
         }, null, ClassLoader::class);
     }
