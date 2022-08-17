@@ -12,15 +12,11 @@ class PeopleController extends Controller {
         return view('people.main');
     }
 
-    public function employees() {
-        return view('people.employees.employees');
-    }
-
     public function beneficiaries() {
-        return view('people.beneficiaries');
+        return view('people.beneficiaries.beneficiaries');
     }
 
-    public function events() {
-        return view('people.events');
+    public function assisted() {
+        return view('people.assisted.assisted');
     }
 }

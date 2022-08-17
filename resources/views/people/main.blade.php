@@ -19,23 +19,18 @@
 @section('content')
 <div class="content-body">
     <div class="row" id="category-row" >
-        <div class="col-lg-2 col-md-8 i category-item" data-toggle="collapse">
-            <a href="/people/employees/adm">
-                <i  class="far fa-address-book"></i>
-                <span>Funcionários</span>
-            </a>
-        </div>
+        
         <div class="col-lg-2 col-md-8 i category-item" data-toggle="collapse"">
-            <a href="/people/beneficiaries/adm">
+            <a href="/people/beneficiaries/beneficiaries/adm">
                 <i  class="fa fa-cubes"></i>
                 <span>Atendidos</span>
             </a>
         </div>
 
         <div class="col-lg-2 col-md-8 i category-item" data-toggle="collapse" href="#memorando">
-            <a href="/people/events/adm">
+            <a href="/people/assisted/assisted/adm">
                 <i  class="fa fa-book"></i>
-                <span>Ocorrências</span>
+                <span>Assistidos</span>
             </a>
         </div>
     </div>

@@ -14,19 +14,25 @@
 Route::get('/',  'App\Http\Controllers\HomeController@index');
 // Route::get('/', function() {return "teste";});
 ////////////////////////
+
+
+//Routes for RH 
+////////////////////////
+Route::get('/rh', 'App\Http\Controllers\RhController@index')->name("rhMain");
+Route::get('/rh/employees/employees/adm', 'App\Http\Controllers\RhController@employees')->name("rhEmployeesMain");
+Route::get('/rh/voluntary/voluntary/adm', 'App\Http\Controllers\RhController@voluntary')->name("rhVoluntaryMain");
+
+
 //Routes for People 
 ////////////////////////
 Route::get('/people', 'App\Http\Controllers\PeopleController@index')->name("peopleMain");
-Route::get('/people/employees/adm', 'App\Http\Controllers\PeopleController@employees')->name("peopleEmployeesMain");
-Route::get('/people/beneficiaries/adm', 'App\Http\Controllers\PeopleController@beneficiaries')->name("peopleBeneficiariesMain");
-Route::get('/people/events/adm', 'App\Http\Controllers\PeopleController@events')->name("peopleEventsMain");
+Route::get('/people/beneficiaries/beneficiaries/adm', 'App\Http\Controllers\PeopleController@beneficiaries')->name("peopleBeneficiariesMain");
+Route::get('/people/assisted/assisted/adm', 'App\Http\Controllers\PeopleController@assisted')->name("peopleAssistedMain");
 
-////////////////////////
-//Routes for Employees 
-////////////////////////
+
 //CRUD routes
 Route::get('/people/employees', 'App\Http\Controllers\EmployeeController@list');
-// Route::get('/people/employees/{id}', 'App\Http\Controllers\EmployeeController@get')->where('id', '[0-9]+');
+
 Route::post('/people/employees', 'App\Http\Controllers\EmployeeController@save');
 
 //navigation routes
