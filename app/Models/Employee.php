@@ -18,10 +18,7 @@ class Employee extends Model {
     public function hasCPFSaved($cpf) {
         $result = DB::select('SELECT cpf FROM person p JOIN person_docs pd
                             ON p.id = pd.person_id WHERE pd.cpf = ?', [$cpf]);
-        //return ($result['cpf'] !== null)? 'true' : 'false';
+
         return empty($result)? false : true;
     }
-
-    
-
 }

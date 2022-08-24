@@ -21,14 +21,14 @@
     <div class="row" id="category-row" >
 
         <div class="col-lg-2 col-md-8 i category-item" data-toggle="collapse">
-            <a href="/rh/employees/employees/adm">
+            <a href="/rh/employees/adm">
                 <i  class="far fa-address-book"></i>
                 <span>Funcionários</span>
             </a>
         </div>
 
         <div class="col-lg-2 col-md-8 i category-item" data-toggle="collapse"">
-            <a href="/rh/voluntary/voluntary/adm">
+            <a href="/rh/voluntary/adm">
                 <i  class="fa fa-cubes"></i>
                 <span>Voluntários</span>
             </a>

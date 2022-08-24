@@ -21,23 +21,35 @@ class EmployeeController extends Controller {
         //$this->middleware('auth');
     }
 
+    public function validarCPF($cpf){
+        
+        $tam = strlen($cpf);
+
+        if($tam > 11 && $tam < 14){
+            $cpfV = preg_match('/^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}$/', $cpf);
+
+            return $cpfV;
+        }
+    
+    }
+
+    
     public function checkCPF() {
-        $cpf = Request::input('cpf');
+
+        $cpfI = Request::input('cpf');
+        $cpf = $this->validarCPF($cpfI);
 
         $employee = new Employee();
         $cpfAlreadyExists = $employee->hasCPFSaved($cpf);
 
-        //if cpf is available, load form
         if(!($cpfAlreadyExists)) {
             $employeeRoleList = EmployeeRole::all();
             $employeeTimesheetList = EmployeeTimesheet::all();
             $employeeShiftTypeList = EmployeeShiftType::all();
 
-            //return redirect()->action('EmployeeController@add')->with($data);
-            return view('people.employees.form', compact('cpf', 'cpfAlreadyExists', 'employeeRoleList', 'employeeTimesheetList', 'employeeShiftTypeList'));
+            return view('rh.employees.form', compact('cpf', 'cpfAlreadyExists', 'employeeRoleList', 'employeeTimesheetList', 'employeeShiftTypeList'));
         }
-        //cpf is used
-        return view('people.employees.form', compact('cpf', 'cpfAlreadyExists'));
+        return view('rh.employees.form', compact('cpf', 'cpfAlreadyExists'));
     }
 
     private function storePerson($name, $gender, $phone, $birthday) {
@@ -105,18 +117,17 @@ class EmployeeController extends Controller {
     public function list() {
         $result = Employee::all();
         //return $result;
-        return view('people.employees.list')->with('result', $result);
+        return view('rh.employees.employees.list')->with('result', $result);
     }
 
     public function get($id) {
         $result = Employee::find($id);
         return $result;
-        //return view('people.employees.detail', compact('result'));
     }
 
     /* navigagion functions */
     public function add() {
-        return view('people.employees.form');
+        return view('rh.employees.form');
     }
 
 
