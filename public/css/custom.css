@@ -65,3 +65,71 @@ header > div {
     justify-content: end;    
 }
 
+
+.botao {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+    background: #4433ff;
+    }
+.botao:hover {
+    background-color: #3a86ff;
+}
+.botao:active {
+    top: 2px;
+}
+
+.botao-default {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+    background: #adb5bd;
+}
+.botao-default:hover {
+background-color: #ced4da;
+}
+.botao-default:active {
+top: 2px;
+}
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.input-pequeno {
+    width: 200px;
+}
+
+.form-foto {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    width: 200px;
+    height: 220px;
+    color: #666;
+    font-size: 6em;
+    text-align: center;
+}
+
+#fieldReservista {
+    display: none;
+}

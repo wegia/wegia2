@@ -11,11 +11,7 @@ Funcionários
     </a>
 </li>
 <li class="breadcrumb-item" aria-current="page">
-<<<<<<< HEAD:resources/views/rh/funcionarios/funcionario.blade.php
     <a href="/">
-=======
-    <a href="/rh/employees">
->>>>>>> 0b60b8609c6ed9dd39315c91f0fb1ae17cd9812d:resources/views/rh/employees/employees.blade.php
         <i class="far fa-address-book"></i>Pessoa
     </a>
 </li>

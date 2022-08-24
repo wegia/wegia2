@@ -10,7 +10,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css"> <!-- era app.css -->
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css"> 
+
     <link rel="stylesheet" href="/css/custom.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
 
@@ -117,8 +119,13 @@
 
 
     <script src="/js/app.js"></script>
+    <script src="/js/jquery.min.js"><script>
+    <!-- JavaScript Bundle with Popper 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+-->
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
+
     @yield('scripts-vendors')
     
 </body>

@@ -1,7 +1,7 @@
 <?php 
 namespace App\Http\Controllers;
 
-class PeopleController extends Controller {
+class PessoasController extends Controller {
 
     public function __construct() {
         //$this->middleware('auth');
@@ -9,14 +9,15 @@ class PeopleController extends Controller {
 
     /* navigagion functions */
     public function index() {
-        return view('people.main');
+        return view('/rh');
     }
-
+/*
     public function beneficiaries() {
-        return view('people.beneficiaries.beneficiaries');
+        return view('rh.atendidos.beneficiaries');
     }
 
     public function assisted() {
         return view('people.assisted.assisted');
     }
+    */
 }

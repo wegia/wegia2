@@ -30,6 +30,9 @@ class Funcionario extends Model {
     }
 
     public function hasCPFSaved($cpf) {
+        if (is_null($cpf)) {
+            return false;
+        }
         $result = DB::select('SELECT cpf FROM funcionario f JOIN colaborador c
                                     ON f.colab_id = c.id 
                                 WHERE c.cpf = ?', [$cpf]);

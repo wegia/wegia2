@@ -71,6 +71,11 @@ use App\Http\Controllers\PessoasController;
 Route::get('/', [HomeController::class, 'index']);
 
 
+Route::get('/teste', function(){
+    return view('testes.testa_imagem');
+});
+
+
 ////////////////////////
 // Rotas para RhController
 ////////////////////////
@@ -79,6 +84,9 @@ Route::get('/rh', [RhController::class, 'index'])->name("rhMain");
 Route::get('/rh/funcionarios/painel', [RhController::class, 'funcionarios'])->name("rhFuncionariosPainel");
 Route::get('/rh/voluntarios/painel', [RhController::class, 'voluntarios'])->name("rhVoluntariosPainel");
 
+
+Route::get('/rh/cargos', [RhController::class, 'listCargo'])->name("rhListaCargo");
+Route::post('/rh/cargos', [RhController::class, 'addCargo'])->name("rhNovoCargo");
 ////////////////////////
 //Rotas para FuncionariosController
 ////////////////////////
