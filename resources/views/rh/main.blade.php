@@ -21,6 +21,7 @@ Recursos Humanos
     <div class="row" id="category-row" >
 
         <div class="col-lg-2 col-md-8 i category-item" data-toggle="collapse">
+
             <a href="{{route('rhFuncionariosPainel')}}">
                 <i  class="far fa-address-book"></i>
                 <span>Funcionários</span>

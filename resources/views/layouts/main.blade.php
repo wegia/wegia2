@@ -89,27 +89,6 @@
                             </li>
                         </ul>
 
-                        <!--
-                        <ul class="nav flex-column " id="nav_accordion">
-	                        <li class="nav-item">
-		                        <a class="nav-link" href="#">Início</a>
-                            </li>
-                            <li class="nav-item has-submenu">
-                                <a class="nav-link" href="#">Recursos Humanos<i class="fa-solid fa-caret-down"></i> </a>
-                                <ul class="submenu collapse">
-                                    <li><a class="nav-link" href="#">Funcionários</a></li>
-                                    <li><a class="nav-link" href="#">Voluntários</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item has-submenu">
-                                <a class="nav-link" href="#">Pessoas<i class="bi small bi-caret-down-fill"></i> </a>
-                                <ul class="submenu collapse">
-                                    <li><a class="nav-link" href="#">Atendidos</a></li>
-                                    <li><a class="nav-link" href="#">Assistidos</a></li>
-                                </ul>
-                            </li>
-                        </ul>
--->
                     </nav>
                 </div>
             </div>

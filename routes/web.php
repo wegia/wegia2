@@ -70,6 +70,7 @@ use App\Http\Controllers\PessoasController;
 
 Route::get('/', [HomeController::class, 'index']);
 
+
 ////////////////////////
 // Rotas para RhController
 ////////////////////////
@@ -91,7 +92,7 @@ Route::get('/rh/funcionarios/edit/{func_id}', [FuncionariosController::class, 'e
 Route::post('/rh/funcionarios', [FuncionariosController::class, 'save'])->name('saveFuncionarios');
 Route::put('/rh/funcionarios', [FuncionariosController::class, 'update']);
 
-Route::get('/rh/funcionarios/checkCPF', [FuncionariosController::class, 'checkCPF']);
+Route::get('/rh/funcionarios/checkCPF', [FuncionariosController::class, 'checkCPF'])->name('cpfJaCadastrado');
 
 
 ////////////////////////
@@ -110,6 +111,4 @@ Route::get('/atendidos/assistidos/adm', [PessoasController::class, 'assistidos']
 //Route::get('/atendidos/beneficiaries/beneficiaries/adm', 'App\Http\Controllers\PeopleController@beneficiaries')->name("peopleBeneficiariesMain");
 //Route::get('/atendidos/assisted/assisted/adm', 'App\Http\Controllers\PeopleController@assisted')->name("peopleAssistedMain");
 
-
-//CRUD routes
 
