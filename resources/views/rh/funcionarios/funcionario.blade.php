@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-{{ env('APP_NAME') }} - Funcionários
+Funcionários
 @endsection
 
 @section('breadcrumbs')
@@ -11,7 +11,7 @@
     </a>
 </li>
 <li class="breadcrumb-item" aria-current="page">
-    <a href="/people/employees">
+    <a href="/">
         <i class="far fa-address-book"></i>Pessoa
     </a>
 </li>
@@ -25,13 +25,13 @@
 <div class="content-body">
     <div class="row" id="category-row" >
         <div class="col-lg-2 col-md-8 i category-item" data-toggle="collapse">
-            <a href="/people/employees/add">
+            <a href="/rh/funcionarios/add">
                 <i  class="far fa-address-book"></i>
                 <span>Cadastrar</span>
             </a>
         </div>
         <div class="col-lg-2 col-md-8 i category-item" data-toggle="collapse"">
-            <a href="/people/employees">
+            <a href="/rh/funcionarios">
                 <i  class="fa fa-cubes"></i>
                 <span>Informações Funcionários</span>
             </a>

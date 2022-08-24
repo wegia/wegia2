@@ -12,12 +12,12 @@
             return view ('rh.main');
         }
 
-        public function employees() {
-            return view('rh.employees.employees');
+        public function funcionarios() {
+            return view('rh.funcionarios.funcionario');
         }
     
-        public function voluntary() {
-            return view('rh.voluntary.voluntary');
+        public function voluntarios() {
+            return view('rh.voluntarios.voluntario');
         }
     
     }

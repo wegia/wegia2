@@ -3,7 +3,9 @@
     namespace App\Http\Controllers;
     use Illuminate\Support\Facades\Request; 
 
-    class VoluntaryController extends Controller{
+    use App\Models\Voluntario;
+
+    class VoluntariosController extends Controller{
 
         public function __contruct(){
 
@@ -13,28 +15,22 @@
 
             $cpf = Request::input('cpf');
 
-            $voluntary = new Voluntary();
-            $cpfAlreadyExists = $voluntary->hasCPFSaved($cpf);
+            $voluntario = new Voluntario();
+            $cpfJaExiste = $voluntario->hasCPFSaved($cpf);
 
             if(!($cpfAlreadyExists)) {
-                return view('rh.voluntary.form', compact('cpf', 'cpfAlreadyExists'));
+                return view('rh.voluntary.form', compact('cpf', 'cpfJaExiste'));
             }
         }
 
-
-
-
-
-
-
         public function list() {
-            $result = Voluntary::all();
+            $result = Voluntario::all();
             //return $result;
             return view('rh.voluntary.list')->with('result', $result);
         }
     
         public function get($id) {
-            $result = Voluntary::find($id);
+            $result = Voluntario::find($id);
             return $result;
         }
     

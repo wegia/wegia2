@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-{{ env('APP_NAME') }} - Cadastro de Funcionário
+Novo Funcionário
 @endsection
 
 @section('operation-title')
@@ -16,12 +16,12 @@ Cadastro
     </a>
 </li>
 <li class="breadcrumb-item" aria-current="page">
-    <a href="/people">
+    <a href="/rh">
         <i class="far fa-address-book"></i>Pessoa
     </a>
 </li>
 <li class="breadcrumb-item" aria-current="page">
-    <a href="/people/employees/adm">
+    <a href="/rh/funcionarios/adm">
         <i class="far fa-address-book"></i>Funcionários
     </a>
 </li>
@@ -38,20 +38,15 @@ Cadastro
     <!-- 
         accessing the form for the first time, there is no verification variable. Then, show cpf form.
     -->
-    @if(!isset($cpfAlreadyExists))
+    @if(!isset($cpfJaExiste))
         <header class="panel-heading">
             <h2 class="panel-title">Digite seu CPF</h2>
         </header>
         <div class="panel-body">
             
-            <form method="GET" action="/people/employees/checkCPF">
+            <form method="GET" action="/rh/funcionarios/checkCPF">
                 <input type="text" class="form-control" id="cpf" name="cpf" 
-                placeholder="Ex: 222.222.222-22" maxlength="14"
-                onblur="validarCPF(this.value)" onkeypress="return Onlynumbers(event)" 
-                onkeyup="mascara('###.###.###-##',this,event)" required>
-                
-                <p id="cpfInvalido" style="display: none; color: #b30000">CPF INVÁLIDO!</p>
-                
+                    placeholder="Ex: 222.222.222-22" maxlength="14" required>
                 <button class='mb-xs mt-xs mr-xs btn btn-primary'>Enviar</button>
             </form>
             <!--if(!session('cpfAlreadyExists') && session('cpfChecked'))-->
@@ -64,7 +59,7 @@ Cadastro
             Two possibilities:
             - CPF is saved in the database, so it is not possible save a person with this data
         -->
-        @if($cpfAlreadyExists)
+        @if($cpfJaExiste)
         <div class="alert alert-danger" role="alert">
             Erro. Funcionário já cadastrado no sistema. 
         </div>
@@ -73,11 +68,9 @@ Cadastro
         </header>
         <div class="panel-body">
             
-            <form method="GET" action="/people/employees/checkCPF">
+            <form method="GET" action="/rh/funcionarios/checkCPF">
                 <input type="text" class="form-control" id="cpf" name="cpf" 
-                placeholder="Ex: 222.222.222-22" maxlength="14"
-                onblur="validarCPF(this.value)" onkeypress="return Onlynumbers(event)" 
-                onkeyup="mascara('###.###.###-##',this,event)" required>
+                    placeholder="Ex: 222.222.222-22" maxlength="14" required>
                 
                 <p id="cpfInvalido" style="display: none; color: #b30000">CPF INVÁLIDO!</p>
                 
@@ -101,13 +94,13 @@ Cadastro
                             <?php
                                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     if (isset($_FILES['person.photo'])) {
-                                        $image = file_get_contents($_FILES['person.photo']['tmp_name']);
-                                        $_SESSION['person.photo'] = $image;
+                                        $image = file_get_contents($_FILES['pessoa.foto']['tmp_name']);
+                                        $_SESSION['pessoa.foto'] = $image;
                                         echo '<img src="data:image/gif;base64,' . base64_encode($image) . '" class="rounded img-responsive" alt="Profile photo">';
                                     }
                                 }
                             ?>
-                                <input type="file" class="image_input form-control" onclick="okDisplay()" name="person.photo"  id="imgform">
+                                <input type="file" class="image_input form-control" onclick="okDisplay()" name="pessoa.foto"  id="imgform">
                                 <div id="display_image" class="thumb-info mb-md"></div>
                                 <div id="botima">
                                     <h5 id="okText"></h5>
@@ -128,10 +121,10 @@ Cadastro
                     </ul>
                     <div class="tab-content">
                         <div id="overview" class="tab-pane active">
-                            <form method="POST" action="/people/employees" class="form-horizontal" >
+                            <form method="POST" action="/rh/funcionarios" class="form-horizontal" >
                                 @csrf
 
-                                <input type="hidden" name="personDoc.cpf" value="{{$cpf}}">
+                                <input type="hidden" name="colabDoc.cpf" value="{{$cpf}}">
                             
                                 <h4 class="mb-xlg">Informações Pessoais</h4>
                                 <h5 class="obrig">Campos Obrigatórios(*)</h5>
@@ -142,8 +135,7 @@ Cadastro
                                     </label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" 
-                                                id="name" name="person.name" 
-                                                onkeypress="return Onlychars(event)" required>
+                                                id="name" name="pessoa.nome" required>
                                     </div>
                                 </div>
                   
@@ -154,7 +146,7 @@ Cadastro
                                     <div class="col-md-8">
                                     <label>
                                         <input type="radio" 
-                                                id="gender" name="person.gender"
+                                                id="gender" name="pessoa.genero"
                                                 value="m" 
                                                 style="margin-top: 10px; margin-left: 15px;" 
                                                 onclick="return exibir_reservista()" required>
@@ -162,7 +154,7 @@ Cadastro
                                     </label>
                                     <label>
                                         <input type="radio" 
-                                                id="genderF" name="person.gender"
+                                                id="genderF" name="pessoa.genero"
                                                 value="f" 
                                                 style="margin-top: 10px; margin-left: 15px;" 
                                                 onclick="return esconder_reservista()">
@@ -176,11 +168,9 @@ Cadastro
                                     </label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" 
-                                                id="phone" name="person.phone"
+                                                id="telefone" name="contato.telefone"
                                                 maxlength="14" minlength="14" 
-                                                placeholder="Ex: (22)99999-9999" 
-                                                onkeypress="return Onlynumbers(event)" 
-                                                onkeyup="mascara('(##)#####-####',this,event)">
+                                                placeholder="Ex: (22)99999-9999" >
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -189,7 +179,7 @@ Cadastro
                                     </label>
                                     <div class="col-md-8">
                                         <input type="date" class="form-control"
-                                                id="birthday" name="person.birthday"
+                                                id="nascimento" name="pessoa.nascimento"
                                                 maxlength="10" 
                                                 placeholder="dd/mm/aaaa" required>
                                     </div>
@@ -204,10 +194,8 @@ Cadastro
                                     </label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" 
-                                                id="rg" name="personDoc.rg" 
-                                                placeholder="Ex: 22.222.222-2" 
-                                                onkeypress="return Onlynumbers(event)" 
-                                                onkeyup="mascara('##.###.###-#',this,event)" required>
+                                                id="rg" name="colabDoc.rg" 
+                                                placeholder="Ex: 22.222.222-2" required>
                                     </div>
                                 </div>
                   
@@ -217,7 +205,7 @@ Cadastro
                                     </label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" 
-                                                id="rg_agency" name="personDoc.rg_agency" 
+                                                id="rg_agency" name="colabDoc.rg_orgao" 
                                                 onkeypress="return Onlychars(event)" required>
                                     </div>
                                 </div>
@@ -228,7 +216,7 @@ Cadastro
                                     </label>
                                     <div class="col-md-6">
                                         <input type="date" class="form-control"
-                                                id="rg_date" name="personDoc.rg_date" 
+                                                id="rg_date" name="colabDoc.rg_expedicao" 
                                                 placeholder="dd/mm/aaaa" required>
                                     </div>
                                 </div>
@@ -252,18 +240,18 @@ Cadastro
                                 </div>
                             
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label" for="admission_date">
+                                    <label class="col-md-3 control-label" for="admissao">
                                         Data de Admissão<sup class="obrig">*</sup>
                                     </label>
                                     <div class="col-md-6">
                                         <input type="date" class="form-control"   
-                                                id="admission_date" name="employee.admission_date" 
+                                                id="admissao" name="colab.admissao" 
                                                 placeholder="dd/mm/aaaa" required>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label" for="situation">
+                                    <label class="col-md-3 control-label" for="situacao">
                                         Situação<sup class="obrig">*</sup>
                                     </label>
                                     <a onclick="adicionar_situacao()">
@@ -273,12 +261,11 @@ Cadastro
                                     <div class="col-md-6">
                                         
                                         <select class="form-control input-lg mb-md" 
-                                                id="situation" name="employee_status" required>
+                                                id="situacao" name="colab.situacao" required>
                                             <option selected disabled>Selecionar</option>
 
-                                                <option value="ativo">Ativo</option>
-                                                <option value="inativo">Inativo</option>
-                                            
+                                                <option value="a">Ativo</option>
+                                                <option value="i">Inativo</option>
                                             
                                         </select>
                                     </div>
@@ -293,11 +280,11 @@ Cadastro
                                     </a>
                                     <div class="col-md-6">
                                         <select class="form-control input-lg mb-md" 
-                                                name="employeeRole.id" id="role" required>
+                                                name="cargo.id" id="cargo" required>
                                             <option selected disabled>Selecionar</option>
 
-                                            @foreach ($employeeRoleList as $role)
-                                                <option value="{{$role->id}}">{{$role->name}}</option>
+                                            @foreach ($cargoList as $cargo)
+                                                <option value="{{$cargo->id}}">{{$cargo->nome}}</option>
                                             @endforeach
 
                                         </select>
@@ -305,16 +292,16 @@ Cadastro
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label" for="employeeShift">
+                                    <label class="col-md-3 control-label" for="escala">
                                         Escala<sup class="obrig">*</sup>
                                     </label>
                                     <div class="col-md-6">
                                         <select class="form-control input-lg mb-md" 
-                                                id="employeeShift" name="employeeTimesheet.id" required>
+                                                id="escala" name="escala.id" required>
                                             <option selected disabled value="">Selecionar</option>
                                             
-                                            @foreach($employeeTimesheetList as $timesheet)
-                                                <option value="{{$timesheet->id}}">{{$timesheet->name}}</option>
+                                            @foreach($escalaList as $escala)
+                                                <option value="{{$escala->id}}">{{$escala->nome}}</option>
                                             @endforeach
                                             
                                         </select>
@@ -322,17 +309,16 @@ Cadastro
                                     <a href="#"><i class="fas fa-plus w3-xlarge"></i></a>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label" for="employeeShiftType">
+                                    <label class="col-md-3 control-label" for="tipoEscala">
                                         Tipo<sup class="obrig">*</sup>
                                     </label>
                                     <div class="col-md-6">
                                         <select class="form-control input-lg mb-md" 
-                                                id="employeeShiftType" name="employeeShiftType.id"  required>
-                                            <option selected disabled value="">Selecionar</option>
-                                            
+                                                id="tipoEscala" name="tipoEscala.id"  required>
+                                            <option selected disabled value="">Selecionar</option>  
 
-                                            @foreach($employeeShiftTypeList as $shiftType)
-                                                <option value="{{$shiftType->id}}">{{$shiftType->name}}</option>
+                                            @foreach($tipoEscalaList as $tipoEscala)
+                                                <option value="{{$tipoEscala->id}}">{{$tipoEscala->nome}}</option>
                                             @endforeach
                                             
                                         </select>
@@ -342,20 +328,20 @@ Cadastro
                                     </a>
                                 </div>
                                 <div class="form-group" id="reservista1" style="display: none">
-                                    <label class="col-md-3 control-label" for="army_doc_number">
+                                    <label class="col-md-3 control-label" for="reserv_numero">
                                         Número do certificado reservista
                                     </label>
                                     <div class="col-md-6">
-                                        <input type="text" name="employeeDoc.army_doc_number" class="form-control num_reservista">
+                                        <input type="text" name="funcDoc.reserv_numero" class="form-control num_reservista">
                                     </div>
                                 </div>
                                 <div class="form-group" id="reservista2" style="display: none">
-                                    <label class="col-md-3 control-label" for="army_doc_serie">
+                                    <label class="col-md-3 control-label" for="reserv_serie">
                                         Série do certificado reservista
                                     </label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control serie_reservista"
-                                                id="army_doc_serie" name="employeeDoc.army_doc_serie" >
+                                                id="army_doc_serie" name="funcDoc.reserv_serie" >
                                     </div>
                                 </div>
 
@@ -377,7 +363,6 @@ Cadastro
         @endif
 
     @endif
-    </section>
     </section>
 </div>
 

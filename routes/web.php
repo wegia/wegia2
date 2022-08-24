@@ -11,32 +11,105 @@
 |
 */
 
-Route::get('/',  'App\Http\Controllers\HomeController@index');
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RhController;
+use App\Http\Controllers\FuncionariosController;
+use App\Http\Controllers\PessoasController;
+
+//Route::get('/',  'App\Http\Controllers\HomeController@index');
+
+
 // Route::get('/', function() {return "teste";});
 ////////////////////////
 
+/**
+ * Regra para formação de rota:
+ * referencia: https://www.brunobrito.net.br/api-restful-boas-praticas/
+ * 
+ *  /[[modulo]]/[[recurso]]/[[operacao]]/[[params]]
+ *  - módulo: o sistema é construído por módulos: RH, Atendidos, Patrimônio, Estoque, Sócios, etc
+ *  - recurso: qualquer entidade manipulada no módulo referido. Por exemplo: rh/funcionario ou rh/voluntario
+ *  - operação: apenas para navegação. Para realizar a operação, sinalize com o método HTTP referente:
+ *      >> get: consulta e listagem. 
+ *          >>> Exemplo: pesquisar o funcionario id=1:
+ *          No web.php
+ *              Route::get('/rh/funcionarios/{id}', 'App\Http\Controllers\FuncionariosController@get');
+ *          No FuncionariosController:
+ *              public function get(id){ ... }
+ *          Chamando no navegador: wegia.org/rh/funcionarios/1
+ * 
+ *          >>> Exemplo: listar todos funcionarios:
+ *          No web.php
+ *              Route::get('/rh/funcionarios', 'App\Http\Controllers\FuncionariosController@list');
+ *          No FuncionariosController:
+ *              public function list(){ ... }
+ *          Chamando no navegador: wegia.org/rh/funcionarios
+ * 
+ *      >> post: cadastro
+ *          >>> Exemplo: cadastrar funcionario:
+ *          No web.php
+ *              Route::post('/rh/funcionarios', 'App\Http\Controllers\FuncionariosController@save');
+ *          No FuncionariosController:
+ *              public function save(){ ... }
+ * 
+ *      >> put: edição
+ *          >>> Exemplo: alterar o funcionario id=1:
+ *          No web.php 
+ *              Route::put('/rh/funcionarios/{id}', 'App\Http\Controllers\FuncionariosController@update');
+ *          No FuncionariosController:
+ *              public function update(id){ ... }
+ * 
+ *      >> delete: exclusão
+ *          >>> Exemplo: remover o funcionario id=1:
+ *          No web.php 
+ *              Route::delete('/rh/funcionarios/{id}', 'App\Http\Controllers\FuncionariosController@delete');
+ *          No FuncionariosController:
+ *              public function delete(id){ ... }
+ * 
+ */
 
-//Routes for RH 
+Route::get('/', [HomeController::class, 'index']);
+
 ////////////////////////
-Route::get('/rh', 'App\Http\Controllers\RhController@index')->name("rhMain");
-Route::get('/rh/employees/employees/adm', 'App\Http\Controllers\RhController@employees')->name("rhEmployeesMain");
-Route::get('/rh/voluntary/voluntary/adm', 'App\Http\Controllers\RhController@voluntary')->name("rhVoluntaryMain");
+// Rotas para RhController
+////////////////////////
+// Navegação
+Route::get('/rh', [RhController::class, 'index'])->name("rhMain");
+Route::get('/rh/funcionarios/painel', [RhController::class, 'funcionarios'])->name("rhFuncionariosPainel");
+Route::get('/rh/voluntarios/painel', [RhController::class, 'voluntarios'])->name("rhVoluntariosPainel");
+
+////////////////////////
+//Rotas para FuncionariosController
+////////////////////////
+// Navegação
+Route::get('/rh/funcionarios', [FuncionariosController::class, 'list'])->name('listaFuncionarios');
+
+Route::get('/rh/funcionarios/add', [FuncionariosController::class, 'add'])->name('addFuncionarios');
+Route::get('/rh/funcionarios/edit/{func_id}', [FuncionariosController::class, 'edit'])->name('editFuncionarios');
+
+// Operação
+Route::post('/rh/funcionarios', [FuncionariosController::class, 'save'])->name('saveFuncionarios');
+Route::put('/rh/funcionarios', [FuncionariosController::class, 'update']);
+
+Route::get('/rh/funcionarios/checkCPF', [FuncionariosController::class, 'checkCPF']);
 
 
+////////////////////////
+//Rotas para VoluntariosController
+////////////////////////
+// Navegação
+Route::get('/rh/voluntarios', [VoluntariosController::class, 'list'])->name('listaVoluntarios');
+
+
+//modulo de atendidos
 //Routes for People 
 ////////////////////////
-Route::get('/people', 'App\Http\Controllers\PeopleController@index')->name("peopleMain");
-Route::get('/people/beneficiaries/beneficiaries/adm', 'App\Http\Controllers\PeopleController@beneficiaries')->name("peopleBeneficiariesMain");
-Route::get('/people/assisted/assisted/adm', 'App\Http\Controllers\PeopleController@assisted')->name("peopleAssistedMain");
+Route::get('/atendidos', [PessoasController::class, 'index'])->name("pessoasMain");
+Route::get('/atendidos/beneficiados/adm', [PessoasController::class, 'beneficiados'])->name("beneficiadosMain");
+Route::get('/atendidos/assistidos/adm', [PessoasController::class, 'assistidos'])->name("assistidosMain");
+//Route::get('/atendidos/beneficiaries/beneficiaries/adm', 'App\Http\Controllers\PeopleController@beneficiaries')->name("peopleBeneficiariesMain");
+//Route::get('/atendidos/assisted/assisted/adm', 'App\Http\Controllers\PeopleController@assisted')->name("peopleAssistedMain");
 
 
 //CRUD routes
-Route::get('/people/employees', 'App\Http\Controllers\EmployeeController@list');
 
-Route::post('/people/employees', 'App\Http\Controllers\EmployeeController@save');
-
-//navigation routes
-Route::get('/people/employees/add', 'App\Http\Controllers\EmployeeController@add');
-
-
-Route::get('/people/employees/checkCPF', 'App\Http\Controllers\EmployeeController@checkCPF');

@@ -1,12 +1,12 @@
 @extends('layouts.main')
 
 @section('title')
-{{ env('APP_NAME') }} - Home
+Início
 @endsection
 
 @section('breadcrumbs')
 <li class="breadcrumb-item active" aria-current="page">
-    <i class="fa fa-home"></i>Home
+    <i class="fa fa-home"></i>Início
 </li>
 @endsection
 
@@ -16,14 +16,14 @@
     <div class="row" id="category-row" >
 
         <div class="col-lg-2 col-md-8 i category-item" data-toggle="collapse">
-             <a href="/rh"> 
+             <a href="{{route('rhMain')}}"> 
                 <i  class="far fa-address-book"></i>
                 <span>Recursos Humanos</span>
             </a>
         </div>
 
         <div class="col-lg-2 col-md-8 i category-item" data-toggle="collapse">
-             <a href="/people"> 
+             <a href="{{route('rhMain')}}"> 
                 <i  class="far fa-address-book"></i>
                 <span>Pessoas</span>
             </a>
