@@ -239,7 +239,7 @@ Cadastro
                                     <label class="col-md-3 control-label required" for="situacao">
                                         Situação
                                     </label>
-                                    <a onclick="adicionar_situacao()">
+                                    <a data-bs-toggle="modal" data-bs-target="#novaSituacaoModal">
                                         <i class="fas fa-plus w3-xlarge" style="margin-top: 0.75vw"></i>
                                     </a>
                                     
@@ -281,6 +281,7 @@ Cadastro
                                     <label class="col-md-3 control-label required" for="escala">
                                         Escala
                                     </label>
+                                    <a data-bs-toggle="modal" data-bs-target="#novaEscalaModal"><i class="fas fa-plus w3-xlarge"></i></a>
                                     <div class="col-md-6">
                                         <select class="form-control input-lg mb-md" 
                                                 id="escala" name="escala.id" required>
@@ -292,12 +293,12 @@ Cadastro
                                             
                                         </select>
                                     </div>
-                                    <a href="#"><i class="fas fa-plus w3-xlarge"></i></a>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-3 control-label required" for="tipoEscala">
-                                        Tipo
+                                        Tipo de Escala
                                     </label>
+                                    <a data-bs-toggle="modal" data-bs-target="#novoTipoEscalaModal"><i class="fas fa-plus w3-xlarge"></i></a>
                                     <div class="col-md-6">
                                         <select class="form-control input-lg mb-md" 
                                                 id="tipoEscala" name="tipoEscala.id"  required>
@@ -309,14 +310,12 @@ Cadastro
                                             
                                         </select>
                                     </div>
-                                    <a href="#">
-                                        <i class="fas fa-plus w3-xlarge"></i>
-                                    </a>
                                 </div>
                                 <div class="form-group" id="fieldReservista" >
                                     <label class="col-md-3 control-label" for="reserv_numero">
                                         Número do certificado reservista
                                     </label>
+                                    
                                     <div class="col-md-6">
                                         <input type="text" name="funcDoc.reserv_numero" class="form-control num_reservista">
                                     </div>
@@ -351,7 +350,43 @@ Cadastro
     Cargo:
 -->
 
-<!-- Modal -->
+<!-- 
+    Modal 
+-->
+<!-- 
+---------------------------------
+    Situação 
+---------------------------------
+-->
+
+<div class="modal fade" id="novaSituacaoModal" tabindex="-1" 
+        aria-labelledby="novaSituacaoModal" aria-hidden="true">
+  <div class="modal-dialog">
+    
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="situacaoModalLabel">Cadastrar Situação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="novaSituacao">Situação</label>
+                <input type="text" maxlength="45" id="iptNovaSituacao" name="situacao.nome">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button id="addSituacao" type="submit" class="btn btn-primary">Adicionar</button>
+            </div>
+        </div>
+    
+  </div>
+</div>
+
+<!-- 
+---------------------------------
+    Cargo 
+---------------------------------
+-->
+
 <div class="modal fade" id="novoCargoModal" tabindex="-1" 
         aria-labelledby="novoCargoModal" aria-hidden="true">
   <div class="modal-dialog">
@@ -374,6 +409,64 @@ Cadastro
   </div>
 </div>
 
+<!-- 
+---------------------------------
+    Escala 
+---------------------------------
+-->
+
+<div class="modal fade" id="novaEscalaModal" tabindex="-1" 
+        aria-labelledby="novaEscalaModal" aria-hidden="true">
+  <div class="modal-dialog">
+    
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="escalaModalLabel">Cadastrar Escala</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="iptNovaEscala">Escala</label>
+                <input type="text" maxlength="45" id="iptNovaEscala" name="escala.nome"> 
+                <br>
+                <label for="iptNovaEscalaDescricao">Descrição</label>
+                <textarea id="iptNovaEscalaDescricao" name="escala.descricao"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button id="addEscala" type="submit" class="btn btn-primary">Adicionar</button>
+            </div>
+        </div>
+    
+  </div>
+</div>
+
+<!-- 
+---------------------------------
+    Tipo de Escala 
+---------------------------------
+-->
+
+<div class="modal fade" id="novoTipoEscalaModal" tabindex="-1" 
+        aria-labelledby="novoTipoEscalaModal" aria-hidden="true">
+  <div class="modal-dialog">
+    
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="escalaModalLabel">Cadastrar Tipo de Escala</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="novoCargo">Tipo de Escala</label>
+                <input type="text" maxlength="45" id="iptNovoTipoEscala" name="tipoEscala.nome">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button id="addTipoEscala" type="submit" class="btn btn-primary">Adicionar</button>
+            </div>
+        </div>
+    
+  </div>
+</div>
 
 
         @endif

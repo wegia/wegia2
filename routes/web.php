@@ -87,6 +87,12 @@ Route::get('/rh/voluntarios/painel', [RhController::class, 'voluntarios'])->name
 
 Route::get('/rh/cargos', [RhController::class, 'listCargo'])->name("rhListaCargo");
 Route::post('/rh/cargos', [RhController::class, 'addCargo'])->name("rhNovoCargo");
+Route::get('/rh/escalas', [RhController::class, 'listEscala'])->name("rhListaEscala");
+Route::post('/rh/escalas', [RhController::class, 'addEscala'])->name("rhNovoEscala");
+Route::get('/rh/tipoEscalas', [RhController::class, 'listTipoEscala'])->name("rhListaTipoEscala");
+Route::post('/rh/tipoEscalas', [RhController::class, 'addTipoEscala'])->name("rhNovoTipoEscala");
+
+
 ////////////////////////
 //Rotas para FuncionariosController
 ////////////////////////

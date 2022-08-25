@@ -2,7 +2,6 @@
  * Tratamento de CPF
  * 
  */
-const inputCheckCPF = document.getElementById('inputCheckCPF')
 
 const removeCaracteresCPF = cpf => {
     const tamanho = cpf.length
@@ -15,17 +14,13 @@ const removeCaracteresCPF = cpf => {
 const acrescentaFormato = cpf => {
     //000.000.000-00
     if(cpf.length == 3 || cpf.length == 7)
-        return cpf += "."
+    return cpf += "."
     if(cpf.length == 11)
-        return cpf += "-"
+    return cpf += "-"
     return cpf
 }
 
-const validaCPF = cpf => {
-    let cpfDigitado = cpfInput.value
-    console.log(cpf)
-    return true;
-}
+const inputCheckCPF = document.getElementById('inputCheckCPF')
 
 // se o input estiver carregado na tela, 
 // associar o evento keyup
@@ -36,12 +31,25 @@ if (inputCheckCPF) {
         cpfTratado = acrescentaFormato(cpfTratado)
         cpfInput.value = cpfTratado
     })
-
 }
 
 /** 
- * Tratamento de foto
+ * A função previewFile pega uma imagem do computador do 
+ *   cliente, transforma em base64 e exibe em um <img>
  * 
+ * @params: 
+ *   - event: evento disparado no input.file que irá carregar a imagem
+ *   - seletorPreview: seletor CSS para a <img> que exibirá a imagem
+ *   - seletorAvatar: seletor CSS para o <i> com o avatar
+ * 
+ *  Estrutura padrão de um elemento de exibição de imagens:
+ *  <div>
+ *      <input type="file">
+ *      <div class="form-foto">
+ *          <img>
+ *          <i>
+ *      </div>
+ *  </div>
  */
 function previewFile(event, seletorPreview, seletorAvatar) {
     const preview = document.querySelector(seletorPreview);
@@ -81,14 +89,12 @@ inputsGenero.forEach(radioButton => {
     })
 })
 
-
-
 /**
  * 
  * Cadastrando em tabelas auxiliares via AJAX (para não perder dados do form)
  */
 
-const recarregaCargos =  () => {
+const recarregaCombo =  (url, seletorCombo) => {
     const csrfToken = document.querySelector("input[name='_token']").value
     let config = {
         method: 'GET', 
@@ -99,28 +105,26 @@ const recarregaCargos =  () => {
         },
         credentials: 'same-origin'
     }
-    let myRequest = new Request('/rh/cargos', config)
+    let myRequest = new Request(url, config)
     
-    const selectCargos = document.querySelector("#cargo")
-    selectCargos.innerHTML = "<option selected disabled>Selecionar</option>"
+    const selectObj = document.querySelector(seletorCombo)
+    selectObj.innerHTML = "<option selected disabled>Selecionar</option>"
 
     fetch(myRequest)
         .then(resp => resp.json())
-        .then(cargos => {
-            cargos.forEach(cargo => {
-                selectCargos.innerHTML += `<option value="${cargo.id}">${cargo.nome}</option>`
+        .then(lista => {
+            lista.forEach(obj => {
+                selectObj.innerHTML += `<option value="${obj.id}">${obj.nome}</option>`
             })
     })
-      
 }
 
-//recuperando o token csrf:
-const btnNovoCargo = document.getElementById("addCargo")
-btnNovoCargo.addEventListener("click", function() {
+const salvaDadoAuxiliar = (url, seletorModal, seletorCombo, seletorIptNome, seletorIptDesc="") => {
     const csrfToken = document.querySelector("input[name='_token']").value
-    const nome = document.getElementById("iptNovoCargo").value
+    const nome = document.querySelector(seletorIptNome).value
+    const descricao = (seletorIptDesc !== "") ? document.querySelector(seletorIptDesc).value : ""
     if (nome !== "") {
-        fetch("/rh/cargos", {
+        fetch(url, {
             method: "POST",
             headers: {
                 "X-CSRF-Token": csrfToken,
@@ -128,20 +132,44 @@ btnNovoCargo.addEventListener("click", function() {
                 Accept: "application/json", 
             },
             credentials: 'same-origin',
-            body: JSON.stringify({'nome':nome})
+            body: JSON.stringify({'nome':nome, 'descricao':descricao})
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log("Success:", data)
-            //atualizando a página
-            recarregaCargos()
-            document.querySelector("#iptNovoCargo").value=""
-            
-            $("#novoCargoModal").modal('hide')
+            recarregaCombo(url, seletorCombo)
+            document.querySelector(seletorIptNome).value=""
+            $(seletorModal).modal('hide')
         })
         .catch((error) => {
             console.error("Error:", error)
         });
-     
     }
+}
+
+////////////////
+/// Situação ///
+const btnNovaSituacao = document.querySelector("#addSituacao")
+btnNovaSituacao.addEventListener("click", function() {
+    salvaDadoAuxiliar('/rh/situacoes', '#novaSituacaoModal', '#situacao', '#iptNovaSituacao')
+})
+
+/////////////
+/// Cargo ///
+const btnNovoCargo = document.querySelector("#addCargo")
+btnNovoCargo.addEventListener("click", function() {
+    salvaDadoAuxiliar('/rh/cargos', '#novoCargoModal', '#cargo', '#iptNovoCargo')
+})
+
+////////////////////
+////// Escala //////
+const btnNovaEscala = document.querySelector("#addEscala")
+btnNovaEscala.addEventListener("click", function() {
+    salvaDadoAuxiliar('/rh/escalas', '#novaEscalaModal', '#escala', '#iptNovaEscala', '#iptNovaEscalaDescricao')
+})
+
+////////////////////
+// Tipo de Escala //
+const btnNovoTipoEscala = document.querySelector("#addTipoEscala")
+btnNovoTipoEscala.addEventListener("click", function() {
+    salvaDadoAuxiliar('/rh/tipoEscalas', '#novoTipoEscalaModal', '#tipoEscala', '#iptNovoTipoEscala')
 })
