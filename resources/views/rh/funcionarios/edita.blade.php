@@ -84,10 +84,10 @@ Cadastro
       @csrf
 
       <label for="pessoaNome">Nome</label>
-      <input type="text" id="pessoaNome" name="pessoa.nome" value="{{pessoa->nome}}">
+      <input type="text" id="pessoaNome" name="pessoa.nome" value="{{$pessoa->nome}}">
 
 
-        <input type="hidden" name="colabDoc.cpf" value="{{$cpf}}">
+        <input type="hidden" name="colaborador.cpf" value="{{$colaborador->cpf}}">
     
         <h4 class="mb-xlg">Informações Pessoais</h4>
         <h5 class="obrig">Campos Obrigatórios(*)</h5>
@@ -98,7 +98,7 @@ Cadastro
             </label>
             <div class="col-md-8">
                 <input type="text" class="form-control" 
-                        id="nome" name="pessoa.nome" value={{$pessoa->nome}} required>
+                        id="nome" name="pessoa.nome" value="{{$pessoa->nome}}" required>
             </div>
         </div>
 
@@ -131,7 +131,7 @@ Cadastro
                         id="telefone" name="contato.telefone"
                         maxlength="14" minlength="14" 
                         placeholder="Ex: (22)99999-9999"
-                        value="$contato->telefone" >
+                        value="{{$contato->telefone}}" >
             </div>
         </div>
         <div class="form-group">

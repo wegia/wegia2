@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\rh;
 
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Uf extends Model {
+class TipoEscala extends Model {
     use HasFactory;
-    protected $table = 'uf';
+    protected $table = 'tipo_escala';
+    
     public $timestamps = false;
 
-    protected $fillable = array('nome', 'sigla');
+    protected $fillable = array('nome');
 
     protected $guarded = ['id'];
 }

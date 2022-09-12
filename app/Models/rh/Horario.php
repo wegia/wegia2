@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\rh;
 
 use Illuminate\Support\Facades\DB;
 
@@ -17,7 +17,4 @@ class Horario extends Model {
     
     protected $guarded = ['id'];
 
-    public static function listByColaborador($colabId) {
-        return DB::select('SELECT h.* FROM horario h WHERE h.colab_id = ?', array($colabId));
-    }
 }

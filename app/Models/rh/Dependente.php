@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\rh;
 
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +18,5 @@ class Dependente extends Model {
 
     protected $guarded = ['id'];
 
-    public static function listByFuncionario($funcId) {
-        return DB::select('SELECT * FROM dependente d WHERE d.func_id = ?', array($funcId));
-    }
+
 }

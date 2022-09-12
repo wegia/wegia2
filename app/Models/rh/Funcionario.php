@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\rh;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Dependente;
-use App\Models\Remuneracao;
+use App\Models\rh\Dependente;
+use App\Models\rh\Remuneracao;
 
 class Funcionario extends Model {
     use HasFactory;
@@ -28,7 +28,7 @@ class Funcionario extends Model {
     public function remuneracoes() {
         return $this->hasMany(Remuneracao::class, 'func_id');
     }
-
+/*
     public function hasCPFSaved($cpf) {
         if (is_null($cpf)) {
             return false;
@@ -39,7 +39,7 @@ class Funcionario extends Model {
         //return ($result['cpf'] !== null)? 'true' : 'false';
         return empty($result)? false : true;
     }
-
+*/
     /**
      * Para carregar o catálogo de funcionários, basta passar:
      *  - funcionario.id
@@ -47,7 +47,7 @@ class Funcionario extends Model {
      *  - colabDoc.cpf
      *  - colab.situacao
      *  - colab.cargo (atual) colab_tem_cargo.e_cargo_atual = T
-     */
+     
     public function listSimplified() {
         $result = DB::select('SELECT f.id as `func_id`
                                 , p.nome as `nome`
@@ -61,4 +61,5 @@ class Funcionario extends Model {
                             WHERE ctc.e_cargo_atual = true');
         return $result;
     }
+    */
 }

@@ -3,9 +3,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request; 
 
-use App\Models\Cargo;
-use App\Models\Escala;
-use App\Models\TipoEscala;
+use App\Models\rh\Cargo;
+use App\Models\rh\Escala;
+use App\Models\rh\TipoEscala;
 
 class RhController extends Controller {
 

@@ -1,9 +1,8 @@
 <?php
-
     namespace App\Http\Controllers;
-    use Illuminate\Support\Facades\Request; 
 
-    use App\Models\Voluntario;
+    use Illuminate\Support\Facades\Request; 
+    use App\Models\rh\Voluntario;
 
     class VoluntariosController extends Controller{
 

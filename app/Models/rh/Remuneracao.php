@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\rh;
 
 use Illuminate\Support\Facades\DB;
 
@@ -17,9 +17,4 @@ class Remuneracao extends Model {
     
     protected $guarded = ['id'];
 
-    public static function listByFuncionario($funcId) {
-        return DB::select('SELECT r.*, tr.nome as tipo  FROM remuneracao r 
-                            JOIN tipo_remuneracao tr ON r.tipo_id = tr.id 
-                            WHERE r.func_id = ?', array($funcId));
-    }
 }

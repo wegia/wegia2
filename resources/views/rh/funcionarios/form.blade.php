@@ -47,7 +47,7 @@ Cadastro
                 <div class="md-form">
                     <input type="text" id="inputCheckCPF" name="cpf" 
                         class="form-control input-pequeno"
-                        maxlength="14">
+                        maxlength="14" >
                     <label for="inputCheckCPF" class="required">CPF</label>
                 </div>
                 

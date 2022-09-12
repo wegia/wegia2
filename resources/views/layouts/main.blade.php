@@ -71,10 +71,10 @@
                                 <details>
 		                            <summary>Recursos Humanos</summary>
                                     <p>
-                                       <a class="nav-link" href="{{route('listaFuncionarios')}}">Funcionários</a>
+                                       <a class="nav-link" href="{{route('rhFuncionariosPainel')}}">Funcionários</a>
                                     </p>
                                     <p>
-                                        <a class="nav-link" href="{{route('listaVoluntarios')}}">Voluntários</a>
+                                        <a class="nav-link" href="{{route('rhVoluntariosPainel')}}">Voluntários</a>
                                     </p>
                                 </details>
                             </li>

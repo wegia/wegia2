@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\rh;
 
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ColabCargo extends Model {
+class TipoRemuneracao extends Model {
     use HasFactory;
 
-    protected $table = 'colab_tem_cargo';
+    protected $table = 'tipo_remunecacao';
+    
     public $timestamps = false;
 
-    protected $fillable = array('colab_id', 'cargo_id', 'inicio', 'fim');
+    protected $fillable = array('nome');
 
     protected $guarded = ['id'];
-
 }

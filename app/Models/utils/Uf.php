@@ -1,20 +1,18 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\utils;
 
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TipoRemuneracao extends Model {
+class Uf extends Model {
     use HasFactory;
-
-    protected $table = 'tipo_remunecacao';
-    
+    protected $table = 'uf';
     public $timestamps = false;
 
-    protected $fillable = array('nome');
+    protected $fillable = array('nome', 'sigla');
 
     protected $guarded = ['id'];
 }

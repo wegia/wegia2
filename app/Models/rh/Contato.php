@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\rh;
 
 use Illuminate\Support\Facades\DB;
 
@@ -23,8 +23,5 @@ class Contato extends Model {
         return $this->belongsTo('App\Models\Pessoa');
     }
 
-    public static function get($pessoaId) {
-        return DB::select('SELECT * FROM contato c WHERE c.pessoa_id = ?', array($pessoaId));
-    }
 }
 

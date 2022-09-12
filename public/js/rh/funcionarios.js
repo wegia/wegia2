@@ -14,10 +14,17 @@ const removeCaracteresCPF = cpf => {
 const acrescentaFormato = cpf => {
     //000.000.000-00
     if(cpf.length == 3 || cpf.length == 7)
-    return cpf += "."
+        return cpf += "."
     if(cpf.length == 11)
-    return cpf += "-"
+        return cpf += "-"
     return cpf
+}
+
+const trataCPF = cpfInput => {
+    let cpfDigitado = cpfInput.value
+    let cpfTratado = removeCaracteresCPF(cpfDigitado)
+    cpfTratado = acrescentaFormato(cpfTratado)
+    cpfInput.value = cpfTratado
 }
 
 const inputCheckCPF = document.getElementById('inputCheckCPF')
@@ -25,11 +32,19 @@ const inputCheckCPF = document.getElementById('inputCheckCPF')
 // se o input estiver carregado na tela, 
 // associar o evento keyup
 if (inputCheckCPF) {
-    inputCheckCPF.addEventListener('keyup', ()=>{
-        let cpfDigitado = cpfInput.value
-        let cpfTratado = removeCaracteresCPF(cpfDigitado)
-        cpfTratado = acrescentaFormato(cpfTratado)
-        cpfInput.value = cpfTratado
+    inputCheckCPF.addEventListener('keyup', (e)=> {
+        //Se tecla for backspace ou delete
+        if(e.key.toString() == "Backspace" || e.key == "Delete") {
+            //remover o ponto
+            if (inputCheckCPF.value.length == 3) //primeiro ponto
+                inputCheckCPF.value = inputCheckCPF.value.substring(0, 2);
+            if (inputCheckCPF.value.length == 7) //segundo ponto
+                inputCheckCPF.value = inputCheckCPF.value.substring(0, 6);
+            if (inputCheckCPF.value.length == 11) // traço
+                inputCheckCPF.value = inputCheckCPF.value.substring(0, 10);
+        }
+            
+        trataCPF(inputCheckCPF);
     })
 }
 
@@ -67,9 +82,11 @@ function previewFile(event, seletorPreview, seletorAvatar) {
 
 const inputArquivoImagem = document.querySelector("#inputArquivoImagem")
 
-inputArquivoImagem.addEventListener('change', function(e){
-    previewFile(e, "#fotoPreview", "#fotoAvatar")
-})
+if (inputArquivoImagem) {
+    inputArquivoImagem.addEventListener('change', function(e){
+        previewFile(e, "#fotoPreview", "#fotoAvatar")
+    })
+}
 
 /** 
  * Tratamento de Genero
@@ -149,27 +166,34 @@ const salvaDadoAuxiliar = (url, seletorModal, seletorCombo, seletorIptNome, sele
 ////////////////
 /// Situação ///
 const btnNovaSituacao = document.querySelector("#addSituacao")
-btnNovaSituacao.addEventListener("click", function() {
-    salvaDadoAuxiliar('/rh/situacoes', '#novaSituacaoModal', '#situacao', '#iptNovaSituacao')
-})
-
+if (btnNovaSituacao) {
+    btnNovaSituacao.addEventListener("click", function() {
+        salvaDadoAuxiliar('/rh/situacoes', '#novaSituacaoModal', '#situacao', '#iptNovaSituacao')
+    })
+}
 /////////////
 /// Cargo ///
 const btnNovoCargo = document.querySelector("#addCargo")
-btnNovoCargo.addEventListener("click", function() {
-    salvaDadoAuxiliar('/rh/cargos', '#novoCargoModal', '#cargo', '#iptNovoCargo')
-})
+if (btnNovoCargo) {
+    btnNovoCargo.addEventListener("click", function() {
+        salvaDadoAuxiliar('/rh/cargos', '#novoCargoModal', '#cargo', '#iptNovoCargo')
+    })
+}
 
 ////////////////////
 ////// Escala //////
 const btnNovaEscala = document.querySelector("#addEscala")
-btnNovaEscala.addEventListener("click", function() {
-    salvaDadoAuxiliar('/rh/escalas', '#novaEscalaModal', '#escala', '#iptNovaEscala', '#iptNovaEscalaDescricao')
-})
+if (btnNovaEscala) {
+    btnNovaEscala.addEventListener("click", function() {
+        salvaDadoAuxiliar('/rh/escalas', '#novaEscalaModal', '#escala', '#iptNovaEscala', '#iptNovaEscalaDescricao')
+    })
+}
 
 ////////////////////
 // Tipo de Escala //
 const btnNovoTipoEscala = document.querySelector("#addTipoEscala")
-btnNovoTipoEscala.addEventListener("click", function() {
-    salvaDadoAuxiliar('/rh/tipoEscalas', '#novoTipoEscalaModal', '#tipoEscala', '#iptNovoTipoEscala')
-})
+if(btnNovoTipoEscala) {
+    btnNovoTipoEscala.addEventListener("click", function() {
+        salvaDadoAuxiliar('/rh/tipoEscalas', '#novoTipoEscalaModal', '#tipoEscala', '#iptNovoTipoEscala')
+    })
+}

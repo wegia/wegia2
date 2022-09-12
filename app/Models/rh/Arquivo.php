@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\rh;
 
 use Illuminate\Support\Facades\DB;
 
@@ -17,7 +17,4 @@ class Arquivo extends Model {
 
     protected $guarded = ['id'];
 
-    public static function  listByPessoa($pessoaId) {
-        return DB::select('SELECT a.* FROM arquivo a WHERE a.pessoa_id  = ?', array($pessoaId));
-    }
 }

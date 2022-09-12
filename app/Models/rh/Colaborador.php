@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\rh;
 
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Arquivo;
-use App\Models\Funcionario;
-use App\Models\Voluntario;
-use App\Models\Cargo;
-use App\Models\Horario;
+use App\Models\rh\Arquivo;
+use App\Models\rh\Funcionario;
+use App\Models\rh\Voluntario;
+use App\Models\rh\Cargo;
+use App\Models\rh\Horario;
 
 class Colaborador extends Model {
     use HasFactory;
