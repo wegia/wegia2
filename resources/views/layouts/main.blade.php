@@ -157,7 +157,9 @@
                 <!-- RH/Funcionários -->
                 <div class="collapse bg-secondary bg-opacity-25" id="collapseRH">
                     <div class="p-2 ps-5 pe-4">
-                        <a class="d-flex justify-content-between link-light text-decoration-none" data-bs-toggle="collapse" href="#collapseRHFuncionarios" role="button" aria-expanded="false" aria-controls="collapseRHFuncionarios">
+                        <a class="d-flex justify-content-between link-light text-decoration-none" 
+                                data-bs-toggle="collapse" 
+                                href="#collapseRHFuncionarios" role="button" aria-expanded="false" aria-controls="collapseRHFuncionarios">
                             <div>
                                 <p class="m-0"><i class="fa-solid fa-user fontAwesomeWidth"></i> Funcionários</p>
                             </div>
@@ -170,7 +172,8 @@
                 <!-- RH/Funcionários/Cadastrar -->
                 <div class="collapse bg-secondary bg-opacity-25" id="collapseRHFuncionarios">
                     <div class="p-2 ps-5 pe-4">
-                        <a class="link-light text-decoration-none" href="/" role="button"">
+                        <a class="link-light text-decoration-none" role="button"
+                            href="{{route('addFuncionarios')}}">
                         <div class="ps-4 pe-4">
                             <p class="m-0"><i class="fa-solid fa-pen-to-square fontAwesomeWidth"></i> Cadastrar</p>
                         </div>
