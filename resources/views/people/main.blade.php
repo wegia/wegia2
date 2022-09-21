@@ -19,17 +19,17 @@
 @section('content')
 <div class="content-body">
     <div class="row" id="category-row" >
-        
+
         <div class="col-lg-2 col-md-8 i category-item" data-toggle="collapse"">
             <a href="/people/beneficiaries/beneficiaries/adm">
-                <i  class="fa fa-cubes"></i>
+                <i class="fa fa-cubes d-block"></i>
                 <span>Atendidos</span>
             </a>
         </div>
 
         <div class="col-lg-2 col-md-8 i category-item" data-toggle="collapse" href="#memorando">
             <a href="/people/assisted/assisted/adm">
-                <i  class="fa fa-book"></i>
+                <i class="fa fa-book d-block"></i>
                 <span>Assistidos</span>
             </a>
         </div>

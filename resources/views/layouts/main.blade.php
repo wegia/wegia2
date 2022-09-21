@@ -53,7 +53,7 @@
         <div class="row">
             <!-- Menu/Sidebar -->
             <!-- Menu -->
-            <aside class="content col-md-3 bg-dark text-bg-dark border-end">
+            <aside class="content col-md-3 bg-dark text-bg-dark border-end vh-100">
                 <div class="d-flex justify-content-between p-2 px-4 border-bottom">
                     <div>
                         <p class="m-0 navbar-brand">Menu</p>
