@@ -30,11 +30,6 @@ Cadastro
 </li>
 @endsection
 
-
-
-
-@endsection
-
 @section('scripts-vendors')
 
 @endsection

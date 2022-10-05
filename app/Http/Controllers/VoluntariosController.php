@@ -1,7 +1,7 @@
 <?php
     namespace App\Http\Controllers;
 
-    use Illuminate\Support\Facades\Request; 
+    use Illuminate\Support\Facades\Request;
     use App\Models\rh\Voluntario;
 
     class VoluntariosController extends Controller{
@@ -25,16 +25,16 @@
         public function list() {
             $result = Voluntario::all();
             //return $result;
-            return view('rh.voluntary.list')->with('result', $result);
+            return view('rh.voluntarios.list')->with('result', $result);
         }
-    
+
         public function get($id) {
             $result = Voluntario::find($id);
             return $result;
         }
-    
+
         public function add() {
-            return view('rh.voluntary.form');
+            return view('rh.voluntarios.form');
         }
     }
 

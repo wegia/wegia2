@@ -15,6 +15,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RhController;
 use App\Http\Controllers\FuncionariosController;
 use App\Http\Controllers\PessoasController;
+use App\Http\Controllers\VoluntariosController;
 
 //Route::get('/',  'App\Http\Controllers\HomeController@index');
 
@@ -25,47 +26,47 @@ use App\Http\Controllers\PessoasController;
 /**
  * Regra para formação de rota:
  * referencia: https://www.brunobrito.net.br/api-restful-boas-praticas/
- * 
+ *
  *  /[[modulo]]/[[recurso]]/[[operacao]]/[[params]]
  *  - módulo: o sistema é construído por módulos: RH, Atendidos, Patrimônio, Estoque, Sócios, etc
  *  - recurso: qualquer entidade manipulada no módulo referido. Por exemplo: rh/funcionario ou rh/voluntario
  *  - operação: apenas para navegação. Para realizar a operação, sinalize com o método HTTP referente:
- *      >> get: consulta e listagem. 
+ *      >> get: consulta e listagem.
  *          >>> Exemplo: pesquisar o funcionario id=1:
  *          No web.php
  *              Route::get('/rh/funcionarios/{id}', 'App\Http\Controllers\FuncionariosController@get');
  *          No FuncionariosController:
  *              public function get(id){ ... }
  *          Chamando no navegador: wegia.org/rh/funcionarios/1
- * 
+ *
  *          >>> Exemplo: listar todos funcionarios:
  *          No web.php
  *              Route::get('/rh/funcionarios', 'App\Http\Controllers\FuncionariosController@list');
  *          No FuncionariosController:
  *              public function list(){ ... }
  *          Chamando no navegador: wegia.org/rh/funcionarios
- * 
+ *
  *      >> post: cadastro
  *          >>> Exemplo: cadastrar funcionario:
  *          No web.php
  *              Route::post('/rh/funcionarios', 'App\Http\Controllers\FuncionariosController@save');
  *          No FuncionariosController:
  *              public function save(){ ... }
- * 
+ *
  *      >> put: edição
  *          >>> Exemplo: alterar o funcionario id=1:
- *          No web.php 
+ *          No web.php
  *              Route::put('/rh/funcionarios/{id}', 'App\Http\Controllers\FuncionariosController@update');
  *          No FuncionariosController:
  *              public function update(id){ ... }
- * 
+ *
  *      >> delete: exclusão
  *          >>> Exemplo: remover o funcionario id=1:
- *          No web.php 
+ *          No web.php
  *              Route::delete('/rh/funcionarios/{id}', 'App\Http\Controllers\FuncionariosController@delete');
  *          No FuncionariosController:
  *              public function delete(id){ ... }
- * 
+ *
  */
 
 Route::get('/', [HomeController::class, 'index']);
@@ -114,10 +115,11 @@ Route::get('/rh/funcionarios/checkCPF', [FuncionariosController::class, 'checkCP
 ////////////////////////
 // Navegação
 Route::get('/rh/voluntarios', [VoluntariosController::class, 'list'])->name('listaVoluntarios');
+Route::get('/rh/voluntarios/add', [VoluntariosController::class, 'add'])->name('addVoluntarios');
 
 
 //modulo de atendidos
-//Routes for People 
+//Routes for People
 ////////////////////////
 Route::get('/atendidos', [PessoasController::class, 'index'])->name("pessoasMain");
 Route::get('/atendidos/beneficiados/adm', [PessoasController::class, 'beneficiados'])->name("beneficiadosMain");

@@ -89,7 +89,8 @@
                 <!-- Pessoas/Assistidas/Cadastrar -->
                 <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoasAssistidas">
                     <div class="p-2 ps-5 pe-4">
-                        <a class="link-light text-decoration-none" href="/" role="button"">
+                        <a class="link-light text-decoration-none" role="button"
+                           href="/">
                             <div class="ps-4 pe-4">
                                 <p class="m-0"><i class="fa-solid fa-pen-to-square fontAwesomeWidth"></i> Cadastrar</p>
                             </div>
@@ -100,48 +101,47 @@
                 <!-- Pessoas/Assistidas/Informações -->
                 <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoasAssistidas">
                     <div class="p-2 ps-5 pe-4">
-                        <a class="link-light text-decoration-none" href="/" role="button"">
+                        <a class="link-light text-decoration-none" role="button"
+                           href="/">
                             <div class="ps-4 pe-4">
                                 <p class="m-0"><i class="fa-solid fa-list-ul fontAwesomeWidth"></i> Lista de cadastro</p>
                             </div>
                         </a>
                     </div>
                 </div>
-                <!-- Pessoas/Beneficiários -->
-                <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoas">
-                    <div class="p-2 ps-5 pe-4">
-                        <a class="d-flex justify-content-between link-light text-decoration-none" data-bs-toggle="collapse" href="#collapsePessoasBeneficiarios" role="button" aria-expanded="false" aria-controls="collapsePessoasBeneficiarios">
-                            <div>
-                                <p class="m-0"><i class="fa-solid fa-clipboard-user fontAwesomeWidth"></i> Beneficiários</p>
-                            </div>
-                            <div>
-                                <p class="m-0"><i class="fa-solid fa-chevron-down"></i></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- Pessoas/Beneficiários/Cadastrar -->
-                <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoasBeneficiarios">
-                    <div class="p-2 ps-5 pe-4">
-                        <a class="link-light text-decoration-none" href="/" role="button"">
-                        <div class="ps-4 pe-4">
-                            <p class="m-0"><i class="fa-solid fa-pen-to-square fontAwesomeWidth"></i> Cadastrar</p>
-                        </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- Pessoas/Beneficiários/Informações -->
-                <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoasBeneficiarios">
-                    <div class="p-2 ps-5 pe-4">
-                        <a class="link-light text-decoration-none" href="/" role="button"">
-                        <div class="ps-4 pe-4">
-                            <p class="m-0"><i class="fa-solid fa-list-ul fontAwesomeWidth"></i> Lista de cadastro</p>
-                        </div>
-                        </a>
-                    </div>
-                </div>
-
-
+{{--                <!-- Pessoas/Beneficiários -->--}}
+{{--                <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoas">--}}
+{{--                    <div class="p-2 ps-5 pe-4">--}}
+{{--                        <a class="d-flex justify-content-between link-light text-decoration-none" data-bs-toggle="collapse" href="#collapsePessoasBeneficiarios" role="button" aria-expanded="false" aria-controls="collapsePessoasBeneficiarios">--}}
+{{--                            <div>--}}
+{{--                                <p class="m-0"><i class="fa-solid fa-clipboard-user fontAwesomeWidth"></i> Beneficiários</p>--}}
+{{--                            </div>--}}
+{{--                            <div>--}}
+{{--                                <p class="m-0"><i class="fa-solid fa-chevron-down"></i></p>--}}
+{{--                            </div>--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <!-- Pessoas/Beneficiários/Cadastrar -->--}}
+{{--                <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoasBeneficiarios">--}}
+{{--                    <div class="p-2 ps-5 pe-4">--}}
+{{--                        <a class="link-light text-decoration-none" href="/" role="button"">--}}
+{{--                        <div class="ps-4 pe-4">--}}
+{{--                            <p class="m-0"><i class="fa-solid fa-pen-to-square fontAwesomeWidth"></i> Cadastrar</p>--}}
+{{--                        </div>--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <!-- Pessoas/Beneficiários/Informações -->--}}
+{{--                <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoasBeneficiarios">--}}
+{{--                    <div class="p-2 ps-5 pe-4">--}}
+{{--                        <a class="link-light text-decoration-none" href="/" role="button"">--}}
+{{--                        <div class="ps-4 pe-4">--}}
+{{--                            <p class="m-0"><i class="fa-solid fa-list-ul fontAwesomeWidth"></i> Lista de cadastro</p>--}}
+{{--                        </div>--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
                 <!-- RH -->
                 <div class="p-2 px-4">
@@ -157,8 +157,8 @@
                 <!-- RH/Funcionários -->
                 <div class="collapse bg-secondary bg-opacity-25" id="collapseRH">
                     <div class="p-2 ps-5 pe-4">
-                        <a class="d-flex justify-content-between link-light text-decoration-none" 
-                                data-bs-toggle="collapse" 
+                        <a class="d-flex justify-content-between link-light text-decoration-none"
+                                data-bs-toggle="collapse"
                                 href="#collapseRHFuncionarios" role="button" aria-expanded="false" aria-controls="collapseRHFuncionarios">
                             <div>
                                 <p class="m-0"><i class="fa-solid fa-user fontAwesomeWidth"></i> Funcionários</p>
@@ -183,7 +183,8 @@
                 <!-- RH/Funcionários/Informações -->
                 <div class="collapse bg-secondary bg-opacity-25" id="collapseRHFuncionarios">
                     <div class="p-2 ps-5 pe-4">
-                        <a class="link-light text-decoration-none" href="/" role="button"">
+                        <a class="link-light text-decoration-none" role="button"
+                           href="{{route('listaFuncionarios')}}" >
                         <div class="ps-4 pe-4">
                             <p class="m-0"><i class="fa-solid fa-list-ul fontAwesomeWidth"></i> Lista de cadastro</p>
                         </div>
@@ -206,7 +207,8 @@
                 <!-- RH/Voluntários/Cadastrar -->
                 <div class="collapse bg-secondary bg-opacity-25" id="collapseRHVoluntarios">
                     <div class="p-2 ps-5 pe-4">
-                        <a class="link-light text-decoration-none" href="/" role="button"">
+                        <a class="link-light text-decoration-none" role="button"
+                        href="{{route('addVoluntarios')}}">
                         <div class="ps-4 pe-4">
                             <p class="m-0"><i class="fa-solid fa-pen-to-square fontAwesomeWidth"></i> Cadastrar</p>
                         </div>
@@ -216,7 +218,8 @@
                 <!-- RH/Voluntários/Informações -->
                 <div class="collapse bg-secondary bg-opacity-25" id="collapseRHVoluntarios">
                     <div class="p-2 ps-5 pe-4">
-                        <a class="link-light text-decoration-none" href="/" role="button"">
+                        <a class="link-light text-decoration-none" role="button"
+                           href="{{route('listaVoluntarios')}}">
                         <div class="ps-4 pe-4">
                             <p class="m-0"><i class="fa-solid fa-list-ul fontAwesomeWidth"></i> Lista de cadastro</p>
                         </div>
