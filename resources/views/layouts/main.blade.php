@@ -53,7 +53,7 @@
         <div class="row">
             <!-- Menu/Sidebar -->
             <!-- Menu -->
-            <aside class="content col-md-3 bg-dark text-bg-dark border-end vh-100">
+            <aside class="content col-md-2 bg-dark text-bg-dark border-end vh-100">
                 <div class="d-flex justify-content-between p-2 px-4 border-bottom">
                     <div>
                         <p class="m-0 navbar-brand">Menu</p>
@@ -228,30 +228,21 @@
                 </div>
             </aside>
             <!-- Breadcrumb -->
-            <div class="content col-md-9">
-                <div class="bg-dark breadcrumb-nav">
+            <div class="content col-md-10">
+                <div class="bg-dark breadcrumb-nav px-3 p-2">
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active"
-                                aria-current="page">
-                                <i class="fa-solid fa-home"></i>
-                                Início
-                            </li>
+                        <ol class="breadcrumb mt-auto mb-auto">
+                            @yield('breadcrumbs')
                         </ol>
                     </nav>
-                    <a class="sidebar-right-toggle">
-                        <i class="fa fa-chevron-left"></i>
-                    </a>
                 </div>
-                <div class="container">
                     @yield('content')
-                </div>
             </div>
         </div>
     </div>
 
     <script src="/js/app.js"></script>
-    <script src="/js/jquery.min.js"><script>
+    <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
 

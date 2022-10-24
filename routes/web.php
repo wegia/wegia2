@@ -16,6 +16,7 @@ use App\Http\Controllers\RhController;
 use App\Http\Controllers\FuncionariosController;
 use App\Http\Controllers\PessoasController;
 use App\Http\Controllers\VoluntariosController;
+use Illuminate\Support\Facades\Route;
 
 //Route::get('/',  'App\Http\Controllers\HomeController@index');
 
@@ -81,15 +82,17 @@ Route::get('/teste', function(){
 // Rotas para RhController
 ////////////////////////
 // Navegação
+
 Route::get('/rh', [RhController::class, 'index'])->name("rhMain");
 Route::get('/rh/funcionarios/painel', [RhController::class, 'funcionarios'])->name("rhFuncionariosPainel");
 Route::get('/rh/voluntarios/painel', [RhController::class, 'voluntarios'])->name("rhVoluntariosPainel");
 
-
 Route::get('/rh/cargos', [RhController::class, 'listCargo'])->name("rhListaCargo");
 Route::post('/rh/cargos', [RhController::class, 'addCargo'])->name("rhNovoCargo");
+
 Route::get('/rh/escalas', [RhController::class, 'listEscala'])->name("rhListaEscala");
 Route::post('/rh/escalas', [RhController::class, 'addEscala'])->name("rhNovoEscala");
+
 Route::get('/rh/tipoEscalas', [RhController::class, 'listTipoEscala'])->name("rhListaTipoEscala");
 Route::post('/rh/tipoEscalas', [RhController::class, 'addTipoEscala'])->name("rhNovoTipoEscala");
 

@@ -1,6 +1,6 @@
-/** 
+/**
  * Tratamento de CPF
- * 
+ *
  */
 
 const removeCaracteresCPF = cpf => {
@@ -29,7 +29,7 @@ const trataCPF = cpfInput => {
 
 const inputCheckCPF = document.getElementById('inputCheckCPF')
 
-// se o input estiver carregado na tela, 
+// se o input estiver carregado na tela,
 // associar o evento keyup
 if (inputCheckCPF) {
     inputCheckCPF.addEventListener('keyup', (e)=> {
@@ -43,20 +43,20 @@ if (inputCheckCPF) {
             if (inputCheckCPF.value.length == 11) // traço
                 inputCheckCPF.value = inputCheckCPF.value.substring(0, 10);
         }
-            
+
         trataCPF(inputCheckCPF);
     })
 }
 
-/** 
- * A função previewFile pega uma imagem do computador do 
+/**
+ * A função previewFile pega uma imagem do computador do
  *   cliente, transforma em base64 e exibe em um <img>
- * 
- * @params: 
+ *
+ * @params:
  *   - event: evento disparado no input.file que irá carregar a imagem
  *   - seletorPreview: seletor CSS para a <img> que exibirá a imagem
  *   - seletorAvatar: seletor CSS para o <i> com o avatar
- * 
+ *
  *  Estrutura padrão de um elemento de exibição de imagens:
  *  <div>
  *      <input type="file">
@@ -71,7 +71,7 @@ function previewFile(event, seletorPreview, seletorAvatar) {
     const avatar = document.querySelector(seletorAvatar);
     let reader = new FileReader();
     let file = event.target.files[0];
-    
+
     reader.readAsDataURL(file);
     reader.onloadend = () => {
         preview.src = reader.result;
@@ -88,13 +88,13 @@ if (inputArquivoImagem) {
     })
 }
 
-/** 
+/**
  * Tratamento de Genero
- * 
+ *
  */
 
 const inputsGenero = document.querySelectorAll('input[name="pessoa.genero"]')
-let genero = null 
+let genero = null
 inputsGenero.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
         genero = radioButton.value ?? null
@@ -107,23 +107,23 @@ inputsGenero.forEach(radioButton => {
 })
 
 /**
- * 
+ *
  * Cadastrando em tabelas auxiliares via AJAX (para não perder dados do form)
  */
 
 const recarregaCombo =  (url, seletorCombo) => {
     const csrfToken = document.querySelector("input[name='_token']").value
     let config = {
-        method: 'GET', 
+        method: 'GET',
         headers: {
             "X-CSRF-Token": csrfToken,
             "Content-Type": "application/json",
-            Accept: "application/json", 
+            Accept: "application/json",
         },
         credentials: 'same-origin'
     }
     let myRequest = new Request(url, config)
-    
+
     const selectObj = document.querySelector(seletorCombo)
     selectObj.innerHTML = "<option selected disabled>Selecionar</option>"
 
@@ -146,7 +146,7 @@ const salvaDadoAuxiliar = (url, seletorModal, seletorCombo, seletorIptNome, sele
             headers: {
                 "X-CSRF-Token": csrfToken,
                 "Content-Type": "application/json",
-                Accept: "application/json", 
+                Accept: "application/json",
             },
             credentials: 'same-origin',
             body: JSON.stringify({'nome':nome, 'descricao':descricao})
