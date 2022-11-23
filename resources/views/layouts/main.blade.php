@@ -88,8 +88,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
-                <!-- Pessoas/Assistidas/Cadastrar -->
+                    <!-- Pessoas/Assistidas/Cadastrar -->
                 <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoasAssistidas">
                     <div class="p-2 ps-5 pe-4">
                         <a class="link-light text-decoration-none" role="button"
@@ -113,6 +112,9 @@
                         </a>
                     </div>
                 </div>
+                </div>
+                
+                
                 {{--                <!-- Pessoas/Beneficiários -->--}}
                 {{--                <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoas">--}}
                 {{--                    <div class="p-2 ps-5 pe-4">--}}
@@ -150,7 +152,9 @@
                 <!-- RH -->
                 <div class="p-2 px-4">
                     <a class="d-flex justify-content-between link-light text-decoration-none" data-bs-toggle="collapse"
-                       href="#collapseRH" role="button" aria-expanded="false" aria-controls="collapseRH">
+                       href="#collapseRH" role="button" aria-expanded="false" aria-controls="collapseRH"
+                       id="aba_rh"
+                        onClick="document.querySelector('#aba_rh').toggle()">
                         <div>
                             <p class="m-0"><i class="fa-solid fa-briefcase fontAwesomeWidth"></i> Recursos Humanos</p>
                         </div>
@@ -173,10 +177,12 @@
                                 <p class="m-0"><i class="fa-solid fa-chevron-down"></i></p>
                             </div>
                         </a>
+
+
+
                     </div>
-                </div>
-                <!-- RH/Funcionários/Cadastrar -->
-                <div class="collapse bg-secondary bg-opacity-25" id="collapseRHFuncionarios">
+                    <!-- RH/Funcionários/Cadastrar -->
+                    <div class="collapse bg-secondary bg-opacity-25" id="collapseRHFuncionarios">
                     <div class="p-2 ps-5 pe-4">
                         <a class="link-light text-decoration-none" role="button"
                            href="{{route('addFuncionarios')}}">
@@ -198,6 +204,8 @@
                         </a>
                     </div>
                 </div>
+                </div>
+                
                 <!-- RH/Voluntários -->
                 <div class="collapse bg-secondary bg-opacity-25" id="collapseRH">
                     <div class="p-2 ps-5 pe-4">
@@ -212,8 +220,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
-                <!-- RH/Voluntários/Cadastrar -->
+                    <!-- RH/Voluntários/Cadastrar -->
                 <div class="collapse bg-secondary bg-opacity-25" id="collapseRHVoluntarios">
                     <div class="p-2 ps-5 pe-4">
                         <a class="link-light text-decoration-none" role="button"
@@ -236,6 +243,8 @@
                         </a>
                     </div>
                 </div>
+                </div>
+                
             </div>
         </aside>
         <!-- Breadcrumb -->
