@@ -38,8 +38,8 @@
             accessing the form for the first time, there is no verification variable. Then, show cpf form.
         -->
         @if(!isset($cpfJaExiste))
-            <div class="card col-lg-10 col-md-8 mx-auto m-5">
-                <h5 class="card-header ">Digite seu CPF</h5>
+            <div class="card col-lg-10 col-md-8 mx-auto m-5 text-bg-dark">
+                <h5 class="card-header">Digite seu CPF</h5>
                 <div class="card-body">
                     <form method="GET" action="{{route('cpfJaCadastrado')}}">
                         <div class="md-form">
@@ -61,7 +61,7 @@
                     Erro. Funcionário já cadastrado no sistema.
                 </div>
 
-                <div class="card col-lg-10 col-md-8 mx-auto m-5">
+                <div class="card col-lg-10 col-md-8 mx-auto m-5 text-bg-dark">
                     <h5 class="card-header">Digite seu CPF</h5>
                     <div class="card-body">
                         <form method="GET" action="{{route('cpfJaCadastrado')}}">
@@ -79,11 +79,11 @@
 
                 <div class="row m-5" id="formulario">
                     <div class="col-md-4 col-lg-3">
-                        <section class="card">
+                        <section class="card text-white bg-dark">
                             <div class="card-body">
                                 <div class="thumb-info mb-md">
-                                    <div class="form-foto text-center form-control">
-                                        <img id="fotoPreview" class="rounded img-responsive" alt="Profile photo"
+                                    <div class="form-foto text-center form-control text-white bg-dark">
+                                        <img id="fotoPreview" class="rounded foto" alt="Profile photo"
                                              style="display: none">
                                         <i id="fotoAvatar" class="fa-solid fa-user"></i>
                                     </div>
@@ -96,15 +96,16 @@
 
                     </div>
                     <div class="col-md-8 col-lg-8">
-                        <ul class="nav nav-tabs">
+
+                        <ul class="nav nav-pills nav-fill pb-2">
                             <li class="nav-item">
-                                <button class="nav-link active" id="cadFunc" data-bs-toggle="tab"
+                                <button class="nav-link bg-dark" id="cadFunc" data-bs-toggle="tab"
                                         data-bs-target="#cadastroFuncionario" type="button" role="tab"
                                         aria-controls="cadastroFuncionario" aria-selected="true">Cadastro de Funcionário
                                 </button>
                             </li>
                         </ul>
-                        <div class="tab-content border border-top-0 p-3">
+                        <div class="tab-content bg-dark text-white rounded p-3">
                             <div class="tab-pane fade show active" id="cadastroFuncionario" role="tabpanel"
                                  aria-labelledby="cadFunc" tabindex="0">
                                 <form method="POST" action="/rh/funcionarios">

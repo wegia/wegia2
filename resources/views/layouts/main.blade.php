@@ -28,7 +28,7 @@
         </a>
     </div>
     <div class="avatar">
-        <span class="separator bg-white bg-opacity-25 rounded-4"></span>
+        <div class="vr bg-light me-4"></div>
         <div class="dropdown">
             <a href="#" class="d-block link-light text-decoration-none dropdown-toggle"
                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,7 +37,7 @@
                      class="rounded-circle">
                 <span class="d-none d-sm-inline mx-1">Nome da pessoa</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right">
+            <div class="dropdown-menu dropdown-menu-dark dropdown-menu-right">
                 <a class="dropdown-item user-profile-item">cargo da pessoa</a>
                 <hr class="dropdown-divider">
                 <a class="dropdown-item" href="#">Configurações</a>
@@ -113,8 +113,8 @@
                     </div>
                 </div>
                 </div>
-                
-                
+
+
                 {{--                <!-- Pessoas/Beneficiários -->--}}
                 {{--                <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoas">--}}
                 {{--                    <div class="p-2 ps-5 pe-4">--}}
@@ -205,7 +205,7 @@
                     </div>
                 </div>
                 </div>
-                
+
                 <!-- RH/Voluntários -->
                 <div class="collapse bg-secondary bg-opacity-25" id="collapseRH">
                     <div class="p-2 ps-5 pe-4">
@@ -244,7 +244,7 @@
                     </div>
                 </div>
                 </div>
-                
+
             </div>
         </aside>
         <!-- Breadcrumb -->

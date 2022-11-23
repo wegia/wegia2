@@ -20,42 +20,11 @@ header {
     flex-direction: row;
 }
 
-.separator {
-    /*background-image: linear-gradient(#f6f6f6 60%, #ededed);*/
-    display: inline-block;
-    height: 100%;
-    margin: 0 25px 0;
-    width: 2px;
-    vertical-align: middle;
-}
 .dropdown-item {
     width: 150px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.sidebar {
-    width: 100%;
-    color: var(--bs-gray);
-}
-
-.sidebar a {
-    color:var(--bs-gray);
-}
-
-.sidebar a:hover {
-    background-color: var(--bs-gray-800);
-    color:#fff;
-}
-
-.nav-link i {
-    float:right;
-
-}
-.submenu {
-    list-style-type: none;
-    margin:0;
 }
 
 .content {
@@ -68,59 +37,9 @@ header {
     justify-content: end;
 }
 
-
-.botao {
-    min-width: 130px;
-    height: 40px;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 5px;
-    border: none;
-    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
-    background: #4433ff;
-    }
-.botao:hover {
-    background-color: #3a86ff;
-}
-.botao:active {
-    top: 2px;
-}
-
-.botao-default {
-    min-width: 130px;
-    height: 40px;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 5px;
-    border: none;
-    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
-    background: #adb5bd;
-}
-.botao-default:hover {
-background-color: #ced4da;
-}
-.botao-default:active {
-top: 2px;
-}
 .required:after {
     content: " *";
     color: red;
-}
-
-.input-pequeno {
-    width: 200px;
 }
 
 .form-foto {
@@ -138,4 +57,8 @@ top: 2px;
 
 .cardHeight {
     height: 200px;
+}
+
+.foto {
+    width: 212px;
 }
