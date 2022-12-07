@@ -44,7 +44,7 @@
                     <form method="GET" action="{{route('cpfJaCadastrado')}}">
                         <div class="md-form">
                             <input type="text" id="inputCheckCPF" name="cpf"
-                                   class="form-control"
+                                   class="form-control" inputmode="numeric" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
                                    maxlength="14" placeholder="Ex. 222.222.222-22">
                         </div>
                         <button class='btn btn-primary mt-3'>Enviar</button>
@@ -162,7 +162,7 @@
                                         <div class="col-md-8">
                                             <input type="text" class="form-control"
                                                    id="telefone" name="contato.telefone"
-                                                   maxlength="14" minlength="14"
+                                                   maxlength="11" minlength="10" inputmode="numeric" pattern="\(\d{2}\)\d{5}-\d{4}"
                                                    placeholder="Ex: (22)99999-9999" required>
                                         </div>
                                     </div>
@@ -243,12 +243,13 @@
                                         <div class="col-md-8">
                                             <select class="form-select"
                                                     id="situacao" name="colab.situacao" required>
-                                                <option selected disabled>Selecionar</option>
+                                                <option value="a">Ativo</option>
+                                                <option value="i">Inativo</option>
                                             </select>
-                                            <a data-bs-toggle="modal" data-bs-target="#novaSituacaoModal">
-                                                <i class="fas fa-plus mt-2 d-inline-block"></i>
-                                                <p class="text-secondary d-inline-block m-0">Adicione uma situação</p>
-                                            </a>
+{{--                                            <a data-bs-toggle="modal" data-bs-target="#novaSituacaoModal">--}}
+{{--                                                <i class="fas fa-plus mt-2 d-inline-block"></i>--}}
+{{--                                                <p class="text-secondary d-inline-block m-0">Adicione uma situação</p>--}}
+{{--                                            </a>--}}
                                         </div>
                                     </div>
 

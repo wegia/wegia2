@@ -48,6 +48,83 @@ if (inputCheckCPF) {
     })
 }
 
+
+const removeCaracteresPhone = phone => {
+    const tamanho = phone.length
+    if ('1234567890'.indexOf(phone[tamanho-1]) == -1) {
+        return phone.substr(0, tamanho-1)
+    }
+    return phone
+}
+
+const acrescentaFormatoPhone = phone => {
+    //000.000.000-00
+    //if(phone.length === 2)
+    //    return `(${phone})`
+    let ddd, prefixo, sufixo
+    if (phone.length === 10) {
+        ddd = phone.substring(0,2)
+        prefixo = phone.substring(2,6)
+        sufixo = phone.substring(6,10)
+        console.log(ddd)
+        console.log(prefixo)
+        console.log(sufixo)
+        return `(${ddd})${prefixo}-${sufixo}`
+    }
+    if (phone.length === 11) {
+        ddd = phone.substring(0, 2)
+        prefixo = phone.substring(2, 7)
+        sufixo = phone.substring(7, 11)
+        console.log(ddd)
+        console.log(prefixo)
+        console.log(sufixo)
+        return `(${ddd})${prefixo}-${sufixo}`
+    }
+
+    //if(phone.length === 10) return "("+ phone.substring(0,2) + ")" + phone.substring(3,4) + "-" + phone.substring(5,10)
+    //if(phone.length === 11) return "("+ phone.substring(0,2) + ")" + phone.substring(3,5) + "-" + phone.substring(6,11)
+    return phone
+}
+
+const acrescentaTraco = phone => {
+    if(phone.length === 2)
+        return `(${phone})`
+
+    //if(phone.length === 12) return phone.substring(0,8) + "-" + phone.substring(9,12)
+    if(phone.length === 13) return phone.substring(0,9) + "-" + phone.substring(10,13)
+    return phone
+}
+const trataPhone = phoneInput => {
+    let phoneDigitado = phoneInput.value
+    console.log(phoneDigitado)
+    let phoneTratado = removeCaracteresPhone(phoneDigitado)
+    phoneTratado = acrescentaFormatoPhone(phoneTratado)
+    console.log(phoneTratado)
+    phoneInput.value = phoneTratado
+}
+
+const inputCheckPhone = document.getElementById('telefone')
+
+// se o input estiver carregado na tela,
+// associar o evento keyup
+    inputCheckPhone.addEventListener('keyup', (e) => {
+        inputCheckPhone.value = removeCaracteresPhone(inputCheckPhone.value)
+    })
+    inputCheckPhone.addEventListener('blur', (e)=> {
+        //Se tecla for backspace ou delete
+        // if(e.key.toString() == "Backspace" || e.key == "Delete") {
+        //     //remover o ponto
+        //     if (inputCheckPhone.value.length == 3) //primeiro ponto
+        //         inputCheckCPF.value = inputCheckCPF.value.substring(0, 2);
+        //     if (inputCheckCPF.value.length == 7) //segundo ponto
+        //         inputCheckCPF.value = inputCheckCPF.value.substring(0, 6);
+        //     if (inputCheckCPF.value.length == 11) // traço
+        //         inputCheckCPF.value = inputCheckCPF.value.substring(0, 10);
+        // }
+
+        trataPhone(inputCheckPhone);
+    })
+
 /**
  * A função previewFile pega uma imagem do computador do
  *   cliente, transforma em base64 e exibe em um <img>
@@ -99,7 +176,7 @@ inputsGenero.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
         genero = radioButton.value ?? null
         if(genero === "m") {
-            document.querySelector("#fieldReservista").style.display="block"
+            document.querySelector("#fieldReservista").style.display="flex"
         } else {
             document.querySelector("#fieldReservista").style.display="none"
         }
