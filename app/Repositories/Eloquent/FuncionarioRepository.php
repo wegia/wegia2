@@ -67,24 +67,38 @@ class FuncionarioRepository extends AbstractRepository
     }
 
     public function save($inputs) {
+        print_r($inputs);
         //1. salvar pessoa
-        $pessoa = $this->getPessoaRepository()->create($inputs['pessoa_nome'], $inputs['pessoa_genero'], $inputs['pessoa_nascimento']);
+        $pessoa = $this->getPessoaRepository()->create($inputs['pessoa_nome']
+                            , $inputs['pessoa_genero']
+                            , $inputs['pessoa_nascimento']);
         //2. salvar colaborador
-        $colaborador = $this->getColaboradorRepository()->create($pessoa->id, $inputs['colab_admissao'], 
-                                                $inputs['colab_situacao'], $inputs['colabDoc_cpf'], 
-                                                $inputs['colabDoc_rg'], $inputs['colabDoc_rg_orgao'], 
-                                                $inputs['colabDoc_rg_expedicao']);
+        $colaborador = $this->getColaboradorRepository()->create($pessoa->id
+                            , $inputs['colab_admissao']
+                            , $inputs['colab_situacao']
+                            , $inputs['colabDoc_cpf']
+                            , $inputs['colabDoc_rg']
+                            , $inputs['colabDoc_rg_orgao']
+                            , $inputs['colabDoc_rg_expedicao']);
         //3. salvar funcionario
-        $funcionario = Funcionario::create(['colab_id' => $colabId,
-                            'reserv_numero' => $reservNumero,
-                            'reserv_serie' => $reservSerie]);
+        // $colabId,
+        $funcionario = Funcionario::create(['colab_id' => $colaborador->id
+                            , 'reserv_numero' => $inputs['funcDoc_reserv_numero']
+                            , 'reserv_serie' => $inputs['funcDoc_reserv_serie']
+                        ]);
+                            //$reservNumero
+                            //reservSerie]);
 
         //4. salvar todos os dados auxiliares 
-        $this->getEscalaRepository()->createEscalaDoColaborador($colaborador->id, $inputs['tipoEscala_id'], $inputs['escala_id']);
-        $this->getContatoRepository()->createSimplified($pessoa->id, $inputs['contato_telefone']);
+        $this->getEscalaRepository()->createEscalaDoColaborador($colaborador->id
+                            , $inputs['tipoEscala_id']
+                            , $inputs['escala_id']);
+        $this->getContatoRepository()->createSimplified($pessoa->id
+                            , $inputs['contato_telefone']);
         
         // table many_to_many
-        $this->getCargoRepository()->createCargoDoColaborador($colaborador->id, $inputs['cargo_id']);
+        $this->getCargoRepository()->createCargoDoColaborador($colaborador->id
+                            , $inputs['cargo_id']);
         
         return $funcionario;
     }

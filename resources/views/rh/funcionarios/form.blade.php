@@ -162,7 +162,9 @@
                                         <div class="col-md-8">
                                             <input type="text" class="form-control"
                                                    id="telefone" name="contato.telefone"
-                                                   maxlength="11" minlength="10" inputmode="numeric" pattern="\(\d{2}\)\d{5}-\d{4}"
+                                                   maxlength="11" minlength="10" 
+                                                   inputmode="numeric" 
+                                                   pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$"
                                                    placeholder="Ex: (22)99999-9999" required>
                                         </div>
                                     </div>
@@ -314,14 +316,17 @@
                                         </label>
                                         <div class="col-md-8">
                                             <input type="text" name="funcDoc.reserv_numero"
-                                                   class="form-control num_reservista">
+                                                   class="form-control num_reservista"
+                                                   maxlength="10">
                                         </div>
                                         <label class="col-md-3 col-form-label" for="reserv_serie">
                                             Série do certificado reservista
                                         </label>
                                         <div class="col-md-8">
-                                            <input type="text" class="form-control serie_reservista"
-                                                   id="army_doc_serie" name="funcDoc.reserv_serie">
+                                            <input type="text" 
+                                                    class="form-control serie_reservista"
+                                                   id="army_doc_serie" name="funcDoc.reserv_serie"
+                                                   maxlength="5">
                                         </div>
                                     </div>
 
