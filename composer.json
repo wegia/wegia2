@@ -11,7 +11,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.0",
-        "twbs/bootstrap": "5.2.0"
+        "twbs/bootstrap": "^5.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
