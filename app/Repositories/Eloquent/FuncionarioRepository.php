@@ -105,9 +105,16 @@ class FuncionarioRepository extends AbstractRepository
         $dependentes = $this->getDependenteRepository()->listByFuncionario($funcionario->id);
         $remuneracoes = $this->getRemuneracaoRepository()->listByFuncionario($funcionario->id);
         
-        $data = ['pessoa' => $pessoa, 'contato' =>$contato, 'colaborador' => $colaborador, 'horarios' => $horarios
-                    , 'arquivos' => $arquivos, 'cargos' => $cargos, 'escalas' => $escalas
-                    , 'funcionario' => $funcionario, 'dependentes' => $dependentes, 'remuneracoes' => $remuneracoes];
+        $data = ['pessoa' => $pessoa
+                    , 'contato' =>$contato
+                    , 'colaborador' => $colaborador
+                    , 'horarios' => $horarios
+                    , 'arquivos' => $arquivos
+                    , 'cargos' => $cargos
+                    , 'escalas' => $escalas
+                    , 'funcionario' => $funcionario
+                    , 'dependentes' => $dependentes
+                    , 'remuneracoes' => $remuneracoes];
         return $data;
     }
 

@@ -52,7 +52,8 @@ class FuncionariosController extends Controller {
 
     public function edit($funcId) {
         $data = $this->funcionarioRepository->loadFuncionario($funcId);
-        return view('rh.funcionarios.edita', $data);
+        return $data;
+        //return view('rh.funcionarios.edita', $data);
     }
 
     public function checkCPF() {
