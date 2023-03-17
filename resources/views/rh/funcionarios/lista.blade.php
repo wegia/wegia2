@@ -42,7 +42,7 @@
                 </select>
                 <button class="btn btn-primary">Filtrar</button>
             </div>
-            <table class="table table-dark listTable">
+            <table id="table" class="table table-dark listTable">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
