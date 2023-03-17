@@ -162,8 +162,8 @@
                                         <div class="col-md-8">
                                             <input type="text" class="form-control"
                                                    id="telefone" name="contato.telefone"
-                                                   maxlength="11" minlength="10" 
-                                                   inputmode="numeric" 
+                                                   maxlength="11" minlength="10"
+                                                   inputmode="numeric"
                                                    pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$"
                                                    placeholder="Ex: (22)99999-9999" required>
                                         </div>
@@ -189,6 +189,7 @@
                                         <div class="col-md-8">
                                             <input type="text" class="form-control"
                                                    id="rg" name="colabDoc.rg"
+                                                   maxlength="12"
                                                    placeholder="Ex: 22.222.222-2" required>
                                         </div>
                                     </div>
@@ -323,7 +324,7 @@
                                             Série do certificado reservista
                                         </label>
                                         <div class="col-md-8">
-                                            <input type="text" 
+                                            <input type="text"
                                                     class="form-control serie_reservista"
                                                    id="army_doc_serie" name="funcDoc.reserv_serie"
                                                    maxlength="5">
