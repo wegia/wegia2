@@ -45,10 +45,8 @@ class FuncionarioRepository extends AbstractRepository
         if (is_null($cpf)) {
             return false;
         }
-        $result = DB::select('SELECT cpf FROM funcionario f JOIN colaborador c
-                                    ON f.colab_id = c.id 
-                                WHERE c.cpf = ?', [$cpf]);
-        //return ($result['cpf'] !== null)? 'true' : 'false';
+        $result = DB::select('SELECT cpf FROM funcionario f 
+                                WHERE f.cpf = ?', [$cpf]);
         return empty($result)? false : true;
     }
 

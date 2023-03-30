@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
 
         // povoando tabelas auxiliares
-        /*
         DB::insert('INSERT INTO cargo (nome) VALUES (?)', array('Administrador') );
         DB::insert('INSERT INTO cargo (nome) VALUES (?)', array('Sem cargo definido') );
 
@@ -73,21 +72,35 @@ class DatabaseSeeder extends Seeder
         DB::insert('INSERT INTO tipo_escala (nome) values (?)', array('Dias alternados'));
 
         // criando uma pessoa de teste
-        DB::insert('INSERT INTO pessoa (nome) VALUES (?)', array('João') );
+        DB::insert('INSERT INTO colaborador (login,senha) VALUES (?, ?)', array('teste@cefet-rj.br', 'a'));
+
+        ///// 2023-03-23
+        //refazer esse seed
+        //////////////////
+        /*
+        DB::insert('INSERT INTO funcionario (
+                        , colab_id, nome, genero, admissao, situacao, foto
+                        , nascimento, nome_mae, nome_pai, tipo_sanguineo
+                        , cpf, rg, rg_orgao, rg_expedicao, rg_vencimento
+                        , pis, ctps, ctps_uf
+                        , eleitor_numero, eleitor_zona, eleitor_secao
+                        , reserv_numero, reserv_orgao, reserv_serie) 
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+                            , array(1, 'João', 'm', null, 'a', null
+                            , null, null ,'1464504403', '1029321-2', 'RJ' 
+                            ,'0001920', '123', '0123', NULL, NULL, NULL));
+        
+
         DB::insert('INSERT INTO contato (pessoa_id, logradouro, numero, complemento, bairro, cidade, estado, cep, telefone, celular, email)
                     VALUES (?,?,?,?,?,?,?,?,?,?,?)', array(1, 'Av. Governador Roberto Silveira', 1900, 'Antigo prédio do Detro', 'Prado'
                     , 'Nova Friburgo', 'RJ', '28621-000', '(22)2527-1727', '(22)99999-9991', 'teste@cefet-rj.br'));
 
-        DB::insert('INSERT INTO colaborador (pessoa_id,situacao) VALUES (?, ?)', array(1, 'a'));
+        
+        
         DB::insert('INSERT INTO colab_tem_cargo (colab_id, cargo_id) VALUES (?, ?)', array(1, 1));
 
-        DB::insert('INSERT INTO funcionario (colab_id, pis, ctps, ctps_uf
-                            , eleitor_numero, eleitor_zona, eleitor_secao
-                            , reserv_numero, reserv_orgao, reserv_serie) 
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', array(1, '1464504403', '1029321-2', 'RJ', 
-                            '0001920', '123', '0123', NULL, NULL, NULL));
 
-        
+        */
 
         DB::insert('INSERT INTO horario (entrada, saida, inicio, fim, dia_semana, colab_id) values (?,?,?,?,?,?)'
             , array('08:00', '17:00', '2020-01-03', NULL, 'SEG', 1));
@@ -100,6 +113,6 @@ class DatabaseSeeder extends Seeder
         DB::insert('INSERT INTO horario (entrada, saida, inicio, fim, dia_semana, colab_id) values (?,?,?,?,?,?)'
             , array('08:00', '17:00', '2020-01-03', NULL, 'SEX', 1));
         
-        */
+
     }
 }
