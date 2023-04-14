@@ -1,31 +1,89 @@
 @extends('layouts.main')
 
 @section('title')
-Início
+    Início
 @endsection
 
 @section('breadcrumbs')
-<li class="breadcrumb-item active" aria-current="page">
-    <i class="fa fa-home px-1"></i>Início
-</li>
+    <li class="breadcrumb-item active" aria-current="page">
+        <i class="fa fa-home px-1"></i>Início
+    </li>
 @endsection
 
 
 @section('content')
-<div class="container-fluid">
-    <div class="row" id="category-row" >
-        <div class="col-lg-2 col-md-8 m-2 mt-0 border-2 rounded-3 text-center bg-dark cardHeight d-flex align-items-center justify-content-center">
-            <a class="text-decoration-none link-light" href="{{route('rhMain')}}">
-                <i class="fa-solid fa-address-book d-block fs-1"></i>
-                <p class="m-0">Pessoas</p>
-            </a>
+        <div class="container-fluid p-0 p-2 pt-0">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-6 g-2">
+                <div class="col">
+                    <div class="card text-center text-bg-dark">
+                        <a href="#" class="justify-content-center align-content-center text-decoration-none link-light">
+                            <div class="card-body p-4">
+                                <i class="fa-solid fa-person fs-1 pb-5"></i>
+                                <p class="card-text">Pessoas</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center text-bg-dark">
+                        <a href="{{route('rhMain')}}" class="justify-content-center align-content-center text-decoration-none link-light">
+                            <div class="card-body p-4">
+                                <i class="fa-solid fa-briefcase fs-1 pb-5"></i>
+                                <p class="card-text">Recursos Humanos</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center text-bg-dark">
+                        <a href="#" class="justify-content-center align-content-center text-decoration-none link-light">
+                            <div class="card-body p-4">
+                                <i class="fa-solid fa-paw fs-1 pb-5"></i>
+                                <p class="card-text">Pet</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center text-bg-dark">
+                        <a href="#" class="justify-content-center align-content-center text-decoration-none link-light">
+                            <div class="card-body p-4">
+                                <i class="fa-solid fa-cubes fs-1 pb-5"></i>
+                                <p class="card-text">Material e Patrimônio</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center text-bg-dark">
+                        <a href="#" class="justify-content-center align-content-center text-decoration-none link-light">
+                            <div class="card-body p-4">
+                                <i class="fa-solid fa-book fs-1 pb-5"></i>
+                                <p class="card-text">Memorando</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center text-bg-dark">
+                        <a href="#" class="justify-content-center align-content-center text-decoration-none link-light">
+                            <div class="card-body p-4">
+                                <i class="fa-solid fa-user-nurse fs-1 pb-5"></i>
+                                <p class="card-text">Saúde</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center text-bg-dark">
+                        <a href="#" class="justify-content-center align-content-center text-decoration-none link-light">
+                            <div class="card-body p-4">
+                                <i class="fa-solid fa-gears fs-1 pb-5"></i>
+                                <p class="card-text">Configurações</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-2 col-md-8 m-2 mt-0 border-2 rounded-3 text-center bg-dark cardHeight d-flex align-items-center justify-content-center">
-             <a class="text-decoration-none link-light" href="{{route('rhMain')}}">
-                <i class="fa-solid fa-briefcase d-block fs-1"></i>
-                <p class="m-0">Recursos Humanos</p>
-            </a>
-        </div>
-    </div>
-</div>
 @endsection

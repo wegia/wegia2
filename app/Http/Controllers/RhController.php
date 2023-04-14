@@ -1,80 +1,92 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 
 use App\Models\rh\Cargo;
 use App\Models\rh\Escala;
 use App\Models\rh\TipoEscala;
 
-class RhController extends Controller {
+class RhController extends Controller
+{
 
-    public function __construct(){
+    public function __construct()
+    {
 
     }
 
-    public function index(){
-        return view ('rh.main');
+    public function index()
+    {
+        return view('rh.main');
     }
 
-    public function funcionarios() {
+    public function funcionarios()
+    {
         return view('rh.funcionarios.funcionario');
     }
 
-    public function voluntarios() {
+    public function voluntarios()
+    {
         return view('rh.voluntarios.voluntario');
     }
-    
-    public function addCargo(Request $request) {
-        
+
+    public function addCargo(Request $request)
+    {
+
         Cargo::create([
             'nome' => $request->json('nome')
         ]);
-        
+
         $response = [
             "status" => 'success',
             "message" => 'novo cargo salvo'
         ];
         return response()->json($response);
-        
+
     }
 
-    public function listCargo() {
+    public function listCargo()
+    {
         return Cargo::all();
     }
 
-    public function addEscala(Request $request) {
+    public function addEscala(Request $request)
+    {
         Escala::create([
             'nome' => $request->json('nome'),
             'descricao' => $request->json('descricao')
         ]);
-        
+
         $response = [
             "status" => 'success',
             "message" => 'novo cargo salvo'
         ];
         return response()->json($response);
-        
+
     }
 
-    public function listEscala() {
+    public function listEscala()
+    {
         return Escala::all();
     }
 
-    public function addTipoEscala(Request $request) {
+    public function addTipoEscala(Request $request)
+    {
         TipoEscala::create([
             'nome' => $request->json('nome')
         ]);
-        
+
         $response = [
             "status" => 'success',
             "message" => 'novo cargo salvo'
         ];
         return response()->json($response);
-        
+
     }
 
-    public function listTipoEscala() {
+    public function listTipoEscala()
+    {
         return TipoEscala::all();
     }
 }

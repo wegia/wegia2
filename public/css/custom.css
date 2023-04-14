@@ -3,17 +3,10 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /*background-image: linear-gradient(#f6f6f6 0%, white 45%);*/
-    /*border-bottom: 2px solid #E9E9E6;*/
-    /*border-top: 3px solid #EDEDED;*/
-    /*border-radius: 0 0 10px 10px;*/
 }
 .background {
     background-color: #171a1d;
 }
-/*header > div {*/
-/*    margin: 10px 15px;*/
-/*}*/
 
 .avatar {
     display: flex;
@@ -55,8 +48,9 @@ header {
     width: 16px;
 }
 
-.cardHeight {
-    height: 200px;
+.cardWidth {
+    width: 20rem;
+    height: 12.5rem;
 }
 
 .foto {

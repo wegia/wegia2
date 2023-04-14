@@ -6,33 +6,41 @@ Recursos Humanos
 
 @section('breadcrumbs')
     <li class="breadcrumb-item" aria-current="page">
-        <a class="text-secondary" href="/">
-            <i class="fa fa-home px-1"></i>Início
+        <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="/">
+            <i class="fa-solid fa-home px-1"></i>Início
         </a>
     </li>
     <li class="breadcrumb-item active" aria-current="page">
-        <a href="{{route('rhMain')}}">
-            <i class="far fa-address-book px-1"></i>Recursos Humanos
+        <a class="link-light text-decoration-none pointer-event" href="#">
+            <i class="fa-solid fa-briefcase px-1"></i>Recursos Humanos
         </a>
     </li>
 @endsection
 
 
 @section('content')
-<div class="container-fluid">
-    <div class="row" id="category-row" >
-        <div class="col-lg-2 col-md-8 m-2 mt-0 border-2 rounded-3 text-center bg-dark cardHeight d-flex align-items-center justify-content-center">
-            <a class="text-decoration-none link-light" href="{{route('rhFuncionariosPainel')}}">
-                <i class="fa-solid fa-address-book d-block fs-1"></i>
-                <p class="m-0">Funcionários</p>
-            </a>
+        <div class="container-fluid p-0 p-2 pt-0">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-6 g-2">
+                <div class="col">
+                    <div class="card text-center text-bg-dark">
+                        <a href="{{route('rhFuncionariosPainel')}}" class="justify-content-center align-content-center text-decoration-none link-light">
+                            <div class="card-body p-4">
+                                <i class="fa-solid fa-building-user fs-1 pb-5"></i>
+                                <p class="card-text">Funcionários</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center text-bg-dark">
+                        <a href="{{route('rhVoluntariosPainel')}}" class="justify-content-center align-content-center text-decoration-none link-light">
+                            <div class="card-body p-4">
+                                <i class="fa-solid fa-user-clock fs-1 pb-5"></i>
+                                <p class="card-text">Voluntários</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-2 col-md-8 m-2 mt-0 border-2 rounded-3 text-center bg-dark cardHeight d-flex align-items-center justify-content-center">
-            <a class="text-decoration-none link-light" href="{{route('rhVoluntariosPainel')}}">
-                <i class="fa-solid fa-cubes d-block fs-1"></i>
-                <p class="m-0">Voluntários</p>
-            </a>
-        </div>
-    </div>
-</div>
 @endsection

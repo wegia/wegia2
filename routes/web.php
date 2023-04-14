@@ -82,7 +82,6 @@ Route::get('/teste', function(){
 // Rotas para RhController
 ////////////////////////
 // Navegação
-
 Route::get('/rh', [RhController::class, 'index'])->name("rhMain");
 Route::get('/rh/funcionarios/painel', [RhController::class, 'funcionarios'])->name("rhFuncionariosPainel");
 Route::get('/rh/voluntarios/painel', [RhController::class, 'voluntarios'])->name("rhVoluntariosPainel");

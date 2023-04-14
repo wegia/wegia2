@@ -10,24 +10,26 @@
 
 
 @section('breadcrumbs')
+
     <li class="breadcrumb-item" aria-current="page">
-        <a class="text-secondary" href="/">
+        <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="/">
             <i class="fa fa-home px-1"></i>Início
         </a>
     </li>
-    <li class="breadcrumb-item" aria-current="page">
-        <a class="text-secondary" href="{{route('rhMain')}}">
+    <li class="breadcrumb-item active" aria-current="page">
+        <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+           href="{{route('rhMain')}}">
             <i class="far fa-address-book px-1"></i>Recursos Humanos
         </a>
     </li>
-    <li class="breadcrumb-item" aria-current="page">
-        <a class="text-secondary" href="{{route('rhFuncionariosPainel')}}">
-            <i class="far fa-address-book px-1"></i>Funcionários
+    <li class="breadcrumb-item active" aria-current="page">
+        <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{route('rhFuncionariosPainel')}}">
+            <i class="fa-solid fa-building-user px-1"></i>Funcionários
         </a>
     </li>
     <li class="breadcrumb-item active" aria-current="page">
-        <a href="{{route('listaFuncionarios')}}">
-            <i class="far fa-address-book px-1"></i>Cadastrar
+        <a class="link-light text-decoration-none pointer-event" href="#">
+            <i class="fa-solid fa-user-plus px-1"></i>Cadastrar
         </a>
     </li>
 @endsection
@@ -40,9 +42,9 @@
         @if(!isset($cpfJaExiste))
             <div class="card col-lg-10 col-md-8 mx-auto m-5 text-bg-dark">
                 <h5 class="card-header">Digite seu CPF</h5>
-                <div class="card-body">
+                <div class="card-body bg-dark">
                     <form method="GET" action="{{route('cpfJaCadastrado')}}">
-                        <div class="md-form">
+                        <div class="form-outline form-white">
                             <input type="text" id="inputCheckCPF" name="cpf"
                                    class="form-control" inputmode="numeric" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
                                    maxlength="14" placeholder="Ex. 222.222.222-22">

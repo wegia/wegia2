@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="pt-br" data-bs-theme="dark">
 <head>
     <!-- Basic -->
     <meta charset="UTF-8">
@@ -14,7 +14,8 @@
 </head>
 
 <body class="background">
-<header class="bg-dark p-3 px-4 me-2 ms-2 mt-2 border-2 rounded-2">
+<!-- Menu superior -->
+<header class="bg-dark p-3 px-4 m-2 border-2 rounded-2">
     <div class="">
         <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
                 aria-controls="sidebar">
@@ -46,6 +47,7 @@
     </div><!-- end: search & user box -->
 </header>
 
+<!-- Menu lateral -->
 <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
@@ -98,41 +100,6 @@
                 </div>
             </div>
         </div>
-
-
-        {{--                <!-- Pessoas/Beneficiários -->--}}
-        {{--                <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoas">--}}
-        {{--                    <div class="p-2 ps-5 pe-4">--}}
-        {{--                        <a class="d-flex justify-content-between link-light text-decoration-none" data-bs-toggle="collapse" href="#collapsePessoasBeneficiarios" role="button" aria-expanded="false" aria-controls="collapsePessoasBeneficiarios">--}}
-        {{--                            <div>--}}
-        {{--                                <p class="m-0"><i class="fa-solid fa-clipboard-user fontAwesomeWidth"></i> Beneficiários</p>--}}
-        {{--                            </div>--}}
-        {{--                            <div>--}}
-        {{--                                <p class="m-0"><i class="fa-solid fa-chevron-down"></i></p>--}}
-        {{--                            </div>--}}
-        {{--                        </a>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--                <!-- Pessoas/Beneficiários/Cadastrar -->--}}
-        {{--                <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoasBeneficiarios">--}}
-        {{--                    <div class="p-2 ps-5 pe-4">--}}
-        {{--                        <a class="link-light text-decoration-none" href="/" role="button"">--}}
-        {{--                        <div class="ps-4 pe-4">--}}
-        {{--                            <p class="m-0"><i class="fa-solid fa-pen-to-square fontAwesomeWidth"></i> Cadastrar</p>--}}
-        {{--                        </div>--}}
-        {{--                        </a>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--                <!-- Pessoas/Beneficiários/Informações -->--}}
-        {{--                <div class="collapse bg-secondary bg-opacity-25" id="collapsePessoasBeneficiarios">--}}
-        {{--                    <div class="p-2 ps-5 pe-4">--}}
-        {{--                        <a class="link-light text-decoration-none" href="/" role="button"">--}}
-        {{--                        <div class="ps-4 pe-4">--}}
-        {{--                            <p class="m-0"><i class="fa-solid fa-list-ul fontAwesomeWidth"></i> Lista de cadastro</p>--}}
-        {{--                        </div>--}}
-        {{--                        </a>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
 
         <!-- RH -->
         <div class="p-2 px-2 m-1">
@@ -221,19 +188,17 @@
         </div>
     </div>
 </div>
+
 <!-- Breadcrumb -->
-<div class="content col-md-12">
-    <div class="bg-dark breadcrumb-nav px-3 p-2 m-2 border-2 rounded-2">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb mt-auto mb-auto">
-                @yield('breadcrumbs')
-            </ol>
-        </nav>
-    </div>
-    @yield('content')
+<div class="bg-dark breadcrumb-nav px-3 p-2 m-2 border-2 rounded-2">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mt-auto mb-auto">
+            @yield('breadcrumbs')
+        </ol>
+    </nav>
 </div>
-</div>
-</div>
+
+@yield('content')
 
 <script src="/js/app.js"></script>
 <script src="/js/jquery.min.js"></script>
