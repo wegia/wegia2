@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-/*
+        Schema::dropIfExists('pessoa');
         Schema::dropIfExists('tipo_arquivo');
         Schema::dropIfExists('escala');
         Schema::dropIfExists('tipo_escala');
@@ -31,12 +31,27 @@ return new class extends Migration
         Schema::dropIfExists('dependente');
         Schema::dropIfExists('colab_tem_escala');
         Schema::dropIfExists('contato');
-        */
+        
         ///////////////////////////////////////
         // TABELAS SEM CHAVES ESTRANGEIRAS
         // >> não têm dependências e por isso 
         // >> devem ser criadas antes
         ///////////////////////////////////////
+
+        Schema::create('pessoa', function (Blueprint $table) {
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_unicode_ci';
+
+            $table->bigIncrements('id');
+            $table->string('nome', 100);
+            $table->char('genero', 1)->nullable();
+            $table->date('nascimento')->nullable();
+            $table->binary('foto')->nullable();
+            $table->string('nome_mae', 100)->nullable();
+            $table->string('nome_pai', 100)->nullable();
+            $table->char('tipo_sangue', 3)->nullable();
+            $table->timestamps();
+        });
 
         Schema::create('tipo_arquivo', function (Blueprint $table) {
             $table->charset = 'utf8mb4';
