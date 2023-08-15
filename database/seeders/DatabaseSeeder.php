@@ -1,5 +1,6 @@
 <?php
 
+use Database\Seeders\EscalaSeeder;
 use Database\Seeders\PessoaTableSeeder;
 use Database\Seeders\TipoArquivoSeeder;
 use Illuminate\Database\Seeder;
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PessoaTableSeeder::class,
             TipoArquivoSeeder::class,
+            EscalaSeeder::class,
         ]);
     }
 }
