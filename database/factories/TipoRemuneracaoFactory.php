@@ -20,7 +20,7 @@ class TipoRemuneracaoFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => $this->faker->unique()->randomElement(['TE1', 'TE2', 'TE3']),
+            'nome' => $this->faker->unique(true)->randomElement(['TR1', 'TR2', 'TR3']),
         ];
     }
 }

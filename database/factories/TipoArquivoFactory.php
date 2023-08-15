@@ -21,7 +21,7 @@ class TipoArquivoFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => $this->faker->unique()->randomElement(['T1', 'T2', 'T3']),
+            'nome' => $this->faker->unique()->randomElement(['TA1', 'TA2', 'TA3']),
         ];
     }
 }

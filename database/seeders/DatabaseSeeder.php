@@ -1,8 +1,12 @@
 <?php
 
+use App\Models\Pessoa;
 use App\Models\rh\TipoEscala;
 use App\Models\utils\Parentesco;
 use App\Models\rh\Cargo;
+use App\Models\rh\Escala;
+use App\Models\rh\TipoArquivo;
+use App\Models\rh\TipoRemuneracao;
 use Database\Seeders\CargoSeeder;
 use Database\Seeders\EscalaSeeder;
 use Database\Seeders\ParentescoSeeder;
@@ -23,14 +27,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
+            Pessoa::truncate();
+            TipoArquivo::truncate();
+            Escala::truncate();
+            TipoEscala::truncate();
+            TipoRemuneracao::truncate();
+            Cargo::truncate();
+        Schema::enableForeignKeyConstraints();
+        
         $this->call([
-            //PessoaTableSeeder::class,
-            //TipoArquivoSeeder::class,
-            //EscalaSeeder::class,
-            //TipoEscalaSeeder::class
-            //TipoRemuneracaoSeeder::class,
-            //UFSeeder::class,
-            //ParentescoSeeder::class,
+            PessoaTableSeeder::class,
+            TipoArquivoSeeder::class,
+            EscalaSeeder::class,
+            TipoEscalaSeeder::class,
+            TipoRemuneracaoSeeder::class,
+            UFSeeder::class, //Não é necessário truncar os dados
+            ParentescoSeeder::class, //Não é necessário truncar os dados
             CargoSeeder::class,
         ]);
     }
