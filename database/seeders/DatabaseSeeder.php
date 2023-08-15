@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             //PessoaTableSeeder::class,
             //TipoArquivoSeeder::class,
             //EscalaSeeder::class,
-            TipoEscalaSeeder::class
+            //TipoEscalaSeeder::class
+            TipoRemuneracaoSeeder::class,
         ]);
     }
 }
