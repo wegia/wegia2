@@ -19,7 +19,7 @@
                         <a href="#" class="justify-content-center align-content-center text-decoration-none link-light">
                             <div class="card-body p-4">
                                 <i class="fa-solid fa-person fs-1 pb-5"></i>
-                                <p class="card-text">Pessoas</p>
+                                <p class="card-text text-truncate">Pessoas</p>
                             </div>
                         </a>
                     </div>
@@ -29,7 +29,7 @@
                         <a href="{{route('rhMain')}}" class="justify-content-center align-content-center text-decoration-none link-light">
                             <div class="card-body p-4">
                                 <i class="fa-solid fa-briefcase fs-1 pb-5"></i>
-                                <p class="card-text">Recursos Humanos</p>
+                                <p class="card-text text-truncate">Recursos Humanos</p>
                             </div>
                         </a>
                     </div>
@@ -39,7 +39,7 @@
                         <a href="#" class="justify-content-center align-content-center text-decoration-none link-light">
                             <div class="card-body p-4">
                                 <i class="fa-solid fa-paw fs-1 pb-5"></i>
-                                <p class="card-text">Pet</p>
+                                <p class="card-text text-truncate">Pet</p>
                             </div>
                         </a>
                     </div>
@@ -49,7 +49,7 @@
                         <a href="#" class="justify-content-center align-content-center text-decoration-none link-light">
                             <div class="card-body p-4">
                                 <i class="fa-solid fa-cubes fs-1 pb-5"></i>
-                                <p class="card-text">Material e Patrimônio</p>
+                                <p class="card-text text-truncate">Material e Patrimônio</p>
                             </div>
                         </a>
                     </div>
@@ -59,7 +59,7 @@
                         <a href="#" class="justify-content-center align-content-center text-decoration-none link-light">
                             <div class="card-body p-4">
                                 <i class="fa-solid fa-book fs-1 pb-5"></i>
-                                <p class="card-text">Memorando</p>
+                                <p class="card-text text-truncate">Memorando</p>
                             </div>
                         </a>
                     </div>
@@ -69,7 +69,7 @@
                         <a href="#" class="justify-content-center align-content-center text-decoration-none link-light">
                             <div class="card-body p-4">
                                 <i class="fa-solid fa-user-nurse fs-1 pb-5"></i>
-                                <p class="card-text">Saúde</p>
+                                <p class="card-text text-truncate">Saúde</p>
                             </div>
                         </a>
                     </div>
@@ -79,7 +79,7 @@
                         <a href="#" class="justify-content-center align-content-center text-decoration-none link-light">
                             <div class="card-body p-4">
                                 <i class="fa-solid fa-gears fs-1 pb-5"></i>
-                                <p class="card-text">Configurações</p>
+                                <p class="card-text text-truncate">Configurações</p>
                             </div>
                         </a>
                     </div>
