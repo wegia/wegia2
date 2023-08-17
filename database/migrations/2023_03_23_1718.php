@@ -132,7 +132,6 @@ return new class extends Migration
             $table->string('rg_orgao', 20)->nullable();
             $table->date('rg_expedicao')->nullable();
             $table->date('rg_vencimento', 5)->nullable();
-            $table->string('ibge', 20)->nullable();
 
             $table->timestamps();
 
@@ -196,6 +195,8 @@ return new class extends Migration
             $table->string('telefone', 20)->nullable();
             $table->string('celular', 20)->nullable();
             $table->string('email', 200)->nullable();
+            $table->string('ibge', 7)->nullable();
+
             $table->timestamps();
 
             //setting keys
