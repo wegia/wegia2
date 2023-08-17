@@ -13,7 +13,7 @@ class Arquivo extends Model {
     protected $table = 'arquivo';
     public $timestamps = false;
 
-    protected $fillable = array('colab_id', 'tipo_id', 'descricao', 'data_cadastro', 'foto');
+    protected $fillable = array('pessoa_id', 'tipo_id', 'descricao', 'data_cadastro', 'foto');
 
     protected $guarded = ['id'];
 

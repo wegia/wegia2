@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class TipoRemuneracao extends Model {
     use HasFactory;
 
-    protected $table = 'tipo_remunecacao';
+    protected $table = 'tipo_remuneracao';
     
     public $timestamps = false;
 
