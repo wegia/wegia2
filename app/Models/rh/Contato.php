@@ -15,7 +15,7 @@ class Contato extends Model {
 
     protected $fillable = array('pessoa_id', 'logradouro', 'numero'
             , 'complemento', 'bairro', 'cidade', 'estado', 'cep'
-            , 'telefone', 'celular', 'email');
+            , 'telefone', 'celular', 'email', 'ibge');
 
     //protected $guarded = ['id'];
 

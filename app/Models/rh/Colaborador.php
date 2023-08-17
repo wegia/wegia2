@@ -20,7 +20,7 @@ class Colaborador extends Model {
     public $timestamps = false;
 
     protected $fillable = array('pessoa_id', 'admissao', 'situacao', 'cpf'
-                            , 'rg', 'rg_orgao', 'rg_expedicao', 'rg_vencimento', 'ibge');
+                            , 'rg', 'rg_orgao', 'rg_expedicao', 'rg_vencimento');
 
     public function funcionario() {
         return $this->hasOne(Funcionario::class, 'colab_id');

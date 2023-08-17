@@ -33,6 +33,7 @@ class ContatoFactory extends Factory
             'telefone' => $this->faker->phoneNumber('########'),
             'celular' => $this->faker->phoneNumber('+55(22)9####-####'),
             'email' => $this->faker->email(),
+            'ibge' => $this->faker->numerify('#######'),
         ];
     }
 }
