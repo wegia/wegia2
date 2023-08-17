@@ -42,6 +42,7 @@ class DatabaseSeeder extends Seeder
             Cargo::truncate();
             Contato::truncate();
             Arquivo::truncate();
+            Colaborador::truncate();
         Schema::enableForeignKeyConstraints();
         
         $this->call([
@@ -54,6 +55,8 @@ class DatabaseSeeder extends Seeder
             ParentescoSeeder::class, //Não é necessário truncar os dados
             CargoSeeder::class,
             ContatoSeeder::class,
+            ArquivoSeeder::class,
+            ColaboradorSeeder::class,
         ]);
     }
 }

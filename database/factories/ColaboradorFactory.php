@@ -22,6 +22,8 @@ class ColaboradorFactory extends Factory
         $existingPessoaIds = \App\Models\Pessoa::pluck('id')->toArray();
 
         return [
+            'login' => $this->faker->numerify('#######'),
+            'senha' =>$this->faker->numerify('#######'),
             'admissao' => $this->faker->dateTimeBetween('-10 years'),
             'situacao' => $this->faker->randomElement(['A','A','A','A','I']),
             'pessoa_id' => $this->faker->randomElement($existingPessoaIds),
