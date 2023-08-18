@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\rh\Colaborador;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,10 +19,10 @@ class HorarioFactory extends Factory
 
     public function definition(): array
     {
-        $existingColaboradorIds = \App\Models\rh\Colaborador::pluck('id')->toArray();
+        $existingColaboradorIds = Colaborador::pluck('id')->toArray();
 
         return [
-            'colab_id' => $this->faker->randomElement($existingColaboradorIds),
+            'colaborador_id' => $this->faker->randomElement($existingColaboradorIds),
             'entrada' => $this->faker->time(),
             'saida' => $this->faker->time(),
             'inicio' => $this->faker->dateTimeInInterval('-2 week'),

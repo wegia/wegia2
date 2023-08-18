@@ -13,38 +13,42 @@ use App\Models\rh\Voluntario;
 use App\Models\rh\Cargo;
 use App\Models\rh\Horario;
 
-class Colaborador extends Model {
+class Colaborador extends Model
+{
     use HasFactory;
 
     protected $table = 'colaborador';
+    protected $fillable = ['admissao', 'situacao', 'cpf', 'rg', 'rg_orgao', 'rg_expedicao', 'rg_vencimento'];
     public $timestamps = false;
 
-    protected $fillable = array('pessoa_id', 'admissao', 'situacao', 'cpf'
-                            , 'rg', 'rg_orgao', 'rg_expedicao', 'rg_vencimento');
 
-    public function funcionario() {
-        return $this->hasOne(Funcionario::class, 'colab_id');
-    }
-
-    public function voluntario() {
-        return $this->hasOne(Voluntario::class, 'colab_id');
-    }
-    
-    public function horarios() {
-        return $this->hasMany(Horario::class, 'colab_id');
-    }
-    
-    public function arquivos() {
-        return $this->hasMany(Arquivo::class, 'colab_id');
-    }
-    
-    public function escalas() {
-        return $this->belongsToMany(Escala::class, 'colab_tem_escala', 'colab_id', 'escala_id');
+    public function funcionario()
+    {
+        return $this->hasOne(Funcionario::class);
     }
 
-    public function cargos() {
-        return $this->belongsToMany(Cargo::class, 'colab_tem_cargo', 'colab_id', 'cargo_id');
+    public function voluntario()
+    {
+        return $this->hasOne(Voluntario::class);
     }
 
-    
+    public function horarios()
+    {
+        return $this->hasMany(Horario::class);
+    }
+
+    public function arquivos()
+    {
+        return $this->hasMany(Arquivo::class);
+    }
+
+    public function escalas()
+    {
+        return $this->belongsToMany(Escala::class, 'colab_tem_escala', 'colaborador_id', 'escala_id');
+    }
+
+    public function cargos()
+    {
+        return $this->belongsToMany(Cargo::class, 'colab_tem_cargo', 'colaborador_id', 'cargo_id');
+    }
 }

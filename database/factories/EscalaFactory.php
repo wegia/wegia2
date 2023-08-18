@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\rh\Escala;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,7 +16,7 @@ class EscalaFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = \app\Models\rh\Escala::class;
+    protected $model = Escala::class;
 
     public function definition(): array
     {

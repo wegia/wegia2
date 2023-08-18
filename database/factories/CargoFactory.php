@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\rh\Cargo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,14 +15,14 @@ class CargoFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    protected $model = \app\Models\rh\Cargo::class;
+    protected $model = Cargo::class;
 
     public function definition(): array
     {
         return [
             'nome' => $this->faker->unique()->randomElement([
                 'Gerente', 'Coordenador', 'Supervisor', 'Administrador',
-                'Analista', 'Assistente', 'Auxiliar', 'Estagiário', 
+                'Analista', 'Assistente', 'Auxiliar', 'Estagiário',
             ]),
             'descricao' => $this->faker->sentence(2),
         ];

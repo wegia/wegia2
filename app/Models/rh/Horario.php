@@ -9,12 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Horario extends Model {
     use HasFactory;
-    
-    protected $table = 'horario';
-    public $timestamps = false;
 
-    protected $fillable = array('colab_id', 'entrada', 'saida', 'dia_semana', 'inicio', 'fim');
-    
+    protected $table = 'horario';
+    protected $fillable = ['entrada', 'saida', 'dia_semana', 'inicio', 'fim'];
     protected $guarded = ['id'];
 
+    public $timestamps = false;
 }

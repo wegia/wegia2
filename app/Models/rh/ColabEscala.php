@@ -11,10 +11,8 @@ class ColabEscala extends Model {
     use HasFactory;
 
     protected $table = 'colab_tem_escala';
-    public $timestamps = false;
-
-    protected $fillable = array('colab_id', 'escala_id', 'tipo_id', 'inicio', 'fim');
-
+    protected $fillable = ['inicio', 'fim'];
     protected $guarded = ['id'];
-    
+
+    public $timestamps = false;
 }

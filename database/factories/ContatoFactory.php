@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Pessoa;
+use App\Models\rh\Contato;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,12 +17,12 @@ class ContatoFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = \app\Models\rh\Contato::class;
+    protected $model = Contato::class;
 
     public function definition(): array
     {
-        $existingPessoaIds = \App\Models\Pessoa::pluck('id')->toArray();
-        
+        $existingPessoaIds = Pessoa::pluck('id')->toArray();
+
         return [
             'pessoa_id' => $this->faker->unique()->randomElement($existingPessoaIds),
             'logradouro' => $this->faker->streetName(),
