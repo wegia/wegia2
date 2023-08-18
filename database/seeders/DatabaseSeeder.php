@@ -6,6 +6,7 @@ use App\Models\rh\Contato;
 use App\Models\rh\Cargo;
 use App\Models\rh\Escala;
 use App\Models\rh\Arquivo;
+use App\Models\rh\ColabCargo;
 use App\Models\rh\TipoArquivo;
 use App\Models\rh\TipoRemuneracao;
 use App\Models\rh\Colaborador;
@@ -20,6 +21,7 @@ use Database\Seeders\ParentescoSeeder;
 use Database\Seeders\PessoaTableSeeder;
 use Database\Seeders\TipoArquivoSeeder;
 use Database\Seeders\ArquivoSeeder;
+use Database\Seeders\ColabCargoSeeder;
 use Database\Seeders\DependenteSeeder;
 use Database\Seeders\FuncionarioSeeder;
 use Database\Seeders\TipoEscalaSeeder;
@@ -51,6 +53,7 @@ class DatabaseSeeder extends Seeder
             Horario::truncate();
             Funcionario::truncate();
             Dependente::truncate();
+            ColabCargo::truncate();
         Schema::enableForeignKeyConstraints();
 
         $this->call([
@@ -67,7 +70,8 @@ class DatabaseSeeder extends Seeder
             ColaboradorSeeder::class,
             HorarioSeeder::class,
             FuncionarioSeeder::class,
-            DependenteSeeder::class
+            DependenteSeeder::class,
+            ColabCargoSeeder::class
         ]);
     }
 }
