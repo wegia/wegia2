@@ -11,10 +11,9 @@ class ColabCargo extends Model {
     use HasFactory;
 
     protected $table = 'colab_tem_cargo';
-    public $timestamps = false;
-
-    protected $fillable = array('colab_id', 'cargo_id', 'inicio', 'fim');
-
+    protected $fillable = ['inicio', 'fim'];
     protected $guarded = ['id'];
+
+    public $timestamps = false;
 
 }

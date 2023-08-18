@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipoEscala extends Model {
     use HasFactory;
+
     protected $table = 'tipo_escala';
-    
-    public $timestamps = false;
-
-    protected $fillable = array('nome');
-
+    protected $fillable = ['nome'];
     protected $guarded = ['id'];
+
+    public $timestamps = false;
+    
 }

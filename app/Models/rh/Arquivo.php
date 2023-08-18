@@ -11,10 +11,8 @@ class Arquivo extends Model {
     use HasFactory;
 
     protected $table = 'arquivo';
-    public $timestamps = false;
-
-    protected $fillable = array('pessoa_id', 'tipo_id', 'descricao', 'data_cadastro', 'foto');
-
+    protected $fillable = ['descricao', 'data_cadastro', 'foto'];
     protected $guarded = ['id'];
 
+    public $timestamps = false;
 }

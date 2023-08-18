@@ -11,10 +11,11 @@ class Remuneracao extends Model {
     use HasFactory;
 
     protected $table = 'remuneracao';
+    protected $fillable =['valor', 'inicio', 'fim'];
+    protected $guarded = ['id'];
+    
     public $timestamps = false;
 
-    protected $fillable = array('func_id', 'tipo_id', 'valor', 'inicio', 'fim');
-    
-    protected $guarded = ['id'];
+
 
 }

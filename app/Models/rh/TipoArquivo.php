@@ -11,9 +11,8 @@ class TipoArquivo extends Model {
     use HasFactory;
 
     protected $table = 'tipo_arquivo';
-    public $timestamps = false;
-
-    protected $fillable = array('nome');
-
+    protected $fillable = ['nome'];
     protected $guarded = ['id'];
+
+    public $timestamps = false;
 }

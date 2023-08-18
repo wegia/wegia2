@@ -11,9 +11,8 @@ class Parentesco extends Model {
     use HasFactory;
 
     protected $table = 'parentesco';
-    public $timestamps = false;
-
     protected $fillable = array('nome');
-    
     protected $guarded = ['id'];
+
+    public $timestamps = false;
 }
