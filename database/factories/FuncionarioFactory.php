@@ -19,7 +19,7 @@ class FuncionarioFactory extends Factory
     public function definition(): array
     {
         return [
-            'colab_id' => $this->faker->unique()->numberBetween(1,20),
+            'colab_id' => $this->faker->unique()->numberBetween(1,10),
             'pis' =>$this->faker->numerify('###########'),
             'ctps'=> $this->faker->numerify('#######/####'),
             'ctps_uf' => $this->faker->stateAbbr(),

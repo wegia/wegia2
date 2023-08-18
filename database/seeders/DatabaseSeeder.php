@@ -13,6 +13,8 @@ use App\Models\rh\Colaborador;
 use App\Models\rh\Dependente;
 use App\Models\rh\Horario;
 use App\Models\rh\Funcionario;
+use App\Models\rh\Remuneracao;
+use App\Models\rh\Voluntario;
 use Database\Seeders\CargoSeeder;
 use Database\Seeders\ColaboradorSeeder;
 use Database\Seeders\ContatoSeeder;
@@ -27,7 +29,9 @@ use Database\Seeders\FuncionarioSeeder;
 use Database\Seeders\TipoEscalaSeeder;
 use Database\Seeders\TipoRemuneracaoSeeder;
 use Database\Seeders\HorarioSeeder;
+use Database\Seeders\RemuneracaoSeeder;
 use Database\Seeders\UFSeeder;
+use Database\Seeders\VoluntarioSeeder;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
@@ -52,8 +56,10 @@ class DatabaseSeeder extends Seeder
             Colaborador::truncate();
             Horario::truncate();
             Funcionario::truncate();
+            Voluntario::truncate();
             Dependente::truncate();
             ColabCargo::truncate();
+            Remuneracao::truncate();
         Schema::enableForeignKeyConstraints();
 
         $this->call([
@@ -71,7 +77,10 @@ class DatabaseSeeder extends Seeder
             HorarioSeeder::class,
             FuncionarioSeeder::class,
             DependenteSeeder::class,
-            ColabCargoSeeder::class
+            ColabCargoSeeder::class,
+            VoluntarioSeeder::class,
+            DependenteSeeder::class,
+            RemuneracaoSeeder::class,
         ]);
     }
 }
