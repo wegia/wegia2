@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
+use App\Models\rh\Remuneracao;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\rh\TipoRemuneracao;
 
-class TipoRemuneracaoSeeder extends Seeder
+class RemuneracaoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        TipoRemuneracao::factory()->count(7)->create();
+        Remuneracao::factory()->count(30)->create();
     }
 }

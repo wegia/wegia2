@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
+use App\Models\rh\ColabCargo;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\rh\TipoRemuneracao;
 
-class TipoRemuneracaoSeeder extends Seeder
+class ColabCargoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        TipoRemuneracao::factory()->count(7)->create();
+        ColabCargo::factory()->count(10)->create();
     }
 }

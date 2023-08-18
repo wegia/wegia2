@@ -27,7 +27,8 @@ class HorarioFactory extends Factory
             'saida' => $this->faker->time(),
             'inicio' => $this->faker->dateTimeInInterval('-2 week'),
             'fim' => $this->faker->dateTimeInInterval('-1 week'),
-            'dia_semana' => $this->faker->randomElement(['seg', 'ter', 'qua', 'qui', 'sex', 'sab', 'dom']),
+            'dia_semana' => $this->faker->randomElement(['seg', 'ter', 'qua', 'qui', 'sex', 
+            'sab', 'dom']),
         ];
     }
 }

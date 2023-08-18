@@ -21,7 +21,7 @@ class TipoRemuneracaoFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => $this->faker->unique(true)->randomElement(['TR1', 'TR2', 'TR3']),
+            'nome' => $this->faker->unique(true)->randomElement(['Vencimento Básico', 'Vale-Alimentação', 'Salário Família','Adicional Noturno','Insalubridade','Periculosidade','Vale Transporte']),
         ];
     }
 }

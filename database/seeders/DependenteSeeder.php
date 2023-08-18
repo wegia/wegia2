@@ -4,15 +4,15 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\rh\TipoRemuneracao;
+use App\Models\rh\Dependente;
 
-class TipoRemuneracaoSeeder extends Seeder
+class DependenteSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        TipoRemuneracao::factory()->count(7)->create();
+        Dependente::factory()->count(10)->create();
     }
 }

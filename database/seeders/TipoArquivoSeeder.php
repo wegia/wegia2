@@ -13,6 +13,6 @@ class TipoArquivoSeeder extends Seeder
      */
     public function run(): void
     {
-        TipoArquivo::factory()->count(3)->create();
+        TipoArquivo::factory()->count(14)->create();
     }
 }
