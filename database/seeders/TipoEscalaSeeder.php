@@ -14,6 +14,6 @@ class TipoEscalaSeeder extends Seeder
     
     public function run(): void
     {
-        TipoEscala::factory()->count(5)->create();
+        TipoEscala::factory()->count(2)->create();
     }
 }

@@ -13,6 +13,6 @@ class TipoRemuneracaoSeeder extends Seeder
      */
     public function run(): void
     {
-        TipoRemuneracao::factory()->count(3)->create();
+        TipoRemuneracao::factory()->count(7)->create();
     }
 }

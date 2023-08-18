@@ -13,6 +13,6 @@ class EscalaSeeder extends Seeder
      */
     public function run(): void
     {
-        Escala::factory()->count(5)->create();
+        Escala::factory()->count(2)->create();
     }
 }
