@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\rh\TipoRemuneracao;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,7 +16,7 @@ class TipoRemuneracaoFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = \app\Models\rh\TipoRemuneracao::class;
+    protected $model = TipoRemuneracao::class;
 
     public function definition(): array
     {

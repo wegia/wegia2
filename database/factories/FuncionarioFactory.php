@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\rh\Funcionario;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,12 +15,12 @@ class FuncionarioFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    protected $model = \app\Models\rh\Funcionario::class;
+    protected $model = Funcionario::class;
 
     public function definition(): array
     {
         return [
-            'colab_id' => $this->faker->unique()->randomDigit(),
+            'colaborador_id' => $this->faker->unique()->randomDigit(),
             'pis' =>$this->faker->numerify('###########'),
             'ctps'=> $this->faker->numerify('#######/####'),
             'ctps_uf' => $this->faker->stateAbbr(),

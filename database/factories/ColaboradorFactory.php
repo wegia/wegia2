@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Pessoa;
+use App\Models\rh\Colaborador;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,11 +17,11 @@ class ColaboradorFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = \app\Models\rh\Colaborador::class;
+    protected $model = Colaborador::class;
 
     public function definition(): array
     {
-        $existingPessoaIds = \App\Models\Pessoa::pluck('id')->toArray();
+        $existingPessoaIds = Pessoa::pluck('id')->toArray();
 
         return [
             'login' => $this->faker->numerify('#######'),

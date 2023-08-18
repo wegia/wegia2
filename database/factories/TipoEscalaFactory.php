@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\rh\TipoEscala;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\App;
 
@@ -16,7 +17,7 @@ class TipoEscalaFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = \app\Models\rh\TipoEscala::class;
+    protected $model = TipoEscala::class;
 
     public function definition(): array
     {

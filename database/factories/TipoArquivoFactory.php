@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\rh\TipoArquivo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\App;
 
@@ -16,7 +17,7 @@ class TipoArquivoFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = \app\Models\rh\TipoArquivo::class;
+    protected $model = TipoArquivo::class;
 
     public function definition(): array
     {
