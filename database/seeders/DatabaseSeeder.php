@@ -10,6 +10,7 @@ use App\Models\rh\Arquivo;
 use App\Models\rh\TipoArquivo;
 use App\Models\rh\TipoRemuneracao;
 use App\Models\rh\Colaborador;
+use App\Models\rh\Horario;
 use Database\Seeders\CargoSeeder;
 use Database\Seeders\ColaboradorSeeder;
 use Database\Seeders\ContatoSeeder;
@@ -20,6 +21,7 @@ use Database\Seeders\TipoArquivoSeeder;
 use Database\Seeders\ArquivoSeeder;
 use Database\Seeders\TipoEscalaSeeder;
 use Database\Seeders\TipoRemuneracaoSeeder;
+use Database\Seeders\HorarioSeeder;
 use Database\Seeders\UFSeeder;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
@@ -43,6 +45,7 @@ class DatabaseSeeder extends Seeder
             Contato::truncate();
             Arquivo::truncate();
             Colaborador::truncate();
+            Horario::truncate();
         Schema::enableForeignKeyConstraints();
         
         $this->call([
@@ -57,6 +60,7 @@ class DatabaseSeeder extends Seeder
             ContatoSeeder::class,
             ArquivoSeeder::class,
             ColaboradorSeeder::class,
+            HorarioSeeder::class,
         ]);
     }
 }
