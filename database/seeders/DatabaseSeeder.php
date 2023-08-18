@@ -9,6 +9,7 @@ use App\Models\rh\Arquivo;
 use App\Models\rh\TipoArquivo;
 use App\Models\rh\TipoRemuneracao;
 use App\Models\rh\Colaborador;
+use App\Models\rh\Dependente;
 use App\Models\rh\Horario;
 use App\Models\rh\Funcionario;
 use App\Models\rh\Voluntario;
@@ -20,6 +21,7 @@ use Database\Seeders\ParentescoSeeder;
 use Database\Seeders\PessoaTableSeeder;
 use Database\Seeders\TipoArquivoSeeder;
 use Database\Seeders\ArquivoSeeder;
+use Database\Seeders\DependenteSeeder;
 use Database\Seeders\FuncionarioSeeder;
 use Database\Seeders\TipoEscalaSeeder;
 use Database\Seeders\TipoRemuneracaoSeeder;
@@ -51,6 +53,7 @@ class DatabaseSeeder extends Seeder
             Horario::truncate();
             Funcionario::truncate();
             Voluntario::truncate();
+            Dependente::truncate();
         Schema::enableForeignKeyConstraints();
 
         $this->call([
@@ -68,6 +71,7 @@ class DatabaseSeeder extends Seeder
             HorarioSeeder::class,
             FuncionarioSeeder::class,
             VoluntarioSeeder::class,
+            DependenteSeeder::class
         ]);
     }
 }
