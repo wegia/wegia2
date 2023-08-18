@@ -21,7 +21,7 @@ class TipoArquivoFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => $this->faker->unique()->randomElement(['TA1', 'TA2', 'TA3']),
+            'nome' => $this->faker->unique()->randomElement(['Carteira de Identidade', 'Carteira de Motorista', 'Carteira do SUS','Certidão de Casamento','Certidão de Nascimento','Certificado de Reservista','Comprovante de Escolaridade','Comprovante de Residência','CPF','CTPS','Exame Admissional','PIS/PASEP','Registro Profissional','Título de Eleitor']),
         ];
     }
 }

@@ -20,7 +20,7 @@ class EscalaFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => $this->faker->unique()->randomElement(['Escala_01', 'Escala_02', 'Escala_03','Escala_04', 'Escala_05' ]),
+            'nome' => $this->faker->unique()->randomElement(['5X2 - 5 dias trabalhados com 2 dias de folga', '12x36 - 12 horas trabalhadas com 36 horas de folga']),
             'descricao'=> $this->faker->sentence(),
         ];
     }
