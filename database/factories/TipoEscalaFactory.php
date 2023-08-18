@@ -21,7 +21,7 @@ class TipoEscalaFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => $this->faker->unique()->randomElement(['TE1', 'TE2', 'TE3','TE4','TE5']),
+            'nome' => $this->faker->unique()->randomElement(['Segunda à Sexta, folga Sábado e Domingo','Dias Alternados']),
         ];
     }
 }
