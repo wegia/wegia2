@@ -2,10 +2,12 @@
 
 namespace App\Models\rh;
 
+use App\Models\Pessoa;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Arquivo extends Model {
     use HasFactory;
@@ -15,4 +17,15 @@ class Arquivo extends Model {
     protected $guarded = ['id'];
 
     public $timestamps = false;
+
+    public function pessoa(): HasOne
+    {
+        return $this-> hasOne(Pessoa::class);
+    }
+
+    public function tipoArquivo(): HasOne
+    {
+        return $this-> hasOne(TipoArquivo::class);
+    }
+
 }
