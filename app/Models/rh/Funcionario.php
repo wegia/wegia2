@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\rh\Dependente;
 use App\Models\rh\Remuneracao;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Funcionario extends Model
 {
@@ -21,13 +23,20 @@ class Funcionario extends Model
     
     public $timestamps = false;
 
-    public function dependentes()
+    public function dependentes():HasMany
     {
         return $this->hasMany(Dependente::class);
     }
 
-    public function remuneracoes()
+    public function remuneracoes():HasMany
     {
         return $this->hasMany(Remuneracao::class);
     }
+
+    public function colaboradores():BelongsTo
+    {
+        return $this->belongsTo(Colaborador::class);
+    }
+
+
 }

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Dependente extends Model {
     use HasFactory;
@@ -15,4 +16,9 @@ class Dependente extends Model {
     protected $guarded = ['id'];
 
     public $timestamps = false;
+
+    public function funcionarios(): BelongsTo
+    {
+        return $this->belongsTo(Funcionario::class);
+    }
 }

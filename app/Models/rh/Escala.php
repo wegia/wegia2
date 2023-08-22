@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Escala extends Model {
     use HasFactory;
@@ -15,4 +16,9 @@ class Escala extends Model {
     protected $guarded = ['id'];
 
     public $timestamps = false;
+
+    public function colabEscalas(): HasMany
+    {
+        return $this->hasMany(ColabEscala::class);
+    }
 }
