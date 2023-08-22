@@ -27,8 +27,8 @@ class RemuneracaoFactory extends Factory
             'valor' => $this->faker->randomFloat(2, 0, 99999.99),
             'inicio' => $this->faker->dateTimeBetween('-5 year', 'now'),
             'fim' => $this->faker->dateTimeBetween('now', '+10 year'),
-            'func_id' => $this->faker->randomElement($existingFuncionarioIds),
-            'tipo_id' => $this->faker->randomElement($existingRemuneracaoIds),
+            'funcionario_id' => $this->faker->randomElement($existingFuncionarioIds),
+            'tipo_remuneracao_id' => $this->faker->randomElement($existingRemuneracaoIds),
         ];
     }
 }

@@ -22,7 +22,7 @@ class ColabCargoFactory extends Factory
         $existingCargoIds = \App\Models\rh\Cargo::pluck('id')->toArray();
 
         return [
-            'colab_id' => $this->faker->randomElement($existingColaboradorIds),
+            'colaborador_id' => $this->faker->randomElement($existingColaboradorIds),
             'cargo_id' => $this->faker->randomElement($existingCargoIds),
             'inicio' => $this->faker->dateTimeBetween('-10 years', '-5 years'),
             'fim' => $this->faker->dateTimeBetween('-4 years'),

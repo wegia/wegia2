@@ -23,7 +23,7 @@ class VoluntarioFactory extends Factory
         $disponib_semana = implode(', ', $selectedDays);
 
     return [
-        'colab_id' => $this->faker->unique()->numberBetween(11, 20),
+        'colaborador_id' => $this->faker->unique()->numberBetween(11, 20),
         'disponib_semana' => $disponib_semana,
         'disponib_horas' => $this->faker->numberBetween(1, 9) . ':00',
         'descricao' => $this->faker->sentence(),

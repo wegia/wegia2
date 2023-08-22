@@ -23,9 +23,9 @@ class ColabEscalaFactory extends Factory
         $existingTipoEscalaIds = \App\Models\rh\TipoEscala::pluck('id')->toArray();
 
         return [
-            'colab_id' => $this->faker->randomElement($existingColaboradorIds),
+            'colaborador_id' => $this->faker->randomElement($existingColaboradorIds),
             'escala_id' => $this->faker->randomElement($existingEscalaIds),
-            'tipo_id' => $this->faker->randomElement($existingTipoEscalaIds),
+            'tipo_escala_id' => $this->faker->randomElement($existingTipoEscalaIds),
             'inicio' => $this->faker->dateTimeBetween('-3 years', '-2 years'),
             'fim' => $this->faker->dateTimeBetween('-1 years')
         ];

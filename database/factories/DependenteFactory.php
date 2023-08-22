@@ -22,7 +22,7 @@ class DependenteFactory extends Factory
         $existingFuncionarioIds = \App\Models\rh\Funcionario::pluck('id')->toArray();
 
         return [
-            'func_id' => $this->faker->randomElement($existingFuncionarioIds),
+            'funcionario_id' => $this->faker->randomElement($existingFuncionarioIds),
             'nome' => $this->faker->name,
             'genero' => $this->faker->randomElement(['M', 'F']),
             'telefone' => $this->faker->phoneNumber('########'),
