@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class ColabCargo extends Model {
@@ -17,14 +18,14 @@ class ColabCargo extends Model {
 
     public $timestamps = false;
 
-    public function cargos(): BelongsToMany
+    public function cargos(): BelongsTo
     {
-        return $this->belongsToMany(Cargos::class);
+        return $this->belongsTo(Cargo::class);
     }
 
-    public function colaboradores(): BelongsToMany
+    public function colaboradores(): BelongsTo
     {
-        return $this->belongsToMany(Colaborador::class);
+        return $this->belongsTo(Colaborador::class);
     }
 
 

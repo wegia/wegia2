@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Arquivo extends Model {
@@ -18,14 +19,14 @@ class Arquivo extends Model {
 
     public $timestamps = false;
 
-    public function pessoa(): HasOne
+    public function pessoa(): BelongsTo
     {
-        return $this-> hasOne(Pessoa::class);
+        return $this-> belongsTo(Pessoa::class);
     }
 
-    public function tipoArquivo(): HasOne
+    public function tipoArquivo(): BelongsTo
     {
-        return $this-> hasOne(TipoArquivo::class);
+        return $this-> belongsTo(TipoArquivo::class);
     }
 
 }
