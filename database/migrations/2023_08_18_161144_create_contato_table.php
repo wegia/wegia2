@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('telefone', 20)->nullable();
             $table->string('celular', 20)->nullable();
             $table->string('email', 200)->nullable();
-            $table->string('ibge', 7)->nullable();
+            $table->string('codigo_ibge', 7)->nullable();
 
             $table->timestamps();
 

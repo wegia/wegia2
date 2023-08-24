@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('eleitor_numero', 15)->nullable();
             $table->string('eleitor_zona', 4)->nullable();
             $table->string('eleitor_secao', 5)->nullable();
-            $table->string('reserv_numero', 20)->nullable();
-            $table->string('reserv_orgao', 10)->nullable();
-            $table->string('reserv_serie', 5)->nullable();
+            $table->string('numero_reservista', 20)->nullable();
+            $table->string('orgao_reservista', 10)->nullable();
+            $table->string('serie_reservista', 5)->nullable();
 
             $table->timestamps();
         });

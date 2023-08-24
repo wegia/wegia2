@@ -10,6 +10,8 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    public $dias_semana = ['SEG', 'TER', 'QUA','QUI', 'SEX', 'SAB', 'DOM'];
+
     public function up(): void
     {
         Schema::create('horario', function (Blueprint $table) {
@@ -22,7 +24,7 @@ return new class extends Migration
             $table->time('saida', $precision = 0);
             $table->date('inicio');
             $table->date('fim')->nullable();
-            $table->char('dia_semana',3)->nullable();
+            $table->enum('dia_semana',$this->dias_semana);
             $table->timestamps();
         });
     }

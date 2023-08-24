@@ -28,7 +28,7 @@ class ArquivoFactory extends Factory
         return [
             'pessoa_id' => $this->faker->randomElement($existingPessoaIds),
             'tipo_arquivo_id' => $this->faker->randomElement($existingTipoArquivoIds),
-            'foto' => $this->faker->imageUrl(),
+            'binario_arquivo' => $this->faker->imageUrl(),
             'descricao' => $this->faker->sentence(2),
             'data_cadastro' => $this->faker->date(),
         ];

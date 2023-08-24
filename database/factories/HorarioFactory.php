@@ -19,16 +19,15 @@ class HorarioFactory extends Factory
 
     public function definition(): array
     {
-        $existingColaboradorIds = Colaborador::pluck('id')->toArray();
-
+        $idColaborador = Colaborador::pluck('id')->toArray();
+        $diasSemana = ['SEG', 'TER', 'QUA','QUI', 'SEX', 'SAB', 'DOM'];
         return [
-            'colaborador_id' => $this->faker->randomElement($existingColaboradorIds),
+            'colaborador_id' => $this->faker->randomElement($idColaborador),
             'entrada' => $this->faker->time(),
             'saida' => $this->faker->time(),
             'inicio' => $this->faker->dateTimeInInterval('-2 week'),
             'fim' => $this->faker->dateTimeInInterval('-1 week'),
-            'dia_semana' => $this->faker->randomElement(['seg', 'ter', 'qua', 'qui', 'sex', 
-            'sab', 'dom']),
+            'dia_semana' => $this->faker->randomElement($diasSemana),
         ];
     }
 }

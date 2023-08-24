@@ -2,7 +2,6 @@
 
 namespace App\Models\rh;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,7 +19,7 @@ class Funcionario extends Model
         'pis', 'ctps', 'ctps_uf', 'eleitor_numero', 'eleitor_zona', 'eleitor_secao', 'reserv_numero', 'reserv_orgao', 'reserv_serie'
     ];
     protected $guarded = ['id'];
-    
+
     public $timestamps = false;
 
     public function dependentes():HasMany

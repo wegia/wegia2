@@ -20,6 +20,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Funcionario::class);
             $table->foreignIdFor(TipoRemuneracao::class);
+            
             $table->decimal('valor', $precision=8, 2);
             $table->date('inicio')->default(date("Y-m-d H:i:s"));
             $table->date('fim')->nullable();

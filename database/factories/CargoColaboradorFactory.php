@@ -2,24 +2,27 @@
 
 namespace Database\Factories;
 
+use App\Models\rh\Cargo;
+use App\Models\rh\CargoColaborador;
+use App\Models\rh\Colaborador;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class ColabCargoFactory extends Factory
+class CargoColaboradorFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-    protected $model = \app\Models\rh\ColabCargo::class;
+    protected $model = CargoColaborador::class;
 
     public function definition(): array
     {
-        $existingColaboradorIds = \App\Models\rh\Colaborador::pluck('id')->toArray();
-        $existingCargoIds = \App\Models\rh\Cargo::pluck('id')->toArray();
+        $existingColaboradorIds = Colaborador::pluck('id')->toArray();
+        $existingCargoIds = Cargo::pluck('id')->toArray();
 
         return [
             'colaborador_id' => $this->faker->randomElement($existingColaboradorIds),

@@ -14,7 +14,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('colab_tem_escala', function (Blueprint $table) {
+        Schema::create('colaborador_escala', function (Blueprint $table) {
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_unicode_ci';
 
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignIdFor(Colaborador::class);
             $table->foreignIdFor(Escala::class);
             $table->foreignIdFor(TipoEscala::class);
+
             $table->date('inicio')->default(date("Y-m-d H:i:s"));
             $table->date('fim')->nullable();
             $table->timestamps();

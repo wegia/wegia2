@@ -16,9 +16,9 @@ class TipoEscala extends Model {
     protected $guarded = ['id'];
 
     public $timestamps = false;
-    
-    public function colabEscalas(): HasMany
+
+    public function ColaboradorEscalas(): HasMany
     {
-        return $this->hasMany(ColabEscala::class);
+        return $this->hasMany(ColaboradorEscala::class);
     }
 }

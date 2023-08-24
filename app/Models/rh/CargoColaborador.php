@@ -2,16 +2,14 @@
 
 namespace App\Models\rh;
 
-use Illuminate\Support\Facades\DB;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class ColabCargo extends Model {
+class CargoColaborador extends Model {
     use HasFactory;
 
-    protected $table = 'colab_tem_cargo';
+    protected $table = 'cargo_colaborador';
     protected $fillable = ['inicio', 'fim'];
     protected $guarded = ['id'];
 

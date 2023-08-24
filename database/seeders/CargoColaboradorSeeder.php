@@ -2,16 +2,16 @@
 
 namespace Database\Seeders;
 
+use App\Models\rh\CargoColaborador;
 use Illuminate\Database\Seeder;
-use App\Models\rh\Colaborador;
 
-class ColaboradorSeeder extends Seeder
+class CargoColaboradorSeeder extends Seeder
 {
-    /**
+   /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Colaborador::factory()->count(20)->create();
+        CargoColaborador::factory()->count(10)->create();
     }
 }
