@@ -27,9 +27,9 @@ class FuncionarioFactory extends Factory
             'eleitor_numero'=>$this->faker->numerify('############'),
             'eleitor_zona'=>$this->faker->numerify('###'),
             'eleitor_secao'=>$this->faker->numerify('####'),
-            'reserv_numero'=>$this->faker->numerify('############'),
-            'reserv_orgao'=>$this->faker->randomLetter(5),
-            'reserv_serie'=>$this->faker->randomLetter(5),
+            'numero_reservista'=>$this->faker->numerify('############'),
+            'orgao_reservista'=>$this->faker->randomLetter(5),
+            'serie_reservista'=>$this->faker->randomLetter(5),
         ];
     }
 }

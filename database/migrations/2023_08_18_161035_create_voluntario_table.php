@@ -15,13 +15,12 @@ return new class extends Migration
         Schema::create('voluntario', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Colaborador::class);
-            $table->string('disponib_semana', 45)->nullable();
-            $table->string('disponib_horas', 45)->nullable();
+            $table->string('disponibilidade_semanal', 45)->nullable();
+            $table->string('disponibilidade_horas', 45)->nullable();
             $table->string('descricao', 100)->nullable();
 
             $table->timestamps();
 
-            //setting keys
         });
     }
 

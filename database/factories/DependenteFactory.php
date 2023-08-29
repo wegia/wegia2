@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\rh\Dependente;
+use App\Models\rh\Funcionario;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,11 +17,11 @@ class DependenteFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    protected $model = \app\Models\rh\Dependente::class;
+    protected $model = Dependente::class;
 
     public function definition(): array
     {
-        $existingFuncionarioIds = \App\Models\rh\Funcionario::pluck('id')->toArray();
+        $existingFuncionarioIds = Funcionario::pluck('id')->toArray();
 
         return [
             'funcionario_id' => $this->faker->randomElement($existingFuncionarioIds),

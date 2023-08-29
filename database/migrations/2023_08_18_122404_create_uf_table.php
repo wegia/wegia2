@@ -16,7 +16,7 @@ return new class extends Migration
             $table->collation = 'utf8mb4_unicode_ci';
 
             $table->tinyIncrements('id');
-            $table->string('nome', 45);
+            $table->string('nome_estado', 45);
             $table->char('sigla', 2);
             $table->timestamps();
         });

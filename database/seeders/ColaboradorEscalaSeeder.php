@@ -2,16 +2,17 @@
 
 namespace Database\Seeders;
 
+use App\Models\rh\ColaboradorEscala;
 use Illuminate\Database\Seeder;
-use App\Models\rh\Colaborador;
 
-class ColaboradorSeeder extends Seeder
+class ColaboradorEscalaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Colaborador::factory()->count(20)->create();
+        ColaboradorEscala::factory()->count(10)->create();
+
     }
 }

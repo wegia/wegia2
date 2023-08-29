@@ -20,7 +20,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Pessoa::class);
             $table->foreignIdFor(TipoArquivo::class);
-            $table->binary('foto');
+
+            $table->binary('binario_arquivo');
             $table->string('descricao', 200)->nullable();
             $table->date('data_cadastro')->default(date("Y-m-d H:i:s"))->nullable();
             $table->timestamps();

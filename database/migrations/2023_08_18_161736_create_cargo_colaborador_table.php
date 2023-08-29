@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('colab_tem_cargo', function (Blueprint $table) {
+        Schema::create('cargo_colaborador', function (Blueprint $table) {
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_unicode_ci';
 
             $table->id();
             $table->foreignIdFor(Colaborador::class);
             $table->foreignIdFor(Cargo::class);
+            
             $table->date('inicio')->default(date("Y-m-d H:i:s"));
             $table->date('fim')->nullable();
             $table->boolean('e_cargo_atual')->default(true);

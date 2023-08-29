@@ -32,8 +32,8 @@ class ColaboradorFactory extends Factory
             'cpf' => $this->faker->numerify('###########'),
             'rg' => $this->faker->numerify('#######'),
             'rg_orgao' => $this->faker->randomElement(['DETRAN','SSP','DIC']),
-            'rg_expedicao' =>  $this->faker->dateTimeBetween('-10 years'),
-            'rg_vencimento' => $this->faker->dateTimeBetween('now','10 years'),
+            'rg_data_expedicao' =>  $this->faker->dateTimeBetween('-10 years'),
+            'rg_data_vencimento' => $this->faker->dateTimeBetween('now','10 years'),
         ];
     }
 }

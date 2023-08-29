@@ -19,13 +19,13 @@ class VoluntarioFactory extends Factory
 
     public function definition(): array
     {
-        $selectedDays = $this->faker->randomElements(['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'], $count = rand(1, 7));
+        $selectedDays = $this->faker->randomElements(['SEG', 'TER', 'QUA','QUI', 'SEX', 'SAB', 'DOM'], $count = rand(1, 7));
         $disponib_semana = implode(', ', $selectedDays);
 
     return [
         'colaborador_id' => $this->faker->unique()->numberBetween(11, 20),
-        'disponib_semana' => $disponib_semana,
-        'disponib_horas' => $this->faker->numberBetween(1, 9) . ':00',
+        'disponibilidade_semanal' => $disponib_semana,
+        'disponibilidade_horas' => $this->faker->numberBetween(1, 9) . ':00',
         'descricao' => $this->faker->sentence(),
     ];
     }

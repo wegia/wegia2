@@ -2,8 +2,6 @@
 
 namespace App\Models\rh;
 
-use Illuminate\Support\Facades\DB;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -14,7 +12,7 @@ class Remuneracao extends Model {
     protected $table = 'remuneracao';
     protected $fillable =['valor', 'inicio', 'fim'];
     protected $guarded = ['id'];
-    
+
     public $timestamps = false;
 
     public function funcionario(): BelongsTo

@@ -17,8 +17,8 @@ class Escala extends Model {
 
     public $timestamps = false;
 
-    public function colabEscalas(): HasMany
+    public function colaboradorEscalas(): HasMany
     {
-        return $this->hasMany(ColabEscala::class);
+        return $this->hasMany(ColaboradorEscala::class);
     }
 }
