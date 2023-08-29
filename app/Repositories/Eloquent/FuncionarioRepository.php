@@ -27,9 +27,9 @@ class FuncionarioRepository extends AbstractRepository
                                 , c.cpf as `cpf`
                                 , c.situacao as `situacao`
                                 , cargo.nome as `cargo` 
-                            FROM funcionario f JOIN colaborador c ON f.colab_id = c.id   
+                            FROM funcionario f JOIN colaborador c ON f.colaborador_id = c.id   
                                 JOIN pessoa p ON p.id = c.pessoa_id 
-                                JOIN colab_tem_cargo ctc ON ctc.colab_id = c.id 
+                                JOIN cargo_colaborador ctc ON ctc.colaborador_id = c.id 
                                 JOIN cargo ON cargo.id = ctc.cargo_id
                             WHERE ctc.e_cargo_atual = true');
         return $result;
@@ -45,9 +45,10 @@ class FuncionarioRepository extends AbstractRepository
         if (is_null($cpf)) {
             return false;
         }
-        $result = DB::select('SELECT cpf FROM funcionario f 
-                                WHERE f.cpf = ?', [$cpf]);
-        return empty($result)? false : true;
+        $result = DB::select('SELECT cpf FROM colaborador c 
+                          JOIN funcionario f ON c.id = f.colaborador_id
+                          WHERE c.cpf = ?', [$cpf]);
+        return !empty($result);
     }
 
     public function checkCPF($cpf) {
