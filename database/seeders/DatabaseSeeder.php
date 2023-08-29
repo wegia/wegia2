@@ -24,6 +24,7 @@ use Database\Seeders\ParentescoSeeder;
 use Database\Seeders\PessoaTableSeeder;
 use Database\Seeders\TipoArquivoSeeder;
 use Database\Seeders\ArquivoSeeder;
+use Database\Seeders\CargoColaboradorSeeder;
 use Database\Seeders\ColaboradorEscalaSeeder;
 use Database\Seeders\DependenteSeeder;
 use Database\Seeders\FuncionarioSeeder;
@@ -83,7 +84,8 @@ class DatabaseSeeder extends Seeder
             VoluntarioSeeder::class,
             DependenteSeeder::class,
             RemuneracaoSeeder::class,
-            ColaboradorEscalaSeeder::class
+            ColaboradorEscalaSeeder::class,
+            CargoColaboradorSeeder::class
         ]);
     }
 }
