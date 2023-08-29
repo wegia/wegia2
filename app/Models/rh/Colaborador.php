@@ -12,6 +12,8 @@ use App\Models\rh\Funcionario;
 use App\Models\rh\Voluntario;
 use App\Models\rh\Cargo;
 use App\Models\rh\Horario;
+use App\Models\Pessoa;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -23,9 +25,9 @@ class Colaborador extends Model
     protected $fillable = ['admissao', 'situacao', 'cpf', 'rg', 'rg_orgao', 'rg_expedicao', 'rg_vencimento'];
     public $timestamps = false;
 
-    public function pessoa(): HasOne
+    public function pessoa(): BelongsTo
     {
-        return $this->hasOne(Pessoa::class);
+        return $this->belongsTo(Pessoa::class);
     }
 
     public function horarios(): HasMany

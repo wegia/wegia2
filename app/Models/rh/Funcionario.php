@@ -32,7 +32,7 @@ class Funcionario extends Model
         return $this->hasMany(Remuneracao::class);
     }
 
-    public function colaboradores():BelongsTo
+    public function colaborador():BelongsTo
     {
         return $this->belongsTo(Colaborador::class);
     }

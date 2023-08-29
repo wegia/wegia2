@@ -17,15 +17,16 @@
             $voluntario = new Voluntario();
             $cpfJaExiste = $voluntario->hasCPFSaved($cpf);
 
-            if(!($cpfAlreadyExists)) {
+            if(!($cpfJaExiste)) {
                 return view('rh.voluntary.form', compact('cpf', 'cpfJaExiste'));
             }
         }
 
-        public function list() {
-            $result = Voluntario::all();
-            //return $result;
-            return view('rh.voluntarios.list')->with('result', $result);
+        public function listar() {
+            
+            $voluntarios = Voluntario::with('colaborador.pessoa')->get(); 
+    
+            return view('rh.voluntarios.listar')->with('voluntarios', $voluntarios);
         }
 
         public function get($id) {

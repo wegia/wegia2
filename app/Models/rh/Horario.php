@@ -17,7 +17,7 @@ class Horario extends Model {
 
     public $timestamps = false;
 
-    public function horarios(): BelongsTo
+    public function horario(): BelongsTo
     {
         return $this->belongsTo(Horario::class);
     }
