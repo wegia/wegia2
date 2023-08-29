@@ -17,7 +17,7 @@ class TipoEscala extends Model {
 
     public $timestamps = false;
 
-    public function ColaboradorEscalas(): HasMany
+    public function colaboradorEscalas(): HasMany
     {
         return $this->hasMany(ColaboradorEscala::class);
     }

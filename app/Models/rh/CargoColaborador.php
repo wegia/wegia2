@@ -16,12 +16,12 @@ class CargoColaborador extends Model {
 
     public $timestamps = false;
 
-    public function cargos(): BelongsTo
+    public function cargo(): BelongsTo
     {
         return $this->belongsTo(Cargo::class);
     }
 
-    public function colaboradores(): BelongsTo
+    public function colaborador(): BelongsTo
     {
         return $this->belongsTo(Colaborador::class);
     }

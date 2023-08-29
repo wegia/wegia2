@@ -17,7 +17,7 @@ class Cargo extends Model
 
     public $timestamps = false;
 
-    public function colabCargos(): HasMany
+    public function cargoColaborador(): HasMany
     {
         return $this->hasMany(ColabCargo::class);
     }

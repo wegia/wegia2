@@ -15,7 +15,7 @@ class Dependente extends Model {
 
     public $timestamps = false;
 
-    public function funcionarios(): BelongsTo
+    public function funcionario(): BelongsTo
     {
         return $this->belongsTo(Funcionario::class);
     }

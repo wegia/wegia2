@@ -16,7 +16,7 @@ class TipoRemuneracao extends Model
 
     public $timestamps = false;
 
-    public function remuneracaoes(): HasMany
+    public function remuneracacoes(): HasMany
     {
         return $this->hasMany(Remuneracao::class);
     }
