@@ -22,11 +22,11 @@
             }
         }
 
-        public function list() {
+        public function listar() {
             
             $voluntarios = Voluntario::with('colaborador.pessoa')->get(); 
     
-            return view('rh.voluntarios.list')->with('voluntarios', $voluntarios);
+            return view('rh.voluntarios.listar')->with('voluntarios', $voluntarios);
         }
 
         public function get($id) {

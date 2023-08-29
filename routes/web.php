@@ -116,7 +116,7 @@ Route::get('/rh/funcionarios/checkCPF', [FuncionariosController::class, 'checkCP
 //Rotas para VoluntariosController
 ////////////////////////
 // Navegação
-Route::get('/rh/voluntarios', [VoluntariosController::class, 'list'])->name('listaVoluntarios');
+Route::get('/rh/voluntarios', [VoluntariosController::class, 'listar'])->name('listaVoluntarios');
 Route::get('/rh/voluntarios/add', [VoluntariosController::class, 'add'])->name('addVoluntarios');
 
 
