@@ -1,7 +1,8 @@
 <?php
     namespace App\Http\Controllers;
 
-    use Illuminate\Support\Facades\Request;
+use App\Models\rh\Colaborador;
+use Illuminate\Support\Facades\Request;
     use App\Models\rh\Voluntario;
 
     class VoluntariosController extends Controller{
@@ -34,8 +35,10 @@
             return $result;
         }
 
-        public function add() {
-            return view('rh.voluntarios.form');
+        public function adicionar() {
+            $colaboradores = Colaborador::with('pessoa')->get();
+
+            return view('rh.voluntarios.form')->with('colaboradores', $colaboradores);
         }
     }
 

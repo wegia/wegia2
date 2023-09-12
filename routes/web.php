@@ -117,7 +117,7 @@ Route::get('/rh/funcionarios/checkCPF', [FuncionariosController::class, 'checkCP
 ////////////////////////
 // Navegação
 Route::get('/rh/voluntarios', [VoluntariosController::class, 'listar'])->name('listaVoluntarios');
-Route::get('/rh/voluntarios/add', [VoluntariosController::class, 'add'])->name('addVoluntarios');
+Route::get('/rh/voluntarios/add', [VoluntariosController::class, 'adicionar'])->name('addVoluntarios');
 
 
 //modulo de atendidos
