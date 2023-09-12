@@ -1,24 +1,25 @@
 <?php
 
-namespace App\Models\rh;
-
+namespace App\Models\pessoa;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Cargo extends Model
+class TipoRemuneracao extends Model
 {
     use HasFactory;
 
-    protected $table = 'cargo';
-    protected $fillable = ['nome', 'descricao'];
+    protected $table = 'tipo_remuneracao';
+    protected $fillable = ['nome'];
     protected $guarded = ['id'];
 
     public $timestamps = false;
 
-    public function cargoColaborador(): HasMany
+    public function remuneracacoes(): HasMany
     {
-        return $this->hasMany(ColabCargo::class);
+        return $this->hasMany(Remuneracao::class);
     }
+
+
 }

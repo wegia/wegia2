@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\rh\Contato;
+use App\Models\pessoa\Contato;
 
 class ContatoSeeder extends Seeder
 {

@@ -16,12 +16,12 @@ Cadastro
     </a>
 </li>
 <li class="breadcrumb-item" aria-current="page">
-    <a href="/rh">
+    <a href="/pessoa">
         <i class="far fa-address-book"></i>Recursos Humanos
     </a>
 </li>
 <li class="breadcrumb-item" aria-current="page">
-    <a href="/rh/voluntary/adm">
+    <a href="/pessoa/voluntary/adm">
         <i class="far fa-address-book"></i>Voluntário
     </a>
 </li>

@@ -16,12 +16,12 @@ Cadastro
     </a>
 </li>
 <li class="breadcrumb-item" aria-current="page">
-    <a href="/rh">
+    <a href="/pessoa">
         <i class="far fa-address-book"></i>Pessoa
     </a>
 </li>
 <li class="breadcrumb-item" aria-current="page">
-    <a href="/rh/funcionarios/adm">
+    <a href="/pessoa/funcionarios/adm">
         <i class="far fa-address-book"></i>Funcionários
     </a>
 </li>
@@ -79,7 +79,7 @@ Cadastro
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="infoPessoais" role="tabpanel" aria-labelledby="home-tab">
     <h3>Informações Pessoais</h3>
-    <form method="POST" action="/rh/funcionarios">
+    <form method="POST" action="/pessoa/funcionarios">
       @method('put')
       @csrf
 

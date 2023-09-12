@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\rh\Cargo;
+use App\Models\pessoa\Cargo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

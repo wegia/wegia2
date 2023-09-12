@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Repositories\Contracts\FuncionarioRepositoryInterface;
 
-use App\Models\rh\Funcionario;
+use App\Models\pessoa\Funcionario;
 
 class FuncionarioRepository extends AbstractRepository 
                     implements FuncionarioRepositoryInterface {

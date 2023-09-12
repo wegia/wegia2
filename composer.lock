@@ -3222,7 +3222,7 @@
                 "ramsey/collection": "^1.2 || ^2.0"
             },
             "replace": {
-                "rhumsaa/uuid": "self.version"
+                "pessoaumsaa/uuid": "self.version"
             },
             "require-dev": {
                 "captainhook/captainhook": "^5.10",
@@ -3548,7 +3548,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Symfony\\Component\\ErrorHandler\\": ""
+                    "Symfony\\Component\\Erropessoaandler\\": ""
                 },
                 "exclude-from-classmap": [
                     "/Tests/"

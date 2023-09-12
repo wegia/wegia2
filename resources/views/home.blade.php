@@ -26,7 +26,7 @@
                 </div>
                 <div class="col">
                     <div class="card text-center text-bg-dark">
-                        <a href="{{route('rhMain')}}" class="justify-content-center align-content-center text-decoration-none link-light">
+                        <a href="{{route('pessoaMain')}}" class="justify-content-center align-content-center text-decoration-none link-light">
                             <div class="card-body p-4">
                                 <i class="fa-solid fa-briefcase fs-1 pb-5"></i>
                                 <p class="card-text text-truncate">Recursos Humanos</p>

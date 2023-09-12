@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Repositories\Contracts\HorarioRepositoryInterface;
 
-use App\Models\rh\Horario;
+use App\Models\pessoa\Horario;
 
 class HorarioRepository extends AbstractRepository 
                     implements HorarioRepositoryInterface {

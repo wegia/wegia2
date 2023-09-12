@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\rh\Dependente;
+use App\Models\pessoa\Dependente;
 
 class DependenteSeeder extends Seeder
 {

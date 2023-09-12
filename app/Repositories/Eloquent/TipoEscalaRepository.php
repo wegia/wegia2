@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Repositories\Contracts\TipoEscalaRepositoryInterface;
 
-use App\Models\rh\TipoEscala;
+use App\Models\pessoa\TipoEscala;
 
 class TipoEscalaRepository extends AbstractRepository 
                     implements TipoEscalaRepositoryInterface {

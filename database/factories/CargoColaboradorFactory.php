@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\rh\Cargo;
-use App\Models\rh\CargoColaborador;
-use App\Models\rh\Colaborador;
+use App\Models\pessoa\Cargo;
+use App\Models\pessoa\CargoColaborador;
+use App\Models\pessoa\Colaborador;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Pessoa;
-use App\Models\rh\Contato;
+use App\Models\pessoa\Contato;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

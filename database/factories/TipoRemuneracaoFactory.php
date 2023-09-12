@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\rh\TipoRemuneracao;
+use App\Models\pessoa\TipoRemuneracao;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

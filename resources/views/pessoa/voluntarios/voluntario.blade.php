@@ -11,12 +11,12 @@ Voluntários
         </a>
     </li>
     <li class="breadcrumb-item" aria-current="page">
-        <a class="text-secondary" href="{{route('rhMain')}}">
+        <a class="text-secondary" href="{{route('pessoaMain')}}">
             <i class="far fa-address-book px-1"></i>Recursos Humanos
         </a>
     </li>
     <li class="breadcrumb-item active" aria-current="page">
-        <a href="{{route('rhVoluntariosPainel')}}">
+        <a href="{{route('pessoaVoluntariosPainel')}}">
             <i class="fa-solid fa-address-book px-1"></i>Voluntários
         </a>
     </li>

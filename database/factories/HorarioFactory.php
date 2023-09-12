@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\rh\Colaborador;
+use App\Models\pessoa\Colaborador;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,7 +15,7 @@ class HorarioFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    protected $model = \app\Models\rh\Horario::class;
+    protected $model = \app\Models\pessoa\Horario::class;
 
     public function definition(): array
     {

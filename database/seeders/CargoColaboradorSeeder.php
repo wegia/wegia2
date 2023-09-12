@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\rh\CargoColaborador;
+use App\Models\pessoa\CargoColaborador;
 use Illuminate\Database\Seeder;
 
 class CargoColaboradorSeeder extends Seeder

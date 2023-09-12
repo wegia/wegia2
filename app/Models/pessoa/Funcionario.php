@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\rh;
+namespace App\Models\pessoa;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\rh\Dependente;
-use App\Models\rh\Remuneracao;
+use App\Models\pessoa\Dependente;
+use App\Models\pessoa\Remuneracao;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 

@@ -15,13 +15,13 @@ class RemuneracaoFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = \app\Models\rh\Remuneracao::class;
+    protected $model = \app\Models\pessoa\Remuneracao::class;
 
 
     public function definition(): array
     {
-        $existingRemuneracaoIds = \App\Models\rh\TipoRemuneracao::pluck('id')->toArray();
-        $existingFuncionarioIds = \App\Models\rh\Funcionario::pluck('id')->toArray();
+        $existingRemuneracaoIds = \App\Models\pessoa\TipoRemuneracao::pluck('id')->toArray();
+        $existingFuncionarioIds = \App\Models\pessoa\Funcionario::pluck('id')->toArray();
 
         return [
             'valor' => $this->faker->randomFloat(2, 0, 99999.99),

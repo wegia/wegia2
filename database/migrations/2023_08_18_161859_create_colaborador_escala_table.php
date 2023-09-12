@@ -1,8 +1,8 @@
 <?php
 
-use App\Models\rh\Colaborador;
-use App\Models\rh\Escala;
-use App\Models\rh\TipoEscala;
+use App\Models\pessoa\Colaborador;
+use App\Models\pessoa\Escala;
+use App\Models\pessoa\TipoEscala;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

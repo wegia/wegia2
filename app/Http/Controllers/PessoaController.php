@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\rh\Cargo;
-use App\Models\rh\Escala;
-use App\Models\rh\TipoEscala;
+use App\Models\pessoa\Cargo;
+use App\Models\pessoa\Escala;
+use App\Models\pessoa\TipoEscala;
 
-class RhController extends Controller
+class pessoaController extends Controller
 {
 
     public function __construct()
@@ -18,17 +18,17 @@ class RhController extends Controller
 
     public function index()
     {
-        return view('rh.main');
+        return view('pessoa.main');
     }
 
     public function funcionarios()
     {
-        return view('rh.funcionarios.funcionario');
+        return view('pessoa.funcionarios.funcionario');
     }
 
     public function voluntarios()
     {
-        return view('rh.voluntarios.voluntario');
+        return view('pessoa.voluntarios.voluntario');
     }
 
     public function addCargo(Request $request)

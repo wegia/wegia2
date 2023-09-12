@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\rh\ColaboradorEscala;
+use App\Models\pessoa\ColaboradorEscala;
 use Illuminate\Database\Seeder;
 
 class ColaboradorEscalaSeeder extends Seeder

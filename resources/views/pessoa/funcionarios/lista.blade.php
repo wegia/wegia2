@@ -11,12 +11,12 @@
         </a>
     </li>
     <li class="breadcrumb-item" aria-current="page">
-        <a class="text-secondary" href="{{route('rhMain')}}">
+        <a class="text-secondary" href="{{route('pessoaMain')}}">
             <i class="far fa-address-book px-1"></i>Recursos Humanos
         </a>
     </li>
     <li class="breadcrumb-item" aria-current="page">
-        <a class="text-secondary" href="{{route('rhFuncionariosPainel')}}">
+        <a class="text-secondary" href="{{route('pessoaFuncionariosPainel')}}">
             <i class="far fa-address-book px-1"></i>Funcionários
         </a>
     </li>

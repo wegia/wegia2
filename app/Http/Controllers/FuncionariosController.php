@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\DB;
 
 use App\Repositories\Contracts\FuncionarioRepositoryInterface;
 
-use App\Models\rh\Cargo;
-use App\Models\rh\Escala;
-use App\Models\rh\TipoEscala;
+use App\Models\pessoa\Cargo;
+use App\Models\pessoa\Escala;
+use App\Models\pessoa\TipoEscala;
 
 class FuncionariosController extends Controller {
 
@@ -35,7 +35,7 @@ class FuncionariosController extends Controller {
 
     public function list(FuncionarioRepositoryInterface $model) {
         $lista = $this->funcionarioRepository->listSimplified();
-        return view('rh.funcionarios.lista')->with('lista', $lista);
+        return view('pessoa.funcionarios.lista')->with('lista', $lista);
     }
 
     public function get($id) {
@@ -47,13 +47,13 @@ class FuncionariosController extends Controller {
      * funcoes de navegacao 
      */
     public function add() {
-        return view('rh.funcionarios.form');
+        return view('pessoa.funcionarios.form');
     }
 
     public function edit($funcId) {
         $data = $this->funcionarioRepository->loadFuncionario($funcId);
         return $data;
-        //return view('rh.funcionarios.edita', $data);
+        //return view('pessoa.funcionarios.edita', $data);
     }
 
     public function checkCPF() {
@@ -61,7 +61,7 @@ class FuncionariosController extends Controller {
 
         $result = $this->funcionarioRepository->checkCPF($cpf);
 
-        return view('rh.funcionarios.form', $result);
+        return view('pessoa.funcionarios.form', $result);
     }
 
 

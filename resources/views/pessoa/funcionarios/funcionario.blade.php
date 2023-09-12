@@ -12,7 +12,7 @@
     </li>
     <li class="breadcrumb-item active" aria-current="page">
         <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-           href="{{route('rhMain')}}">
+           href="{{route('pessoaMain')}}">
             <i class="far fa-address-book px-1"></i>Recursos Humanos
         </a>
     </li>

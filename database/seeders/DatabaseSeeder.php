@@ -1,21 +1,21 @@
 <?php
 
 use App\Models\Pessoa;
-use App\Models\rh\TipoEscala;
-use App\Models\rh\Contato;
-use App\Models\rh\Cargo;
-use App\Models\rh\Escala;
-use App\Models\rh\Arquivo;
-use App\Models\rh\CargoColaborador;
-use App\Models\rh\TipoArquivo;
-use App\Models\rh\TipoRemuneracao;
-use App\Models\rh\Colaborador;
-use App\Models\rh\ColaboradorEscala;
-use App\Models\rh\Dependente;
-use App\Models\rh\Horario;
-use App\Models\rh\Funcionario;
-use App\Models\rh\Remuneracao;
-use App\Models\rh\Voluntario;
+use App\Models\pessoa\TipoEscala;
+use App\Models\pessoa\Contato;
+use App\Models\pessoa\Cargo;
+use App\Models\pessoa\Escala;
+use App\Models\pessoa\Arquivo;
+use App\Models\pessoa\CargoColaborador;
+use App\Models\pessoa\TipoArquivo;
+use App\Models\pessoa\TipoRemuneracao;
+use App\Models\pessoa\Colaborador;
+use App\Models\pessoa\ColaboradorEscala;
+use App\Models\pessoa\Dependente;
+use App\Models\pessoa\Horario;
+use App\Models\pessoa\Funcionario;
+use App\Models\pessoa\Remuneracao;
+use App\Models\pessoa\Voluntario;
 use Database\Seeders\CargoSeeder;
 use Database\Seeders\ColaboradorSeeder;
 use Database\Seeders\ContatoSeeder;

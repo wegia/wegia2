@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\rh\Cargo;
+use App\Models\pessoa\Cargo;
 
 class CargoSeeder extends Seeder
 {

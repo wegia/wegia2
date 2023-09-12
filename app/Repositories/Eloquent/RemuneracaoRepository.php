@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Repositories\Contracts\RemuneracaoRepositoryInterface;
 
-use App\Models\rh\Remuneracao;
+use App\Models\pessoa\Remuneracao;
 
 class RemuneracaoRepository extends AbstractRepository 
                     implements RemuneracaoRepositoryInterface {

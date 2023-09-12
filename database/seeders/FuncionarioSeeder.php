@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\rh\Funcionario;
+use App\Models\pessoa\Funcionario;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

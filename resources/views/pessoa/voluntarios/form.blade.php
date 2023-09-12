@@ -16,12 +16,12 @@ Cadastro
         </a>
     </li>
     <li class="breadcrumb-item" aria-current="page">
-        <a class="text-secondary" href="{{route('rhMain')}}">
+        <a class="text-secondary" href="{{route('pessoaMain')}}">
             <i class="far fa-address-book px-1"></i>Recursos Humanos
         </a>
     </li>
     <li class="breadcrumb-item" aria-current="page">
-        <a class="text-secondary" href="{{route('rhVoluntariosPainel')}}">
+        <a class="text-secondary" href="{{route('pessoaVoluntariosPainel')}}">
             <i class="fa-solid fa-address-book px-1"></i>Voluntários
         </a>
     </li>
@@ -36,7 +36,7 @@ Cadastro
 <div class="content-body">
     <div class="tab-content bg-dark text-white rounded p-3">
         <div class="tab-pane fade show active" id="cadastroFuncionario" role="tabpanel" aria-labelledby="cadFunc" tabindex="0">
-            <form action="rh/voluntarios" method="POST"></form>
+            <form action="pessoa/voluntarios" method="POST"></form>
                 @csrf
                 <!--Descrição-->
                 <div class="row mb-3">

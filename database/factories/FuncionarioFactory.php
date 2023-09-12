@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\rh\Funcionario;
+use App\Models\pessoa\Funcionario;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

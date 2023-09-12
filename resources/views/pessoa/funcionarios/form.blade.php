@@ -18,12 +18,12 @@
     </li>
     <li class="breadcrumb-item active" aria-current="page">
         <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-           href="{{route('rhMain')}}">
+           href="{{route('pessoaMain')}}">
             <i class="far fa-address-book px-1"></i>Recursos Humanos
         </a>
     </li>
     <li class="breadcrumb-item active" aria-current="page">
-        <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{route('rhFuncionariosPainel')}}">
+        <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{route('pessoaFuncionariosPainel')}}">
             <i class="fa-solid fa-building-user px-1"></i>Funcionários
         </a>
     </li>
@@ -110,7 +110,7 @@
                         <div class="tab-content bg-dark text-white rounded p-3">
                             <div class="tab-pane fade show active" id="cadastroFuncionario" role="tabpanel"
                                  aria-labelledby="cadFunc" tabindex="0">
-                                <form method="POST" action="/rh/funcionarios">
+                                <form method="POST" action="/pessoa/funcionarios">
                                     @csrf
                                     <input type="hidden" name="colabDoc.cpf" value="{{$cpf}}">
                                     <h4 class="">Informações Pessoais</h4>
@@ -469,6 +469,6 @@
 
 @section('scripts-vendors')
 
-    <script src="/js/rh/funcionarios.js"></script>
+    <script src="/js/pessoa/funcionarios.js"></script>
 
 @endsection

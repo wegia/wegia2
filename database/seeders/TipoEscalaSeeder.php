@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\rh\TipoEscala;
+use App\Models\pessoa\TipoEscala;
 
 class TipoEscalaSeeder extends Seeder
 {

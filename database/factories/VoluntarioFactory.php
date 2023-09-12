@@ -15,7 +15,7 @@ class VoluntarioFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = \app\Models\rh\Voluntario::class;
+    protected $model = \app\Models\pessoa\Voluntario::class;
 
     public function definition(): array
     {

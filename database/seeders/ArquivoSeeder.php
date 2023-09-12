@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\rh\Arquivo;
+use App\Models\pessoa\Arquivo;
 
 class ArquivoSeeder extends Seeder
 {

@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\rh\Cargo;
-use App\Models\rh\Colaborador;
+use App\Models\pessoa\Cargo;
+use App\Models\pessoa\Colaborador;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

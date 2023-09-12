@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\rh\Voluntario;
+use App\Models\pessoa\Voluntario;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

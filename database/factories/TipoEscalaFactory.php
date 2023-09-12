@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\rh\TipoEscala;
+use App\Models\pessoa\TipoEscala;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\App;
 

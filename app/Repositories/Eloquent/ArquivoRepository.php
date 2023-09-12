@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Repositories\Contracts\ArquivoRepositoryInterface;
 
-use App\Models\rh\Arquivo;
+use App\Models\pessoa\Arquivo;
 
 class ArquivoRepository extends AbstractRepository 
                     implements ArquivoRepositoryInterface {

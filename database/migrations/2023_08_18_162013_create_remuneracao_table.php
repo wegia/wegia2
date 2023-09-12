@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\rh\Funcionario;
-use App\Models\rh\TipoRemuneracao;
+use App\Models\pessoa\Funcionario;
+use App\Models\pessoa\TipoRemuneracao;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Repositories\Contracts\ContatoRepositoryInterface;
 
-use App\Models\rh\Contato;
+use App\Models\pessoa\Contato;
 
 class ContatoRepository extends AbstractRepository 
                     implements ContatoRepositoryInterface {

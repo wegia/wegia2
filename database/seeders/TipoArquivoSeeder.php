@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\rh\TipoArquivo;
+use App\Models\pessoa\TipoArquivo;
 
 class TipoArquivoSeeder extends Seeder
 {

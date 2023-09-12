@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\DB;
 
 use App\Repositories\Contracts\CargoRepositoryInterface;
 
-use App\Models\rh\Cargo;
-use App\Models\rh\ColabCargo;
+use App\Models\pessoa\Cargo;
+use App\Models\pessoa\ColabCargo;
 
 class CargoRepository extends AbstractRepository 
                     implements CargoRepositoryInterface {

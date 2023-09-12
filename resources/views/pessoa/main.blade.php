@@ -23,7 +23,7 @@ Recursos Humanos
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-6 g-2">
                 <div class="col">
                     <div class="card text-center text-bg-dark">
-                        <a href="{{route('rhFuncionariosPainel')}}" class="justify-content-center align-content-center text-decoration-none link-light">
+                        <a href="{{route('pessoaFuncionariosPainel')}}" class="justify-content-center align-content-center text-decoration-none link-light">
                             <div class="card-body p-4">
                                 <i class="fa-solid fa-building-user fs-1 pb-5"></i>
                                 <p class="card-text">Funcionários</p>
@@ -33,7 +33,7 @@ Recursos Humanos
                 </div>
                 <div class="col">
                     <div class="card text-center text-bg-dark">
-                        <a href="{{route('rhVoluntariosPainel')}}" class="justify-content-center align-content-center text-decoration-none link-light">
+                        <a href="{{route('pessoaVoluntariosPainel')}}" class="justify-content-center align-content-center text-decoration-none link-light">
                             <div class="card-body p-4">
                                 <i class="fa-solid fa-user-clock fs-1 pb-5"></i>
                                 <p class="card-text">Voluntários</p>

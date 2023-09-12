@@ -2,12 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\rh\TipoArquivo;
+use App\Models\pessoa\TipoArquivo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\App;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AppModelsrhTipoArquivo>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AppModelspessoaTipoArquivo>
  */
 class TipoArquivoFactory extends Factory
 {

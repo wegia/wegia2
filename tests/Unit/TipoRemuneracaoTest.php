@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use App\Models\rh\Funcionario;
-use App\Models\rh\Remuneracao;
-use App\Models\rh\TipoRemuneracao;
+use App\Models\pessoa\Funcionario;
+use App\Models\pessoa\Remuneracao;
+use App\Models\pessoa\TipoRemuneracao;
 use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
 class TipoRemuneracaoTest extends TestCase

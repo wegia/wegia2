@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\DB;
 
 use App\Repositories\Contracts\EscalaRepositoryInterface;
 
-use App\Models\rh\ColaboradorEscala;
-use App\Models\rh\Escala;
+use App\Models\pessoa\ColaboradorEscala;
+use App\Models\pessoa\Escala;
 
 class EscalaRepository extends AbstractRepository
                     implements EscalaRepositoryInterface {

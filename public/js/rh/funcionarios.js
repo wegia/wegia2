@@ -202,13 +202,13 @@ const recarregaCombo =  (url, seletorCombo) => {
     let myRequest = new Request(url, config)
 
     const selectObj = document.querySelector(seletorCombo)
-    selectObj.innerHTML = "<option selected disabled>Selecionar</option>"
+    selectObj.innepessoaTML = "<option selected disabled>Selecionar</option>"
 
     fetch(myRequest)
         .then(resp => resp.json())
         .then(lista => {
             lista.forEach(obj => {
-                selectObj.innerHTML += `<option value="${obj.id}">${obj.nome}</option>`
+                selectObj.innepessoaTML += `<option value="${obj.id}">${obj.nome}</option>`
             })
     })
 }
@@ -245,7 +245,7 @@ const salvaDadoAuxiliar = (url, seletorModal, seletorCombo, seletorIptNome, sele
 const btnNovaSituacao = document.querySelector("#addSituacao")
 if (btnNovaSituacao) {
     btnNovaSituacao.addEventListener("click", function() {
-        salvaDadoAuxiliar('/rh/situacoes', '#novaSituacaoModal', '#situacao', '#iptNovaSituacao')
+        salvaDadoAuxiliar('/pessoa/situacoes', '#novaSituacaoModal', '#situacao', '#iptNovaSituacao')
     })
 }
 /////////////
@@ -253,7 +253,7 @@ if (btnNovaSituacao) {
 const btnNovoCargo = document.querySelector("#addCargo")
 if (btnNovoCargo) {
     btnNovoCargo.addEventListener("click", function() {
-        salvaDadoAuxiliar('/rh/cargos', '#novoCargoModal', '#cargo', '#iptNovoCargo')
+        salvaDadoAuxiliar('/pessoa/cargos', '#novoCargoModal', '#cargo', '#iptNovoCargo')
     })
 }
 
@@ -262,7 +262,7 @@ if (btnNovoCargo) {
 const btnNovaEscala = document.querySelector("#addEscala")
 if (btnNovaEscala) {
     btnNovaEscala.addEventListener("click", function() {
-        salvaDadoAuxiliar('/rh/escalas', '#novaEscalaModal', '#escala', '#iptNovaEscala', '#iptNovaEscalaDescricao')
+        salvaDadoAuxiliar('/pessoa/escalas', '#novaEscalaModal', '#escala', '#iptNovaEscala', '#iptNovaEscalaDescricao')
     })
 }
 
@@ -271,6 +271,6 @@ if (btnNovaEscala) {
 const btnNovoTipoEscala = document.querySelector("#addTipoEscala")
 if(btnNovoTipoEscala) {
     btnNovoTipoEscala.addEventListener("click", function() {
-        salvaDadoAuxiliar('/rh/tipoEscalas', '#novoTipoEscalaModal', '#tipoEscala', '#iptNovoTipoEscala')
+        salvaDadoAuxiliar('/pessoa/tipoEscalas', '#novoTipoEscalaModal', '#tipoEscala', '#iptNovoTipoEscala')
     })
 }

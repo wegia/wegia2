@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\rh\Colaborador;
+use App\Models\pessoa\Colaborador;
 
 class ColaboradorSeeder extends Seeder
 {

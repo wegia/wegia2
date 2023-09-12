@@ -47,9 +47,9 @@ class EmployeeController extends Controller {
             $employeeTimesheetList = EmployeeTimesheet::all();
             $employeeShiftTypeList = EmployeeShiftType::all();
 
-            return view('rh.employees.form', compact('cpf', 'cpfAlreadyExists', 'employeeRoleList', 'employeeTimesheetList', 'employeeShiftTypeList'));
+            return view('pessoa.employees.form', compact('cpf', 'cpfAlreadyExists', 'employeeRoleList', 'employeeTimesheetList', 'employeeShiftTypeList'));
         }
-        return view('rh.employees.form', compact('cpf', 'cpfAlreadyExists'));
+        return view('pessoa.employees.form', compact('cpf', 'cpfAlreadyExists'));
     }
 
     private function storePerson($name, $gender, $phone, $birthday) {
@@ -117,7 +117,7 @@ class EmployeeController extends Controller {
     public function list() {
         $result = Employee::all();
         //return $result;
-        return view('rh.employees.employees.list')->with('result', $result);
+        return view('pessoa.employees.employees.list')->with('result', $result);
     }
 
     public function get($id) {
@@ -127,7 +127,7 @@ class EmployeeController extends Controller {
 
     /* navigagion functions */
     public function add() {
-        return view('rh.employees.form');
+        return view('pessoa.employees.form');
     }
 
 

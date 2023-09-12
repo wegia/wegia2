@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Repositories\Contracts\DependenteRepositoryInterface;
 
-use App\Models\rh\Dependente;
+use App\Models\pessoa\Dependente;
 
 class DependenteRepository extends AbstractRepository 
                     implements DependenteRepositoryInterface {

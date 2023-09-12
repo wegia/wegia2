@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use App\Models\rh\ColabEscala;
-use App\Models\rh\Colaborador;
-use App\Models\rh\Escala;
-use App\Models\rh\TipoEscala;
+use App\Models\pessoa\ColabEscala;
+use App\Models\pessoa\Colaborador;
+use App\Models\pessoa\Escala;
+use App\Models\pessoa\TipoEscala;
 use Illuminate\Support\Facades\Schema;
 use PHPUnit\Framework\TestCase;
 

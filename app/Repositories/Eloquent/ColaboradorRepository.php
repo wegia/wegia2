@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Repositories\Contracts\ColaboradorRepositoryInterface;
 
-use App\Models\rh\Colaborador;
+use App\Models\pessoa\Colaborador;
 
 class ColaboradorRepository extends AbstractRepository 
                     implements ColaboradorRepositoryInterface {

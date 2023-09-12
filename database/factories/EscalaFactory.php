@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\rh\Escala;
+use App\Models\pessoa\Escala;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

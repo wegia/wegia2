@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Models\rh;
+namespace App\Models\pessoa;
 
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\rh\Arquivo;
-use App\Models\rh\Funcionario;
-use App\Models\rh\Voluntario;
-use App\Models\rh\Cargo;
-use App\Models\rh\Horario;
+use App\Models\pessoa\Arquivo;
+use App\Models\pessoa\Funcionario;
+use App\Models\pessoa\Voluntario;
+use App\Models\pessoa\Cargo;
+use App\Models\pessoa\Horario;
 use App\Models\Pessoa;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;

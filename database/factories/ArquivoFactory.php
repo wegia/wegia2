@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Pessoa;
-use App\Models\rh\Arquivo;
-use App\Models\rh\TipoArquivo;
+use App\Models\pessoa\Arquivo;
+use App\Models\pessoa\TipoArquivo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

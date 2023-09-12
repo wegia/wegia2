@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\rh\Remuneracao;
+use App\Models\pessoa\Remuneracao;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

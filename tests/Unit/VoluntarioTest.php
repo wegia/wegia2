@@ -3,8 +3,8 @@
 namespace Tests\Unit;
 
 use App\Models\Pessoa;
-use App\Models\rh\Voluntario;
-use App\Models\rh\Colaborador;
+use App\Models\pessoa\Voluntario;
+use App\Models\pessoa\Colaborador;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
