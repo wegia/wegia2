@@ -11,11 +11,12 @@
 |
 */
 
+use App\Http\Controllers\AtendidoController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\pessoaController;
 use App\Http\Controllers\FuncionariosController;
-use App\Http\Controllers\PessoasController;
+use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\VoluntariosController;
+use Database\Factories\PessoaFactory;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('/',  'App\Http\Controllers\HomeController@index');
@@ -77,6 +78,8 @@ Route::get('/teste', function(){
     return view('testes.testa_imagem');
 });
 
+Route::resource('pessoas', pessoaController::class);
+Route::resource('atendidos', AtendidoController::class);
 
 ////////////////////////
 // Rotas para pessoaController
@@ -123,7 +126,8 @@ Route::get('/pessoa/voluntarios/add', [VoluntariosController::class, 'adicionar'
 //modulo de atendidos
 //Routes for People
 ////////////////////////
-Route::get('/atendidos', [PessoasController::class, 'index'])->name("pessoasMain");
+
+Route::get('/pessoa/atendidos/painel', [AtendidoController::class, 'painel'])->name("atendidos.painel");
 Route::get('/atendidos/beneficiados/adm', [PessoasController::class, 'beneficiados'])->name("beneficiadosMain");
 Route::get('/atendidos/assistidos/adm', [PessoasController::class, 'assistidos'])->name("assistidosMain");
 //Route::get('/atendidos/beneficiaries/beneficiaries/adm', 'App\Http\Controllers\PeopleController@beneficiaries')->name("peopleBeneficiariesMain");
