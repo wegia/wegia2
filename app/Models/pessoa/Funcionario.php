@@ -16,7 +16,7 @@ class Funcionario extends Model
 
     protected $table = 'funcionario';
     protected $fillable = [
-        'pis', 'ctps', 'ctps_uf', 'eleitor_numero', 'eleitor_zona', 'eleitor_secao', 'reserv_numero', 'reserv_orgao', 'reserv_serie'
+        'colaborador_id','pis', 'ctps', 'ctps_uf', 'eleitor_numero', 'eleitor_zona', 'eleitor_secao', 'reserv_numero', 'reserv_orgao', 'reserv_serie'
     ];
     protected $guarded = ['id'];
 

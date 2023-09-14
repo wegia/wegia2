@@ -66,12 +66,12 @@ class FuncionarioRepository extends AbstractRepository
     }
 
     public function save($inputs) {
-        print_r($inputs);
         //1. salvar pessoa
         $pessoa = $this->getPessoaRepository()->create($inputs['pessoa_nome']
                             , $inputs['pessoa_genero']
                             , $inputs['pessoa_nascimento']);
         //2. salvar colaborador
+        
         $colaborador = $this->getColaboradorRepository()->create($pessoa->id
                             , $inputs['colab_admissao']
                             , $inputs['colab_situacao']
@@ -81,9 +81,9 @@ class FuncionarioRepository extends AbstractRepository
                             , $inputs['colabDoc_rg_expedicao']);
         //3. salvar funcionario
         // $colabId,
-        $funcionario = Funcionario::create(['colab_id' => $colaborador->id
-                            , 'reserv_numero' => $inputs['funcDoc_reserv_numero']
-                            , 'reserv_serie' => $inputs['funcDoc_reserv_serie']
+        $funcionario = Funcionario::create(['colaborador_id' => $colaborador->id
+                            , 'numero_reservista' => $inputs['funcDoc_reserv_numero']
+                            , 'serie_reservista' => $inputs['funcDoc_reserv_serie']
                         ]);
                             //$reservNumero
                             //reservSerie]);

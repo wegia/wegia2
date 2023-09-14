@@ -10,7 +10,7 @@ class ColaboradorEscala extends Model {
     use HasFactory;
 
     protected $table = 'colaborador_escala';
-    protected $fillable = ['inicio', 'fim'];
+    protected $fillable = ['colaborador_id','escala_id','tipo_escala_id','inicio', 'fim'];
     protected $guarded = ['id'];
 
     public $timestamps = false;

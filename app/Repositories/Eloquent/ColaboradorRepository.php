@@ -15,6 +15,7 @@ class ColaboradorRepository extends AbstractRepository
 
 
     public function create($pessoaId, $admissaoDate, $situacao, $cpf, $rg, $rgOrgao, $rgExpedicao) {
+
         return Colaborador::create([
             'pessoa_id' => $pessoaId,
             'admissao' => $admissaoDate,
@@ -22,7 +23,7 @@ class ColaboradorRepository extends AbstractRepository
             'cpf' => $cpf,
             'rg' => $rg,
             'rg_orgao' => $rgOrgao,
-            'rg_expedicao' => $rgExpedicao
+            'rg_data_expedicao' => $rgExpedicao
         ]);
     }
     

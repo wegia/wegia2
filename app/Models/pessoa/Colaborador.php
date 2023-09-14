@@ -22,7 +22,7 @@ class Colaborador extends Model
     use HasFactory;
 
     protected $table = 'colaborador';
-    protected $fillable = ['admissao', 'situacao', 'cpf', 'rg', 'rg_orgao', 'rg_expedicao', 'rg_vencimento'];
+    protected $fillable = ['pessoa_id','admissao', 'situacao', 'cpf', 'rg', 'rg_orgao', 'rg_expedicao', 'rg_vencimento'];
     public $timestamps = false;
 
     public function pessoa(): BelongsTo

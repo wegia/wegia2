@@ -16,10 +16,7 @@ return new class extends Migration
             $table->collation = 'utf8mb4_unicode_ci';
             $table->id();
             $table->foreignIdFor(Pessoa::class);
-
-            $table->string('login', 255);
-            $table->string('senha', 255);
-
+            
             $table->date('admissao')->default(date("Y-m-d H:i:s"))->nullable();
             $table->enum('situacao', ['a', 'i'])->default('a');
             $table->string('cpf', 14)->nullable();

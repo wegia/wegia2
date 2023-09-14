@@ -10,7 +10,7 @@ class Contato extends Model {
     use HasFactory;
 
     protected $table = 'contato';
-    protected $fillable =['logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'estado', 'cep','telefone', 'celular', 'email', 'ibge'];
+    protected $fillable =['pessoa_id','logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'estado', 'cep','telefone', 'celular', 'email', 'ibge'];
 
     public $timestamps = true;
 

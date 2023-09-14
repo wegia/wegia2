@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Repositories\Contracts\CargoRepositoryInterface;
 
 use App\Models\pessoa\Cargo;
-use App\Models\pessoa\ColabCargo;
+use App\Models\pessoa\CargoColaborador;
 
 class CargoRepository extends AbstractRepository 
                     implements CargoRepositoryInterface {
@@ -15,8 +15,8 @@ class CargoRepository extends AbstractRepository
     protected $model = Cargo::class;
 
     public function createCargoDoColaborador($colabId, $cargoId) {
-        return ColabCargo::create([
-            'colab_id' => $colabId,
+        return CargoColaborador::create([
+            'colaborador_id' => $colabId,
             'cargo_id' => $cargoId
         ]);
     }

@@ -16,9 +16,9 @@ class EscalaRepository extends AbstractRepository
 
     public function createEscalaDoColaborador($colabId, $escalaId, $tipoEscalaId) {
         return ColaboradorEscala::create([
-            'colab_id' => $colabId,
+            'colaborador_id' => $colabId,
             'escala_id' => $escalaId,
-            'tipo_id' => $tipoEscalaId
+            'tipo_escala_id' => $tipoEscalaId
         ]);
     }
 

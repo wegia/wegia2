@@ -71,9 +71,6 @@ class DatabaseSeeder extends Seeder
         DB::insert('INSERT INTO tipo_escala (nome) values (?)', array('Segundas às sextas, folga aos sábados e domingos'));
         DB::insert('INSERT INTO tipo_escala (nome) values (?)', array('Dias alternados'));
 
-        // criando uma pessoa de teste
-        DB::insert('INSERT INTO colaborador (login,senha) VALUES (?, ?)', array('teste@cefet-rj.br', 'a'));
-
         ///// 2023-03-23
         //refazer esse seed
         //////////////////

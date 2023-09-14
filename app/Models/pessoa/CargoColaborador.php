@@ -11,7 +11,7 @@ class CargoColaborador extends Model {
     use HasFactory;
 
     protected $table = 'cargo_colaborador';
-    protected $fillable = ['inicio', 'fim'];
+    protected $fillable = ['colaborador_id','cargo_id','inicio', 'fim'];
     protected $guarded = ['id'];
 
     public $timestamps = false;
