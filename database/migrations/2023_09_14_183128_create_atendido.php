@@ -16,10 +16,11 @@ return new class extends Migration
     {
         Schema::create('atendido', function (Blueprint $table) {
             $table->id();
+            $table->string('cpf', 14)->nullable();
+            $table->string('telefone', 20)->nullable();
             $table->foreignIdFor(Pessoa::class);
             $table->foreignIdFor(TipoAtendido::class);
             $table->foreignIdFor(StatusAtendido::class);
-            $table->string('telefone', 20)->nullable();
         });
     }
 

@@ -40,7 +40,7 @@
             </div>
             <div class="col">
                 <div class="card text-center text-bg-dark">
-                    <a href="{{route('atendidos.index')}}"
+                    <a href="{{route('atendidos.listar')}}"
                        class="justify-content-center align-content-center text-decoration-none link-light">
                         <div class="card-body p-4">
                             <i class="fa-solid fa-list-ul fs-1 pb-5"></i>
