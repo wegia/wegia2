@@ -9,10 +9,11 @@ use App\Repositories\Contracts\FuncionarioRepositoryInterface;
 use App\Models\pessoa\Cargo;
 use App\Models\pessoa\Escala;
 use App\Models\pessoa\TipoEscala;
+use App\Repositories\Eloquent\FuncionarioRepository;
 
 class FuncionariosController extends Controller {
 
-    protected $funcionarioRepository;
+    protected FuncionarioRepository $funcionarioRepository;
 
     public function __construct(FuncionarioRepositoryInterface $funcionarioRepository) {
         //$this->middleware('auth');
