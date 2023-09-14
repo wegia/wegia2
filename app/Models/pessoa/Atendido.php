@@ -21,4 +21,9 @@ class Atendido extends Model
     public function statusAtendido():BelongsTo{
         return $this->belongsTo(StatusAtendido::class);
     }
+
+    public function pessoa(): BelongsTo
+    {
+        return $this->belongsTo(Pessoa::class);
+    }
 }
