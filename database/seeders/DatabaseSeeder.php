@@ -16,6 +16,7 @@ use App\Models\pessoa\Horario;
 use App\Models\pessoa\Funcionario;
 use App\Models\pessoa\Remuneracao;
 use App\Models\pessoa\Voluntario;
+use App\Models\pessoa\TipoAtendido;
 use Database\Seeders\CargoSeeder;
 use Database\Seeders\ColaboradorSeeder;
 use Database\Seeders\ContatoSeeder;
@@ -32,6 +33,7 @@ use Database\Seeders\TipoEscalaSeeder;
 use Database\Seeders\TipoRemuneracaoSeeder;
 use Database\Seeders\HorarioSeeder;
 use Database\Seeders\RemuneracaoSeeder;
+use Database\Seeders\TipoAtendidoSeeder;
 use Database\Seeders\UFSeeder;
 use Database\Seeders\VoluntarioSeeder;
 use Illuminate\Database\Seeder;
@@ -63,6 +65,7 @@ class DatabaseSeeder extends Seeder
             ColaboradorEscala::truncate();
             Remuneracao::truncate();
             CargoColaborador::truncate();
+            TipoAtendido::truncate();
         Schema::enableForeignKeyConstraints();
 
         $this->call([
@@ -85,7 +88,8 @@ class DatabaseSeeder extends Seeder
             DependenteSeeder::class,
             RemuneracaoSeeder::class,
             ColaboradorEscalaSeeder::class,
-            CargoColaboradorSeeder::class
+            CargoColaboradorSeeder::class,
+            TipoAtendidoSeeder::class
         ]);
     }
 }

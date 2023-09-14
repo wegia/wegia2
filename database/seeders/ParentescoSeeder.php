@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\utils\Parentesco;
+use App\Models\pessoa\utils\Parentesco;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
