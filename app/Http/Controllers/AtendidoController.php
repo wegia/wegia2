@@ -21,6 +21,10 @@ class AtendidoController extends Controller
         return view('pessoa.atendidos.lista');
     }
 
+    public function cadastrar(){
+        return view('pessoa.atendidos.form');
+    }
+
     /**
      * Salva um Atendido no banco de dados
      */

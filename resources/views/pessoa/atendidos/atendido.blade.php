@@ -29,7 +29,7 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-6 g-2">
             <div class="col">
                 <div class="card text-center text-bg-dark">
-                    <a href="{{route('addFuncionarios')}}"
+                    <a href="{{route('atendidos.cadastrar')}}"
                        class="justify-content-center align-content-center text-decoration-none link-light">
                         <div class="card-body p-4">
                             <i class="fa-solid fa-user-plus fs-1 pb-5"></i>
