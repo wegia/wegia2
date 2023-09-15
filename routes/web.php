@@ -65,6 +65,8 @@ Route::get('/pessoa/voluntarios/add', [VoluntariosController::class, 'adicionar'
 ////////////////////////
 
 Route::get('/pessoa/atendidos/painel', [AtendidoController::class, 'painel'])->name("atendidos.painel");
+Route::get('/pessoa/atendidos/painel/lista', [AtendidoController::class, 'listar'])->name('atendidos.listar');
+Route::get('/pessoa/atendidos/painel/edita', [AtendidoController::class, 'editar'])->name('atendidos.editar');
 Route::get('/atendidos/beneficiados/adm', [PessoasController::class, 'beneficiados'])->name("beneficiadosMain");
 Route::get('/atendidos/assistidos/adm', [PessoasController::class, 'assistidos'])->name("assistidosMain");
 //Route::get('/atendidos/beneficiaries/beneficiaries/adm', 'App\Http\Controllers\PeopleController@beneficiaries')->name("peopleBeneficiariesMain");

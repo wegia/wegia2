@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Colaborador;
 use App\Models\Contato;
-
+use App\Models\pessoa\Atendido;
 
 class Pessoa extends Model {
     use HasFactory;
@@ -27,5 +27,9 @@ class Pessoa extends Model {
     
     public function colaborador() {
         return $this->hasOne(Colaborador::class);
+    }
+
+    public function atendidos(){
+        return $this->hasOne(Atendido::class);
     }
 }

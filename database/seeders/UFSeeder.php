@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\utils\Uf;
+use App\Models\pessoa\utils\Uf;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

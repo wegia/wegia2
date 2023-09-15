@@ -6,6 +6,7 @@ use App\Models\pessoa\Contato;
 use App\Models\pessoa\Cargo;
 use App\Models\pessoa\Escala;
 use App\Models\pessoa\Arquivo;
+use App\Models\pessoa\Atendido;
 use App\Models\pessoa\CargoColaborador;
 use App\Models\pessoa\TipoArquivo;
 use App\Models\pessoa\TipoRemuneracao;
@@ -15,7 +16,9 @@ use App\Models\pessoa\Dependente;
 use App\Models\pessoa\Horario;
 use App\Models\pessoa\Funcionario;
 use App\Models\pessoa\Remuneracao;
+use App\Models\pessoa\StatusAtendido;
 use App\Models\pessoa\Voluntario;
+use App\Models\pessoa\TipoAtendido;
 use Database\Seeders\CargoSeeder;
 use Database\Seeders\ColaboradorSeeder;
 use Database\Seeders\ContatoSeeder;
@@ -24,6 +27,7 @@ use Database\Seeders\ParentescoSeeder;
 use Database\Seeders\PessoaTableSeeder;
 use Database\Seeders\TipoArquivoSeeder;
 use Database\Seeders\ArquivoSeeder;
+use Database\Seeders\AtendidoSeeder;
 use Database\Seeders\CargoColaboradorSeeder;
 use Database\Seeders\ColaboradorEscalaSeeder;
 use Database\Seeders\DependenteSeeder;
@@ -32,6 +36,8 @@ use Database\Seeders\TipoEscalaSeeder;
 use Database\Seeders\TipoRemuneracaoSeeder;
 use Database\Seeders\HorarioSeeder;
 use Database\Seeders\RemuneracaoSeeder;
+use Database\Seeders\StatusAtendidoSeeder;
+use Database\Seeders\TipoAtendidoSeeder;
 use Database\Seeders\UFSeeder;
 use Database\Seeders\VoluntarioSeeder;
 use Illuminate\Database\Seeder;
@@ -63,6 +69,9 @@ class DatabaseSeeder extends Seeder
             ColaboradorEscala::truncate();
             Remuneracao::truncate();
             CargoColaborador::truncate();
+            TipoAtendido::truncate();
+            StatusAtendido::truncate();
+            Atendido::truncate();
         Schema::enableForeignKeyConstraints();
 
         $this->call([
@@ -85,7 +94,10 @@ class DatabaseSeeder extends Seeder
             DependenteSeeder::class,
             RemuneracaoSeeder::class,
             ColaboradorEscalaSeeder::class,
-            CargoColaboradorSeeder::class
+            CargoColaboradorSeeder::class,
+            TipoAtendidoSeeder::class,
+            StatusAtendidoSeeder::class,
+            AtendidoSeeder::class
         ]);
     }
 }
