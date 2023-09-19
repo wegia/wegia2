@@ -50,8 +50,8 @@ class Colaborador extends Model
         return $this->hasMany(Escala::class);
     }
 
-    public function cargos(): HasMany
+    public function cargoColaboradores(): HasMany
     {
-        return $this->hasMany(Cargo::class);
+        return $this->hasMany(CargoColaborador::class);
     }
 }

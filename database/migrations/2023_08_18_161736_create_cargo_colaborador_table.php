@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('colab_tem_cargo');
+        Schema::dropIfExists('cargo_colaborador');
     }
 };

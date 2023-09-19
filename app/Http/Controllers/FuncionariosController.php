@@ -8,6 +8,7 @@ use App\Repositories\Contracts\FuncionarioRepositoryInterface;
 
 use App\Models\pessoa\Cargo;
 use App\Models\pessoa\Escala;
+use App\Models\pessoa\Funcionario;
 use App\Models\pessoa\TipoEscala;
 use App\Repositories\Eloquent\FuncionarioRepository;
 
@@ -34,9 +35,9 @@ class FuncionariosController extends Controller {
             ->with('message', $message);
     }
 
-    public function list(FuncionarioRepositoryInterface $model) {
-        $lista = $this->funcionarioRepository->listSimplified();
-        return view('pessoa.funcionarios.lista')->with('lista', $lista);
+    public function list() {
+        $lista = Funcionario::with(['colaborador.pessoa','colaborador.cargoColaboradores.cargo'])->get();
+        return view('pessoa.funcionarios.lista', ['lista'=> $lista]);
     }
 
     public function get($id) {

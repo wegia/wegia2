@@ -36,21 +36,29 @@ Route::get('/pessoa/tipoEscalas', [pessoaController::class, 'listTipoEscala'])->
 Route::post('/pessoa/tipoEscalas', [pessoaController::class, 'addTipoEscala'])->name("pessoaNovoTipoEscala");
 
 
-////////////////////////
-//Rotas para FuncionariosController
-////////////////////////
-// Navegação
-Route::get('/pessoa/funcionarios', [FuncionariosController::class, 'list'])->name('listaFuncionarios');
+/**
+ * Rotas para FuncionariosController
+ */
+Route::prefix('pessoa/funcionarios')->group(function () {
 
-Route::get('/pessoa/funcionarios/add', [FuncionariosController::class, 'add'])->name('addFuncionarios');
-Route::get('/pessoa/funcionarios/edit/{func_id}', [FuncionariosController::class, 'edit'])->name('editFuncionarios');
+    // Rota para listar os funcionários
+    Route::get('/', [FuncionariosController::class, 'list'])->name('listaFuncionarios');
 
-// Operação
-Route::post('/pessoa/funcionarios', [FuncionariosController::class, 'save'])->name('saveFuncionarios');
-Route::put('/pessoa/funcionarios', [FuncionariosController::class, 'update']);
+    // Rota para exibir o formulário de adição de funcionário
+    Route::get('add', [FuncionariosController::class, 'add'])->name('addFuncionarios');
 
-Route::get('/pessoa/funcionarios/checkCPF', [FuncionariosController::class, 'checkCPF'])->name('cpfJaCadastrado');
+    // Rota para exibir o formulário de edição de funcionário (com um parâmetro func_id)
+    Route::get('edit/{func_id}', [FuncionariosController::class, 'edit'])->name('editFuncionarios');
 
+    // Rota para salvar um novo funcionário (via método POST)
+    Route::post('/', [FuncionariosController::class, 'save'])->name('saveFuncionarios');
+
+    // Rota para atualizar um funcionário existente (via método PUT)
+    Route::put('/', [FuncionariosController::class, 'update']);
+
+    // Rota para verificar se um CPF já está cadastrado
+    Route::get('checkCPF', [FuncionariosController::class, 'checkCPF'])->name('cpfJaCadastrado');
+});
 
 ////////////////////////
 //Rotas para VoluntariosController

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Pessoa;
 use App\Models\pessoa\Funcionario;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,8 +20,11 @@ class FuncionarioFactory extends Factory
 
     public function definition(): array
     {
+
+        $existingColaboradorIds = Pessoa::pluck('id')->toArray();
+
         return [
-            'colaborador_id' => $this->faker->unique()->randomDigit(),
+            'colaborador_id' => $this->faker->randomElement($existingColaboradorIds),
             'pis' =>$this->faker->numerify('###########'),
             'ctps'=> $this->faker->numerify('#######/####'),
             'ctps_uf' => $this->faker->stateAbbr(),

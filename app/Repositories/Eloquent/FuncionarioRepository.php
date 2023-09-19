@@ -22,7 +22,7 @@ class FuncionarioRepository extends AbstractRepository
      *  - colab.cargo (atual) colab_tem_cargo.e_cargo_atual = T
      */
     public function listSimplified() {
-        $result = DB::select('SELECT f.id as `func_id`
+        /*$result = DB::select('SELECT f.id as `func_id`
                                 , p.nome as `nome`
                                 , c.cpf as `cpf`
                                 , c.situacao as `situacao`
@@ -31,8 +31,8 @@ class FuncionarioRepository extends AbstractRepository
                                 JOIN pessoa p ON p.id = c.pessoa_id 
                                 JOIN cargo_colaborador ctc ON ctc.colaborador_id = c.id 
                                 JOIN cargo ON cargo.id = ctc.cargo_id
-                            WHERE ctc.e_cargo_atual = true');
-        return $result;
+                            WHERE c.situacao = "i"');*/
+        //return $resultado;
     }
 
     /**
