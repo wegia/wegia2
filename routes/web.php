@@ -8,15 +8,12 @@ use App\Http\Controllers\VoluntariosController;
 use Database\Factories\PessoaFactory;
 use Illuminate\Support\Facades\Route;
 
-<<<<<<< HEAD
-=======
 //Route::get('/',  'App\Http\Controllers\HomeController@index');
 
 
 // Route::get('/', function() {return "teste";});
 ////////////////////////
 
->>>>>>> c78dc3b (refactor: web.php)
 Route::get('/', [HomeController::class, 'index']);
 
 
@@ -77,5 +74,12 @@ Route::get('/pessoa/atendidos/painel', [AtendidoController::class, 'painel'])->n
 Route::get('/pessoa/atendidos/painel/lista', [AtendidoController::class, 'listar'])->name('atendidos.listar');
 Route::get('/pessoa/atendidos/painel/edita', [AtendidoController::class, 'editar'])->name('atendidos.editar');
 Route::get('/pessoa/atendidos/painel/form', [AtendidoController::class, 'cadastrar'])->name('atendidos.cadastrar');
+Route::get('/pessoa/atendidos/painel/checkCPF', [AtendidoController::class, 'validarCpf'])->name('atendidos.validarCpf');
+Route::post('/pessoa/atendidos', [AtendidoController::class, 'salvar'])->name('atendido.salvar');
+Route::post('/pessoa/atendidos/status', [AtendidoController::class, 'addStatus'])->name("atendido.status");
+Route::post('/pessoa/atendidos/tipo', [AtendidoController::class, 'addTipo'])->name("atendido.tipo");
+Route::get('/pessoa/atendidos/status', [AtendidoController::class, 'listarStatus'])->name("atendido.status.listar");
+Route::get('/pessoa/atendidos/tipo', [AtendidoController::class, 'listarTipo'])->name("atendido.tipo.listar");
+
 
 

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/custom.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
     <link rel="icon" href="/img/icone.png" sizes="192x192"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
         {{ env('APP_NAME') }} - @yield('title')
     </title>
