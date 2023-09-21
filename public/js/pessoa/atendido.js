@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Feche o modal
                 
                 $('#novoStatusModal').modal('hide');
-                window.location.reload();
+                atualizarListaStatus();
             }
         };
         
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Feche o modal
                 
                 $('#novoTipoModal').modal('hide');
-                window.location.reload();
+                atualizarListaTipo();
             }
         };
         
@@ -61,11 +61,22 @@ function atualizarListaStatus() {
 
     // Faça uma solicitação AJAX para obter a lista atualizada de status
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/pessoa/atendidos/listarStatus', true);
+    xhr.open('GET', '/pessoa/atendidos/status', true);
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // Atualize o conteúdo da lista com a resposta do servidor
-            listaStatusElement.innerHTML = xhr.responseText;
+        if (xhr.readyState === 4 && xhr.status === 200) { 
+            // Analise a resposta JSON do servidor
+            var response = JSON.parse(xhr.responseText);
+
+            // Limpe as opções existentes
+            listaStatusElement.innerHTML = '';
+
+            // Adicione cada status como uma nova opção
+            response.forEach(function (status) {
+                var option = document.createElement('option');
+                option.value = status.id; // Defina o valor da opção (se necessário)
+                option.textContent = status.status; // Texto visível da opção
+                listaStatusElement.appendChild(option);
+            });
         }
     };
     xhr.send();
@@ -79,11 +90,22 @@ function atualizarListaTipo() {
 
     // Faça uma solicitação AJAX para obter a lista atualizada de status
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/pessoa/atendidos/listarTipo', true);
+    xhr.open('GET', '/pessoa/atendidos/tipo', true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            // Atualize o conteúdo da lista com a resposta do servidor
-            listaTipoElement.innerHTML = xhr.responseText;
+            // Analise a resposta JSON do servidor
+            var response = JSON.parse(xhr.responseText);
+            
+            // Limpe as opções existentes
+            listaTipoElement.innerHTML = '';
+
+            // Adicione cada status como uma nova opção
+            response.forEach(function (tipo) {
+                var option = document.createElement('option');
+                option.value = tipo.id; // Defina o valor da opção (se necessário)
+                option.textContent = tipo.descricao; // Texto visível da opção
+                listaTipoElement.appendChild(option);
+            });
         }
     };
     xhr.send();
