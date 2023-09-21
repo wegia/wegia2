@@ -8,6 +8,12 @@ use App\Http\Controllers\VoluntariosController;
 use Database\Factories\PessoaFactory;
 use Illuminate\Support\Facades\Route;
 
+//Route::get('/',  'App\Http\Controllers\HomeController@index');
+
+
+// Route::get('/', function() {return "teste";});
+////////////////////////
+
 Route::get('/', [HomeController::class, 'index']);
 
 
@@ -75,9 +81,13 @@ Route::get('/pessoa/voluntarios/add', [VoluntariosController::class, 'adicionar'
 Route::get('/pessoa/atendidos/painel', [AtendidoController::class, 'painel'])->name("atendidos.painel");
 Route::get('/pessoa/atendidos/painel/lista', [AtendidoController::class, 'listar'])->name('atendidos.listar');
 Route::get('/pessoa/atendidos/painel/edita', [AtendidoController::class, 'editar'])->name('atendidos.editar');
-Route::get('/atendidos/beneficiados/adm', [PessoasController::class, 'beneficiados'])->name("beneficiadosMain");
-Route::get('/atendidos/assistidos/adm', [PessoasController::class, 'assistidos'])->name("assistidosMain");
-//Route::get('/atendidos/beneficiaries/beneficiaries/adm', 'App\Http\Controllers\PeopleController@beneficiaries')->name("peopleBeneficiariesMain");
-//Route::get('/atendidos/assisted/assisted/adm', 'App\Http\Controllers\PeopleController@assisted')->name("peopleAssistedMain");
+Route::get('/pessoa/atendidos/painel/form', [AtendidoController::class, 'cadastrar'])->name('atendidos.cadastrar');
+Route::get('/pessoa/atendidos/painel/checkCPF', [AtendidoController::class, 'validarCpf'])->name('atendidos.validarCpf');
+Route::post('/pessoa/atendidos', [AtendidoController::class, 'salvar'])->name('atendido.salvar');
+Route::post('/pessoa/atendidos/status', [AtendidoController::class, 'addStatus'])->name("atendido.status");
+Route::post('/pessoa/atendidos/tipo', [AtendidoController::class, 'addTipo'])->name("atendido.tipo");
+Route::get('/pessoa/atendidos/status', [AtendidoController::class, 'listarStatus'])->name("atendido.status.listar");
+Route::get('/pessoa/atendidos/tipo', [AtendidoController::class, 'listarTipo'])->name("atendido.tipo.listar");
+
 
 
