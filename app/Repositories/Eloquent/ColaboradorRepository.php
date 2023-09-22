@@ -14,13 +14,12 @@ class ColaboradorRepository extends AbstractRepository
     protected $model = Colaborador::class;
 
 
-    public function create($pessoaId, $admissaoDate, $situacao, $cpf, $rg, $rgOrgao, $rgExpedicao) {
+    public function create($pessoaId, $admissaoDate, $situacao, $rg, $rgOrgao, $rgExpedicao) {
 
         return Colaborador::create([
             'pessoa_id' => $pessoaId,
             'admissao' => $admissaoDate,
             'situacao' => $situacao, 
-            'cpf' => $cpf,
             'rg' => $rg,
             'rg_orgao' => $rgOrgao,
             'rg_data_expedicao' => $rgExpedicao

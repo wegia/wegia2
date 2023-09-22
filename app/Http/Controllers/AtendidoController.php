@@ -51,6 +51,7 @@ class AtendidoController extends Controller
         $pessoa->nome = $request->input('nome');
         $pessoa->genero = $request->input('genero');
         $pessoa->nascimento = $request->input('nascimento');
+        $pessoa->cpf = $request->input("cpf");
         $pessoa->save();
         //Criando um atendido e definindo os atributos
         $atendido = new Atendido();
@@ -58,7 +59,7 @@ class AtendidoController extends Controller
         $atendido->status_atendido_id = $request->input('status_id');
         $atendido->tipo_atendido_id = $request->input('tipo_id');
         $atendido->telefone = $request->input("telefone");
-        $atendido->cpf = $request->input("cpf");
+        
         $atendido->save();
         //Chama a função para redirecionar para a tela de listagem
         return $this->listar();

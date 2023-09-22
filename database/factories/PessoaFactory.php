@@ -20,6 +20,7 @@ class PessoaFactory extends Factory
             'nome' => fake('pt_BR')->name(),
             'genero' => fake()->randomElement(['M','F','O']),
             'nascimento' => fake()->date(),
+            'cpf' => $this->faker->numerify('###########'),
             'foto' => fake()->imageUrl(),
             'nome_mae' => fake('pt_BR')->name('male'),
             'nome_pai' =>  fake('pt_BR')->name('female'),

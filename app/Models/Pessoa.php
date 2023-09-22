@@ -15,7 +15,7 @@ class Pessoa extends Model {
     use HasFactory;
 
     protected $table = 'pessoa';
-    protected $fillable = ['nome', 'genero', 'nascimento', 'foto', 'nome_mae', 'nome_pai', 'tipo_sangue'];
+    protected $fillable = ['nome', 'genero', 'nascimento','cpf', 'foto', 'nome_mae', 'nome_pai', 'tipo_sangue'];
     protected $guarded = ['id'];
 
     public $timestamps = false;

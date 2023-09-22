@@ -52,7 +52,7 @@
                 @foreach($atendidos as $atendido)
                     <tr>
                         <td>{{$atendido->pessoa->nome}}</td>
-                        <td>{{$atendido->cpf}}</td>
+                        <td>{{$atendido->pessoa->cpf}}</td>
                         <td><a href="{{route('atendidos.editar',$atendido->id) }}">Editar</a></td>
                     </tr>
                 @endforeach

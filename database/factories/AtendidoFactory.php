@@ -23,7 +23,6 @@ class AtendidoFactory extends Factory
         return [
             'pessoa_id' => $this->faker->randomElement($existingPessoaIds),
             'telefone' => $this->faker->phoneNumber('########'),
-            'cpf' => $this->faker->numerify('###########'),
             'tipo_atendido_id' => '1',
             'status_atendido_id' => '1',
         ];
