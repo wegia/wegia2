@@ -67,8 +67,8 @@ class AtendidoController extends Controller
         $atendido->status_atendido_id = $request->input('status_id');
         $atendido->tipo_atendido_id = $request->input('tipo_id');        
         $atendido->save();
-        //Chama a função para redirecionar para a tela de listagem
-        return $this->listar();
+        //Redirecionar para a tela de listagem
+        return redirect(route('atendidos.listar'));
     }
 
     /**
