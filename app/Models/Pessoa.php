@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Colaborador;
 use App\Models\Contato;
 use App\Models\pessoa\Atendido;
+use App\Models\pessoa\Familiar;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Pessoa extends Model {
     use HasFactory;
@@ -31,5 +33,9 @@ class Pessoa extends Model {
 
     public function atendidos(){
         return $this->hasOne(Atendido::class);
+    }
+
+    public function familiares(): HasMany{
+        return $this->hasMany(Familiar::class);
     }
 }
