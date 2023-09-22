@@ -22,7 +22,6 @@ class AtendidoFactory extends Factory
         $existingPessoaIds = Pessoa::pluck('id')->toArray();
         return [
             'pessoa_id' => $this->faker->randomElement($existingPessoaIds),
-            'telefone' => $this->faker->phoneNumber('########'),
             'tipo_atendido_id' => '1',
             'status_atendido_id' => '1',
         ];
