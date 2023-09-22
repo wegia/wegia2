@@ -27,10 +27,6 @@ class ColaboradorFactory extends Factory
             'admissao' => $this->faker->dateTimeBetween('-10 years'),
             'situacao' => $this->faker->randomElement(['A','A','A','A','I']),
             'pessoa_id' => $this->faker->randomElement($existingPessoaIds),
-            'rg' => $this->faker->numerify('#######'),
-            'rg_orgao' => $this->faker->randomElement(['DETRAN','SSP','DIC']),
-            'rg_data_expedicao' =>  $this->faker->dateTimeBetween('-10 years'),
-            'rg_data_vencimento' => $this->faker->dateTimeBetween('now','10 years'),
         ];
     }
 }

@@ -19,12 +19,6 @@ return new class extends Migration
             
             $table->date('admissao')->default(date("Y-m-d H:i:s"))->nullable();
             $table->enum('situacao', ['a', 'i'])->default('a');
-            $table->string('rg', 14)->nullable();
-            $table->string('rg_orgao', 20)->nullable();
-            $table->date('rg_data_expedicao')->nullable();
-            $table->date('rg_data_vencimento', 5)->nullable();
-
-            $table->timestamps();
         });
     }
 

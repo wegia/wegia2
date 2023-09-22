@@ -8,7 +8,7 @@ const addStatus = async (data, token )=> {
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         credentials: "same-origin", // include, *same-origin, omit
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "aph is 22 commits ahead of main. plication/json",
           'X-CSRF-TOKEN': token
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },

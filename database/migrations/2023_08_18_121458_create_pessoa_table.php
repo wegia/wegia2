@@ -21,6 +21,10 @@ return new class extends Migration
             $table->date('nascimento')->nullable();
             $table->string('cpf', 14)->nullable();
             $table->binary('foto')->nullable();
+            $table->string('rg', 14)->nullable();
+            $table->string('rg_orgao', 20)->nullable();
+            $table->date('rg_data_expedicao')->nullable();
+            $table->date('rg_data_vencimento', 5)->nullable();
             $table->string('nome_mae', 100)->nullable();
             $table->string('nome_pai', 100)->nullable();
             $table->char('tipo_sangue', 3)->nullable();
