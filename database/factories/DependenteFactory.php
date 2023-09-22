@@ -2,8 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Pessoa;
 use App\Models\pessoa\Dependente;
 use App\Models\pessoa\Funcionario;
+use App\Models\pessoa\utils\Parentesco;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,19 +24,14 @@ class DependenteFactory extends Factory
     public function definition(): array
     {
         $existingFuncionarioIds = Funcionario::pluck('id')->toArray();
+        $existingPessoaIds = Pessoa::pluck('id')->toArray();
+        $existingParentescoIds = Parentesco::pluck('id')->toArray();
+
 
         return [
             'funcionario_id' => $this->faker->randomElement($existingFuncionarioIds),
-            'nome' => $this->faker->name,
-            'genero' => $this->faker->randomElement(['M', 'F']),
-            'telefone' => $this->faker->phoneNumber('########'),
-            'nascimento' => $this->faker->dateTime(),
-            'parentesco' => $this->faker->randomElement(['Pai', 'Mãe', 'Filho(a)', 'Cônjuge']),
-            'cpf' => $this->faker->numerify('###########'),
-            'rg' => $this->faker->numerify('#######'),
-            'rg_orgao' => $this->faker->randomElement(['DETRAN','SSP','DIC']),
-            'rg_expedicao' =>  $this->faker->dateTimeBetween('-10 years'),
-            'rg_vencimento' =>  $this->faker->dateTimeBetween('now','10 years'),
+            'pessoa_id' => $this->faker->randomElement($existingPessoaIds),
+            'parentesco_id' => $this->faker->randomElement($existingParentescoIds),
         ];
     }
 }

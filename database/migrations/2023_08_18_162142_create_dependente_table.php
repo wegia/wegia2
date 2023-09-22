@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Pessoa;
 use App\Models\pessoa\Funcionario;
+use App\Models\pessoa\utils\Parentesco;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,16 +20,8 @@ return new class extends Migration
 
             $table->id();
             $table->foreignIdFor(Funcionario::class);
-            $table->string('nome', 100);
-            $table->char('genero', 1);
-            $table->string('telefone', 20)->nullable();
-            $table->date('nascimento')->nullable();
-            $table->string('parentesco', 45);
-            $table->string('cpf', 14)->nullable();
-            $table->string('rg', 14)->nullable();
-            $table->string('rg_orgao', 20)->nullable();
-            $table->date('rg_expedicao')->nullable();
-            $table->date('rg_vencimento', 5)->nullable();
+            $table->foreignIdFor(Pessoa::class);
+            $table->foreignIdFor(Parentesco::class);
 
             $table->timestamps();
 

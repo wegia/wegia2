@@ -10,7 +10,7 @@ class Dependente extends Model {
     use HasFactory;
 
     protected $table = 'dependente';
-    protected $fillable = ['nome', 'genero','parentesco','telefone', 'nascimento','cpf', 'rg', 'rg_orgao', 'rg_expedicao', 'rg_vencimento'];
+    protected $fillable = [];
     protected $guarded = ['id'];
 
     public $timestamps = false;
