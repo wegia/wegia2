@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pessoa;
 use App\Models\pessoa\Atendido;
+use App\Models\pessoa\Contato;
 use App\Models\pessoa\StatusAtendido;
 use App\Models\pessoa\TipoAtendido;
 use App\Repositories\Eloquent\AtendidoRepository;
@@ -46,6 +47,8 @@ class AtendidoController extends Controller
      * Salva um Atendido no banco de dados
      */
     public function salvar(Request $request){
+        $contato = new Contato();
+        $contato->telefone = $request->input("telefone"); 
         //Criando uma pessoa e definindo os atributos
         $pessoa = new Pessoa();
         $pessoa->nome = $request->input('nome');
@@ -53,13 +56,16 @@ class AtendidoController extends Controller
         $pessoa->nascimento = $request->input('nascimento');
         $pessoa->cpf = $request->input("cpf");
         $pessoa->save();
+        //Criando um contato e definindo os atributos
+        $contato = new Contato();
+        $contato->telefone = $request->input("telefone");
+        $contato->pessoa_id = $pessoa->id;
+        $contato->save();
         //Criando um atendido e definindo os atributos
         $atendido = new Atendido();
         $atendido->pessoa_id = $pessoa->id;
         $atendido->status_atendido_id = $request->input('status_id');
-        $atendido->tipo_atendido_id = $request->input('tipo_id');
-        $atendido->telefone = $request->input("telefone");
-        
+        $atendido->tipo_atendido_id = $request->input('tipo_id');        
         $atendido->save();
         //Chama a função para redirecionar para a tela de listagem
         return $this->listar();
