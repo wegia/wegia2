@@ -31,14 +31,31 @@ class AtendidoController extends Controller
         return view('pessoa.atendidos.lista');
     }
 
+    /**
+     * Redireciona para a tela de cadastro
+     */
     public function cadastrar(){
         return view('pessoa.atendidos.form');
     }
 
-    public function telaEditar(){
-        return view('pessoa.atendidos.edita');
+    /**
+     * Redireciona para a tela de edição com as informações do Atendido
+     */
+    public function telaEditar($id){
+        // Busque o modelo Atendido pelo ID e carregue as relações desejadas
+        $atendido = Atendido::with(['pessoa', 'tipoAtendido', 'statusAtendido', 'pessoa.contato'])->find($id);
+
+        if (!$atendido) {
+            return view('pessoa.atendidos.form');        
+        }
+       
+        // Retorne a view com os dados        
+        return view('pessoa.atendidos.edita', compact('atendido'));
     }
 
+    /**
+     * Valida o cpf e Redireciona para o formulario de cadastro 
+     */
     public function validarCpf(Request $request){
         $cpf = $request->input('cpf');
         $repository = new AtendidoRepository;
@@ -86,10 +103,31 @@ class AtendidoController extends Controller
     }
 
     /**
-     * Edita um Atendido
+     * Edita um Atendido 
      */
-    public function editar(){
-        
+    public function editar(Request $request){
+       $atendido =  Atendido::find($request->input('id'));
+       if (!$atendido) {
+            // Lide com o caso em que o Atendido não foi encontrado (por exemplo, exiba uma mensagem de erro ou redirecione)
+            return view('pessoa.atendidos.form');
+        }
+        //Criando as instancias
+        $contato = Contato::find($request->input('contato_id'));
+        $pessoa = Pessoa::find($atendido->pessoa_id);
+        $tipo = TipoAtendido::find($atendido->tipo_atendido_id);
+        $status = TipoAtendido::find($atendido->status_atendido_id);
+
+        //Definindo os novos dados
+        $pessoa->nome = $request->input('nome');
+        $pessoa->genero = $request->input('genero');
+        $pessoa->nascimento = $request->input('nascimento');
+        $pessoa->tipo_sangue = $request->input('tipo_sangue');
+        $pessoa->save();
+        $contato->telefone = $request->input("telefone");
+        $contato->save();
+
+        //Redireciona para a tela de listagem
+        return redirect(route('atendidos.listar'));
     }
 
     /**

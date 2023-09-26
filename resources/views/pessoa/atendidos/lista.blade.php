@@ -53,7 +53,7 @@
                     <tr>
                         <td>{{$atendido->pessoa->nome}}</td>
                         <td>{{$atendido->pessoa->cpf}}</td>
-                        <td><a href="{{route('atendidos.editar',$atendido->id) }}">Editar</a></td>
+                        <td><a href="{{route('atendidos.telaEditar', ['id' => $atendido->id]) }}">Editar</a></td>
                     </tr>
                 @endforeach
             </table>
