@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Pessoa;
 use App\Models\pessoa\Contato;
+use App\Models\pessoa\utils\Uf;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,6 +23,7 @@ class ContatoFactory extends Factory
     public function definition(): array
     {
         $existingPessoaIds = Pessoa::pluck('id')->toArray();
+        $existingUFIds = Uf::pluck('id')->toArray();
 
         return [
             'pessoa_id' => $this->faker->unique()->randomElement($existingPessoaIds),
@@ -30,7 +32,7 @@ class ContatoFactory extends Factory
             'complemento' => $this->faker->sentence(2),
             'bairro' => $this->faker->streetName(),
             'cidade' => $this->faker->city(),
-            'estado' => $this->faker->stateAbbr(),
+            'estado' => $this->faker->randomElement($existingPessoaIds),
             'cep' => $this->faker->numerify('#####-###'),
             'telefone' => $this->faker->phoneNumber('########'),
             'celular' => $this->faker->phoneNumber('+55(22)9####-####'),
