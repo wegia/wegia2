@@ -63,7 +63,7 @@ Lista de Empregados
                         {{ $cargoColaborador->cargo->nome }}
                     @endforeach
                 </td>
-                <td><a href="{{route('editFuncionarios',$funcionario->id) }}">Editar</a></td>
+                <td><a href="{{route('atendidos.telaEditar',$funcionario->id) }}">Editar</a></td>
             </tr>
             @endforeach
         </table>

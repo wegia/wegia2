@@ -35,6 +35,10 @@ class AtendidoController extends Controller
         return view('pessoa.atendidos.form');
     }
 
+    public function telaEditar(){
+        return view('pessoa.atendidos.edita');
+    }
+
     public function validarCpf(Request $request){
         $cpf = $request->input('cpf');
         $repository = new AtendidoRepository;
@@ -85,7 +89,7 @@ class AtendidoController extends Controller
      * Edita um Atendido
      */
     public function editar(){
-
+        
     }
 
     /**
