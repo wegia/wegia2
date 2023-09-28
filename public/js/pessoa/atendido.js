@@ -23,171 +23,84 @@ const addStatus = async (data, token )=> {
     
 }
 */
-/**
- * Tratamento de CPF
- *
- */
-
-const removeCaracteresCPF = cpf => {
-    const tamanho = cpf.length
-    if ('1234567890'.indexOf(cpf[tamanho-1]) == -1) {
-        return cpf.substr(0, tamanho-1)
-    }
-    return cpf
-}
-
-const acrescentaFormato = cpf => {
-    //000.000.000-00
-    if(cpf.length == 3 || cpf.length == 7)
-        return cpf += "."
-    if(cpf.length == 11)
-        return cpf += "-"
-    return cpf
-}
-
-const trataCPF = cpfInput => {
-    let cpfDigitado = cpfInput.value
-    let cpfTratado = removeCaracteresCPF(cpfDigitado)
-    cpfTratado = acrescentaFormato(cpfTratado)
-    cpfInput.value = cpfTratado
-}
-
-const inputCheckCPF = document.getElementById('inputCheckCPF')
-
-// se o input estiver carregado na tela,
-// associar o evento keyup
-if (inputCheckCPF) {
-    inputCheckCPF.addEventListener('keyup', (e)=> {
-        //Se tecla for backspace ou delete
-        if(e.key.toString() == "Backspace" || e.key == "Delete") {
-            //remover o ponto
-            if (inputCheckCPF.value.length == 3) //primeiro ponto
-                inputCheckCPF.value = inputCheckCPF.value.substring(0, 2);
-            if (inputCheckCPF.value.length == 7) //segundo ponto
-                inputCheckCPF.value = inputCheckCPF.value.substring(0, 6);
-            if (inputCheckCPF.value.length == 11) // traço
-                inputCheckCPF.value = inputCheckCPF.value.substring(0, 10);
-        }
-
-        trataCPF(inputCheckCPF);
-    })
-}
-
 document.addEventListener('DOMContentLoaded', function () {
-    //Status 
+    // Função genérica para fazer o fetch
+    const fazFetch = async (url, method, data = undefined, token, atualizar) => {
+        const header = {
+            method: method, // método HTTP
+            headers: {
+                "Content-Type": "application/json",
+                'X-CSRF-TOKEN': token // token para o Laravel
+            },
+        }
+        data ? header.body = data : "" // verifica se tem dados para enviar (se é um post ou put)
+        await fetch(url, header)
+            .then(response => response.status === 200 || response.status === 201 && response.ok === true ? response.json() : console.log(response.status))
+            .then(response => atualizar(response))
+    }
+
+    // Status
     // Evento de clique para o botão "Cadastrar Status"
-    document.getElementById('addStatus').addEventListener('click', function () {
-
-        //data = JSON.stringify({status : document.getElementById('iptNovoStatus').value})
-        //token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        //addStatus(data, token)
-
-        // Obtenha o valor do novo status do input
-        var novoStatus = document.getElementById('iptNovoStatus').value;
-
-        // Faça uma solicitação AJAX para salvar o novo status no banco de dados
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/pessoa/atendidos/status', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // O status foi salvo com sucesso
-                // Você pode atualizar a lista de status na tela, se necessário
-                // Feche o modal
-                
-                $('#novoStatusModal').modal('hide');
-                atualizarListaStatus();
-            }
-        };
-        
-        // Envie os dados do novo status como JSON
-        xhr.send(JSON.stringify({ status: novoStatus }));
+    document.querySelector('#addStatus').addEventListener('click', function () {
+        const url = "/pessoa/atendidos/status";
+        let data = JSON.stringify({status: document.querySelector('#iptNovoStatus').value})
+        let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        fazFetch(url, 'POST', data, token, atualizarListaStatus)
     });
 
     //Tipo
-    document.getElementById('addTipo').addEventListener('click', function () {
-        // Obtenha o valor do novo status do input
-        var novoTipo = document.getElementById('iptNovoTipo').value;
-
-        // Faça uma solicitação AJAX para salvar o novo status no banco de dados
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/pessoa/atendidos/tipo', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // O status foi salvo com sucesso
-                // Você pode atualizar a lista de status na tela, se necessário
-                // Feche o modal
-                
-                $('#novoTipoModal').modal('hide');
-                atualizarListaTipo();
-            }
-        };
-        
-        // Envie os dados do novo status como JSON
-        xhr.send(JSON.stringify({ tipo: novoTipo }));
+    // Evento de clique para o botão "Cadastrar Tipo"
+    document.querySelector('#addTipo').addEventListener('click', function () {
+        const url = "/pessoa/atendidos/tipo";
+        let data = JSON.stringify({tipo: document.querySelector('#iptNovoTipo').value})
+        let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        fazFetch(url, 'POST', data, token, atualizarListaTipo)
     });
 
 //cpf
 
-/** 
- * Função para atualizar a lista de status
- */
-function atualizarListaStatus() {
-    var listaStatusElement = document.getElementById('status');
-
-    // Faça uma solicitação AJAX para obter a lista atualizada de status
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/pessoa/atendidos/status', true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) { 
-            // Analise a resposta JSON do servidor
-            var response = JSON.parse(xhr.responseText);
-
-            // Limpe as opções existentes
+    /**
+     * Função para atualizar a lista de status
+     */
+    function atualizarListaStatus(response) {
+        const retorno = (response) => {
+            let listaStatusElement = document.querySelector('#status');
             listaStatusElement.innerHTML = '';
 
             // Adicione cada status como uma nova opção
-            response.forEach(function (status) {
-                var option = document.createElement('option');
+            response.forEach((status) => {
+                let option = document.createElement('option');
                 option.value = status.id; // Defina o valor da opção (se necessário)
                 option.textContent = status.status; // Texto visível da opção
                 listaStatusElement.appendChild(option);
             });
         }
-    };
-    xhr.send();
-}
 
-/** 
- * Função para atualizar a lista de tipos
- */
-function atualizarListaTipo() {
-    var listaTipoElement = document.getElementById('tipo');
+        const url = "/pessoa/atendidos/status"
+        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        fazFetch(url, 'GET', '', token, retorno)
 
-    // Faça uma solicitação AJAX para obter a lista atualizada de status
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/pessoa/atendidos/tipo', true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // Analise a resposta JSON do servidor
-            var response = JSON.parse(xhr.responseText);
-            
-            // Limpe as opções existentes
+    }
+
+    /**
+     * Função para atualizar a lista de tipos
+     */
+    function atualizarListaTipo() {
+        const retorno = (response) => {
+            let listaTipoElement = document.querySelector('#tipo');
             listaTipoElement.innerHTML = '';
 
             // Adicione cada status como uma nova opção
             response.forEach(function (tipo) {
-                var option = document.createElement('option');
+                let option = document.createElement('option');
                 option.value = tipo.id; // Defina o valor da opção (se necessário)
                 option.textContent = tipo.descricao; // Texto visível da opção
                 listaTipoElement.appendChild(option);
             });
         }
-    };
-    xhr.send();
-}
 
+        const url = "/pessoa/atendidos/tipo"
+        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        fazFetch(url, 'GET', '', token, retorno)
+    }
 });
