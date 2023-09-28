@@ -23,6 +23,56 @@ const addStatus = async (data, token )=> {
     
 }
 */
+/**
+ * Tratamento de CPF
+ *
+ */
+
+const removeCaracteresCPF = cpf => {
+    const tamanho = cpf.length
+    if ('1234567890'.indexOf(cpf[tamanho-1]) == -1) {
+        return cpf.substr(0, tamanho-1)
+    }
+    return cpf
+}
+
+const acrescentaFormato = cpf => {
+    //000.000.000-00
+    if(cpf.length == 3 || cpf.length == 7)
+        return cpf += "."
+    if(cpf.length == 11)
+        return cpf += "-"
+    return cpf
+}
+
+const trataCPF = cpfInput => {
+    let cpfDigitado = cpfInput.value
+    let cpfTratado = removeCaracteresCPF(cpfDigitado)
+    cpfTratado = acrescentaFormato(cpfTratado)
+    cpfInput.value = cpfTratado
+}
+
+const inputCheckCPF = document.getElementById('inputCheckCPF')
+
+// se o input estiver carregado na tela,
+// associar o evento keyup
+if (inputCheckCPF) {
+    inputCheckCPF.addEventListener('keyup', (e)=> {
+        //Se tecla for backspace ou delete
+        if(e.key.toString() == "Backspace" || e.key == "Delete") {
+            //remover o ponto
+            if (inputCheckCPF.value.length == 3) //primeiro ponto
+                inputCheckCPF.value = inputCheckCPF.value.substring(0, 2);
+            if (inputCheckCPF.value.length == 7) //segundo ponto
+                inputCheckCPF.value = inputCheckCPF.value.substring(0, 6);
+            if (inputCheckCPF.value.length == 11) // traço
+                inputCheckCPF.value = inputCheckCPF.value.substring(0, 10);
+        }
+
+        trataCPF(inputCheckCPF);
+    })
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     //Status 
     // Evento de clique para o botão "Cadastrar Status"
@@ -80,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.send(JSON.stringify({ tipo: novoTipo }));
     });
 
+//cpf
 
 /** 
  * Função para atualizar a lista de status
@@ -140,4 +191,3 @@ function atualizarListaTipo() {
 }
 
 });
-
