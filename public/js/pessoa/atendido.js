@@ -1,15 +1,13 @@
 // pessoa/atendido.js
-//Status
-// Evento de clique para o botão "Cadastrar Status"
 document.addEventListener('DOMContentLoaded', function () {
-    // função genérica para fazer o fetch
+    // Função genérica para fazer o fetch
     const fazFetch = async (url, method, data = undefined, token, atualizar) => {
         const header = {
-            method: method, // *GET, POST, PUT, DELETE, etc.
+            method: method, // método HTTP
             headers: {
                 "Content-Type": "application/json",
-                'X-CSRF-TOKEN': token
-            }, // body data type must match "Content-Type" header
+                'X-CSRF-TOKEN': token // token para o Laravel
+            },
         }
         data ? header.body = data : "" // verifica se tem dados para enviar (se é um post ou put)
         await fetch(url, header)
@@ -17,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => atualizar(response))
     }
 
+    // Status
+    // Evento de clique para o botão "Cadastrar Status"
     document.querySelector('#addStatus').addEventListener('click', function () {
         const url = "/pessoa/atendidos/status";
         let data = JSON.stringify({status: document.querySelector('#iptNovoStatus').value})
@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
         fazFetch(url, 'POST', data, token, atualizarListaStatus)
     });
 
-//Tipo
+    //Tipo
+    // Evento de clique para o botão "Cadastrar Tipo"
     document.querySelector('#addTipo').addEventListener('click', function () {
         const url = "/pessoa/atendidos/tipo";
         let data = JSON.stringify({tipo: document.querySelector('#iptNovoTipo').value})
