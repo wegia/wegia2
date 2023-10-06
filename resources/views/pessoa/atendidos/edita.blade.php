@@ -165,7 +165,7 @@
 
   <div class="tab-pane fade" id="endereco" role="tabpanel" aria-labelledby="profile-tab">
     <h3>Endereço</h3>
-    <form action="/pessoa/atendidos/painel/editap" method="POST">
+    <form action="/pessoa/atendidos/painel/editae" method="POST">
         @method('put')
         @csrf
         <input type="hidden" name="id" value="{{$atendido->id}}">
@@ -243,7 +243,6 @@
                 <input type="number" class="form-control"
                         id="numero" name="numero"
                         value="{{$atendido->pessoa->contato->numero}}"
-                        required
                         {{ ($atendido->pessoa->contato->numero == 'Não possui') ? 'disabled' : '' }}>
                 <label for="sem_numero">Não possuo número</label>
                 <input type="checkbox" name="sem_numero" id="sem_numero"

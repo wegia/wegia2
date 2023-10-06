@@ -117,7 +117,7 @@ class AtendidoController extends Controller
     
 
     /**
-     * Edita um Atendido 
+     * Edita as Informações Pessoais de um Atendido 
      */
     public function editarPessoais(Request $request){
        $atendido =  Atendido::find($request->input('id'));
@@ -140,9 +140,44 @@ class AtendidoController extends Controller
         $contato->telefone = $request->input("telefone");
         $contato->save();
 
-        //Redireciona para a tela de listagem
-        return redirect(route('atendidos.listar'));
+        //Redireciona para a tela de edição
+        return $this->telaEditar($atendido->id);
     }
+
+    /**
+     * Edita o Endereço de um Atendido
+     */
+    public function editarEndereco(Request $request){
+        $atendido =  Atendido::find($request->input('id'));
+        if (!$atendido) {
+             // Lide com o caso em que o Atendido não foi encontrado (por exemplo, exiba uma mensagem de erro ou redirecione)
+             return view('pessoa.atendidos.form');
+         }
+         //Criando as instancias
+         $contato = Contato::find($request->input('contato_id'));
+         $uf = Uf::find($contato->uf_id);
+         
+         //Definindo os novos dados
+         $contato->cep = $request->input('cep');
+         $siglaEstado = $request->input('estado');
+         $uf = Uf::where('sigla', $siglaEstado)->first();
+         if ($uf) {
+             $contato->uf_id = $uf->id;
+         } else {
+             // Trate o caso em que a sigla do estado não foi encontrada (por exemplo, exiba uma mensagem de erro)
+         }
+         $contato->cidade = $request->input('cidade');
+         $contato->bairro = $request->input('bairro');
+         $contato->logradouro = $request->input('logradouro');
+         $contato->numero = $request->input('numero');
+         $contato->complemento = $request->input('complemento');
+         $contato->codigo_ibge = $request->input('codigo_ibge');
+         
+         $contato->save();
+ 
+         //Redireciona para a tela de edição
+         return $this->telaEditar($atendido->id);
+     }
 
     /**
      * Salva um status no banco de dados

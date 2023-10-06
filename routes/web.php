@@ -99,8 +99,10 @@ Route::prefix('pessoa/atendidos')->group(function () {
     Route::get('/status', [AtendidoController::class, 'listarStatus'])->name("atendido.status.listar");
     //Retorna todos os tipos
     Route::get('/tipo', [AtendidoController::class, 'listarTipos'])->name("atendido.tipo.listar");
-    //
+    //Edita as Informações Pessoais de um Atendido
     Route::put('/painel/editap', [AtendidoController::class, 'editarPessoais'])->name('atendidos.editarPessoais');
+    //Edita o Endereço de um Atendido
+    Route::put('/painel/editae', [AtendidoController::class, 'editarEndereco'])->name('atendidos.editarEndereco');
 
 });
 
