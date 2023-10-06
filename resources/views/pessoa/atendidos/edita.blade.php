@@ -59,7 +59,7 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="infoPessoais" role="tabpanel" aria-labelledby="home-tab">
-    <form method="POST" action="/pessoa/atendidos/painel/edita">
+    <form method="POST" action="/pessoa/atendidos/painel/editap">
       @method('put')
       @csrf
         <input type="hidden" name="cpf" value="{{$atendido->pessoa->cpf}}">
@@ -165,7 +165,7 @@
 
   <div class="tab-pane fade" id="endereco" role="tabpanel" aria-labelledby="profile-tab">
     <h3>Endereço</h3>
-    <form action="/pessoa/atendidos/painel/edita" method="POST">
+    <form action="/pessoa/atendidos/painel/editap" method="POST">
         @method('put')
         @csrf
         <input type="hidden" name="id" value="{{$atendido->id}}">
@@ -176,7 +176,7 @@
                 CEP<sup class="obrig">*</sup>
             </label>
             <div class="col-md-8">
-                <input type="number" class="form-control"
+                <input type="text" class="form-control"
                         id="cep" name="cep"
                         maxlength="10" 
                         placeholder="Ex: 22222-22"

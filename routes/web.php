@@ -78,18 +78,29 @@ Route::get('/pessoa/voluntarios/add', [VoluntariosController::class, 'adicionar'
 //Routes for People
 ////////////////////////
 
-Route::get('/pessoa/atendidos/painel', [AtendidoController::class, 'painel'])->name("atendidos.painel");
-Route::get('/pessoa/atendidos/painel/lista', [AtendidoController::class, 'listar'])->name('atendidos.listar');
-Route::get('/pessoa/atendidos/painel/form', [AtendidoController::class, 'cadastrar'])->name('atendidos.cadastrar');
-Route::get('/pessoa/atendidos/painel/edita/{id}', [AtendidoController::class, 'telaEditar'])->name('atendidos.telaEditar');
-Route::get('/pessoa/atendidos/painel/checkCPF', [AtendidoController::class, 'validarCpf'])->name('atendidos.validarCpf');
-Route::post('/pessoa/atendidos', [AtendidoController::class, 'salvar'])->name('atendido.salvar');
-Route::post('/pessoa/atendidos/status', [AtendidoController::class, 'addStatus'])->name("atendido.status");
-Route::post('/pessoa/atendidos/tipo', [AtendidoController::class, 'addTipo'])->name("atendido.tipo");
-Route::get('/pessoa/atendidos/status', [AtendidoController::class, 'listarStatus'])->name("atendido.status.listar");
-Route::get('/pessoa/atendidos/tipo', [AtendidoController::class, 'listarTipos'])->name("atendido.tipo.listar");
+Route::prefix('pessoa/atendidos')->group(function () { 
+    //Redireciona para o painel com as opções de cadastro e login
+    Route::get('/painel', [AtendidoController::class, 'painel'])->name("atendidos.painel");
+    //Lista todos os Atendidos
+    Route::get('/painel/lista', [AtendidoController::class, 'listar'])->name('atendidos.listar');
+    //Redireciona para a tela de cadastro
+    Route::get('/painel/form', [AtendidoController::class, 'cadastrar'])->name('atendidos.cadastrar');
+    //Redireciona para a tela de edição com as informações do Atendido
+    Route::get('/painel/edita/{id}', [AtendidoController::class, 'telaEditar'])->name('atendidos.telaEditar');
+    //Valida o cpf e Redireciona para o formulario de cadastro 
+    Route::get('/painel/checkCPF', [AtendidoController::class, 'validarCpf'])->name('atendidos.validarCpf');
+    //Salva um Atendido no banco de dados
+    Route::post('/', [AtendidoController::class, 'salvar'])->name('atendido.salvar');
+    //Salva um status no banco de dados
+    Route::post('/status', [AtendidoController::class, 'addStatus'])->name("atendido.status");
+    //Salva um tipo no banco de dados
+    Route::post('/tipo', [AtendidoController::class, 'addTipo'])->name("atendido.tipo");
+    //Retorna todos os status
+    Route::get('/status', [AtendidoController::class, 'listarStatus'])->name("atendido.status.listar");
+    //Retorna todos os tipos
+    Route::get('/tipo', [AtendidoController::class, 'listarTipos'])->name("atendido.tipo.listar");
+    //
+    Route::put('/painel/editap', [AtendidoController::class, 'editarPessoais'])->name('atendidos.editarPessoais');
 
-Route::put('/pessoa/atendidos/painel/edita', [AtendidoController::class, 'editar'])->name('atendidos.editar');
-
-
+});
 

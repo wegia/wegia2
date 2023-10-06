@@ -7,6 +7,7 @@ use App\Models\pessoa\Atendido;
 use App\Models\pessoa\Contato;
 use App\Models\pessoa\StatusAtendido;
 use App\Models\pessoa\TipoAtendido;
+use App\Models\pessoa\utils\Uf;
 use App\Repositories\Eloquent\AtendidoRepository;
 use Illuminate\Http\Request;
 
@@ -67,9 +68,7 @@ class AtendidoController extends Controller
     /**
      * Salva um Atendido no banco de dados
      */
-    public function salvar(Request $request){
-        $contato = new Contato();
-        $contato->telefone = $request->input("telefone"); 
+    public function salvar(Request $request){ 
         //Criando uma pessoa e definindo os atributos
         $pessoa = new Pessoa();
         $pessoa->nome = $request->input('nome');
@@ -77,10 +76,16 @@ class AtendidoController extends Controller
         $pessoa->nascimento = $request->input('nascimento');
         $pessoa->cpf = $request->input("cpf");
         $pessoa->save();
+        //Buscando o Uf vazio, pois esse valor não é passado no formulário
+        //e como uf sempre terá os mesmos valores não é necessário criar um novo
+        //em todo cadastro
+        $uf = Uf::find(28);
+        $uf->save();
         //Criando um contato e definindo os atributos
         $contato = new Contato();
         $contato->telefone = $request->input("telefone");
         $contato->pessoa_id = $pessoa->id;
+        $contato->uf_id = $uf->id;
         $contato->save();
         //Criando um atendido e definindo os atributos
         $atendido = new Atendido();
@@ -102,10 +107,19 @@ class AtendidoController extends Controller
         return view('pessoa.atendidos.lista')->with('atendidos', $atendidos)->with('status', $status);
     }
 
+    // public function listarJson(){
+    //     $atendidos = Atendido::with(['pessoa','tipoAtendido', 'statusAtendido'])->get();
+    //     $status = StatusAtendido::all();
+    //     dd(json_encode([$atendidos, 'status'=> $status]));
+    //     return  [$atendidos, 'status'=> $status];
+    // }
+
+    
+
     /**
      * Edita um Atendido 
      */
-    public function editar(Request $request){
+    public function editarPessoais(Request $request){
        $atendido =  Atendido::find($request->input('id'));
        if (!$atendido) {
             // Lide com o caso em que o Atendido não foi encontrado (por exemplo, exiba uma mensagem de erro ou redirecione)
