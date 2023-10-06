@@ -88,6 +88,7 @@ Route::post('/pessoa/atendidos/status', [AtendidoController::class, 'addStatus']
 Route::post('/pessoa/atendidos/tipo', [AtendidoController::class, 'addTipo'])->name("atendido.tipo");
 Route::get('/pessoa/atendidos/status', [AtendidoController::class, 'listarStatus'])->name("atendido.status.listar");
 Route::get('/pessoa/atendidos/tipo', [AtendidoController::class, 'listarTipos'])->name("atendido.tipo.listar");
+
 Route::put('/pessoa/atendidos/painel/edita', [AtendidoController::class, 'editar'])->name('atendidos.editar');
 
 

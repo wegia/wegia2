@@ -162,9 +162,123 @@
         <button>Editar</button>
     </form>
   </div>
+
   <div class="tab-pane fade" id="endereco" role="tabpanel" aria-labelledby="profile-tab">
     <h3>Endereço</h3>
+    <form action="/pessoa/atendidos/painel/edita" method="POST">
+        @method('put')
+        @csrf
+        <input type="hidden" name="id" value="{{$atendido->id}}">
+        <input type="hidden" name="contato_id" value="{{$atendido->pessoa->contato->id}}">
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="cep">
+                CEP<sup class="obrig">*</sup>
+            </label>
+            <div class="col-md-8">
+                <input type="number" class="form-control"
+                        id="cep" name="cep"
+                        maxlength="10" 
+                        placeholder="Ex: 22222-22"
+                        value="{{$atendido->pessoa->contato->cep}}"
+                        required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="estado">
+                Estado<sup class="obrig">*</sup>
+            </label>
+            <div class="col-md-8">
+                <input type="text" class="form-control"
+                        id="estado" name="estado"
+                        maxlength="2" 
+                        placeholder="Ex: RJ"
+                        value="{{$atendido->pessoa->contato->estado}}"
+                        required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="cidade">
+                Cidade<sup class="obrig">*</sup>
+            </label>
+            <div class="col-md-8">
+                <input type="text" class="form-control"
+                        id="cidade" name="cidade" 
+                        value="{{$atendido->pessoa->contato->cidade}}"
+                        required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="bairro">
+                Bairro<sup class="obrig">*</sup>
+            </label>
+            <div class="col-md-8">
+                <input type="text" class="form-control"
+                        id="bairro" name="bairro"
+                        value="{{$atendido->pessoa->contato->bairro}}"
+                        required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="logradouro">
+                Logradouro<sup class="obrig">*</sup>
+            </label>
+            <div class="col-md-8">
+                <input type="text" class="form-control"
+                        id="logradouro" name="logradouro"
+                        value="{{$atendido->pessoa->contato->logradouro}}"
+                        required>
+            </div>
+        </div>
+<!--Revisar-->
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="numero">
+                Numero<sup class="obrig">*</sup>
+            </label>
+            <div class="col-md-8">
+                <input type="number" class="form-control"
+                        id="numero" name="numero"
+                        value="{{$atendido->pessoa->contato->numero}}"
+                        required
+                        {{ ($atendido->pessoa->contato->numero == 'Não possui') ? 'disabled' : '' }}>
+                <label for="sem_numero">Não possuo número</label>
+                <input type="checkbox" name="sem_numero" id="sem_numero"
+                {{ ($atendido->pessoa->contato->numero == 'sem_numero') ? 'checked' : '' }}>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="complemento">
+                Complemento<sup class="obrig">*</sup>
+            </label>
+            <div class="col-md-8">
+                <input type="text" class="form-control"
+                        id="complemento" name="complemento"
+                        value="{{$atendido->pessoa->contato->complemento}}"
+                        required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="codigo_ibge">
+                IBGE<sup class="obrig">*</sup>
+            </label>
+            <div class="col-md-8">
+                <input type="text" class="form-control"
+                        id="codigo_ibge" name="codigo_ibge"
+                        value="{{$atendido->pessoa->contato->codigo_ibge}}"
+                        required>
+            </div>
+        </div>
+
+        <button>Editar</button>
+    </form>
   </div>
+  
   <div class="tab-pane fade" id="documentacao" role="tabpanel" aria-labelledby="contact-tab">
     <h3>Documentos</h3>
   </div>
