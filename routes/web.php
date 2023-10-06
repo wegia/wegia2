@@ -103,6 +103,10 @@ Route::prefix('pessoa/atendidos')->group(function () {
     Route::put('/painel/editap', [AtendidoController::class, 'editarPessoais'])->name('atendidos.editarPessoais');
     //Edita o Endereço de um Atendido
     Route::put('/painel/editae', [AtendidoController::class, 'editarEndereco'])->name('atendidos.editarEndereco');
+    //Edita a Documentação de um Atendido
+    Route::put('/painel/editad', [AtendidoController::class, 'editarDocumentacao'])->name('atendidos.editarDocumentacao');
+    //Edita os Arquivos de um Atendido
+    Route::put('/painel/editaa', [AtendidoController::class, 'editarArquivo'])->name('atendidos.editarArquivo');
 
 });
 

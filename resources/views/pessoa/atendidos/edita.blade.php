@@ -59,7 +59,7 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="infoPessoais" role="tabpanel" aria-labelledby="home-tab">
-    <form method="POST" action="/pessoa/atendidos/painel/editap">
+    <form method="POST" action="{{route('atendidos.editarPessoais')}}">
       @method('put')
       @csrf
         <input type="hidden" name="cpf" value="{{$atendido->pessoa->cpf}}">
@@ -165,7 +165,7 @@
 
   <div class="tab-pane fade" id="endereco" role="tabpanel" aria-labelledby="profile-tab">
     <h3>Endereço</h3>
-    <form action="/pessoa/atendidos/painel/editae" method="POST">
+    <form action="{{route('atendidos.editarEndereco')}}" method="POST">
         @method('put')
         @csrf
         <input type="hidden" name="id" value="{{$atendido->id}}">
@@ -280,9 +280,78 @@
   
   <div class="tab-pane fade" id="documentacao" role="tabpanel" aria-labelledby="contact-tab">
     <h3>Documentos</h3>
+    <form action="{{route('atendidos.editarDocumentacao')}}" method="POST">
+        @method('put')
+        @csrf
+        <input type="hidden" name="id" value="{{$atendido->id}}">
+        <input type="hidden" name="contato_id" value="{{$atendido->pessoa->contato->id}}">
+
+        <div class="form-group">
+                <label class="col-md-3 control-label" for="rg">
+                    Número do RG<sup class="obrig">*</sup>
+                </label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control"
+                            id="rg" name="rg"
+                            value="{{$atendido->pessoa->rg}}"
+                            required>
+                </div>
+        </div>
+
+        <div class="form-group">
+                <label class="col-md-3 control-label" for="rg_orgao">
+                    Órgão Emissor<sup class="obrig">*</sup>
+                </label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control"
+                            id="rg_orgao" name="rg_orgao"
+                            value="{{$atendido->pessoa->rg_orgao}}"
+                            required>
+                </div>
+        </div>
+
+        <div class="form-group">
+                <label class="col-md-3 control-label" for="rg_data_expedicao">
+                    Data de expedição<sup class="obrig">*</sup>
+                </label>
+                <div class="col-md-8">
+                    <input type="date" class="form-control"
+                            id="rg_data_expedicao" name="rg_data_expedicao"
+                            value="{{$atendido->pessoa->rg_data_expedicao}}"
+                            required>
+                </div>
+        </div>
+
+        <div class="form-group">
+                <label class="col-md-3 control-label" for="rg_data_vencimento">
+                    Data de vencimento<sup class="obrig">*</sup>
+                </label>
+                <div class="col-md-8">
+                    <input type="date" class="form-control"
+                            id="rg_data_vencimento" name="rg_data_vencimento"
+                            value="{{$atendido->pessoa->rg_data_vencimento}}"
+                            required>
+                </div>
+        </div>
+
+        <div class="form-group">
+                <label class="col-md-3 control-label" for="cpf">
+                    Número do CPF
+                </label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control"
+                            id="cpf" name="cpf"
+                            value="{{$atendido->pessoa->cpf}}"
+                            disabled>
+                </div>
+        </div>
+
+        <button>Editar</button>
+    </form>
   </div>
   <div class="tab-pane fade" id="arquivos" role="tabpanel" aria-labelledby="contact-tab">
     <h3>Arquivos</h3>
+
   </div>
   <div class="tab-pane fade" id="familiares" role="tabpanel" aria-labelledby="contact-tab">
     <h3>Familiares</h3>

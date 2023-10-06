@@ -179,6 +179,29 @@ class AtendidoController extends Controller
          return $this->telaEditar($atendido->id);
      }
 
+     /**
+     * Edita a Documentação de um Atendido 
+     */
+    public function editarDocumentacao(Request $request){
+        $atendido =  Atendido::find($request->input('id'));
+        if (!$atendido) {
+             // Lide com o caso em que o Atendido não foi encontrado (por exemplo, exiba uma mensagem de erro ou redirecione)
+             return view('pessoa.atendidos.form');
+         }
+         //Criando as instancias
+         $pessoa = Pessoa::find($atendido->pessoa_id);
+ 
+         //Definindo os novos dados
+         $pessoa->rg = $request->input('rg');
+         $pessoa->rg_orgao = $request->input('rg_orgao');
+         $pessoa->rg_data_expedicao = $request->input('rg_data_expedicao');
+         $pessoa->rg_data_vencimento = $request->input('rg_data_vencimento');
+         $pessoa->save();
+ 
+         //Redireciona para a tela de edição
+         return $this->telaEditar($atendido->id);
+     }
+
     /**
      * Salva um status no banco de dados
      */
