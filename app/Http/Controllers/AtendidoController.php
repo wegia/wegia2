@@ -43,8 +43,8 @@ class AtendidoController extends Controller
      */
     public function telaEditar($id){
         // Busque o modelo Atendido pelo ID e carregue as relações desejadas
-        $atendido = Atendido::with(['pessoa', 'tipoAtendido', 'statusAtendido', 'pessoa.contato'])->find($id);
-
+        $atendido = Atendido::with(['pessoa', 'tipoAtendido', 'statusAtendido', 'pessoa.contato', 'pessoa.contato.uf'])->find($id);
+        
         if (!$atendido) {
             return view('pessoa.atendidos.form');        
         }

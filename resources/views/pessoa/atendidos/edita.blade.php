@@ -194,7 +194,7 @@
                         id="estado" name="estado"
                         maxlength="2" 
                         placeholder="Ex: RJ"
-                        value="{{$atendido->pessoa->contato->estado}}"
+                        value="{{$atendido->pessoa->contato->uf->sigla}}"
                         required>
             </div>
         </div>

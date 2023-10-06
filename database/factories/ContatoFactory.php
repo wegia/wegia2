@@ -32,7 +32,7 @@ class ContatoFactory extends Factory
             'complemento' => $this->faker->sentence(2),
             'bairro' => $this->faker->streetName(),
             'cidade' => $this->faker->city(),
-            'estado' => $this->faker->randomElement($existingPessoaIds),
+            'uf_id' => $this->faker->randomElement($existingUFIds),
             'cep' => $this->faker->numerify('#####-###'),
             'telefone' => $this->faker->phoneNumber('########'),
             'celular' => $this->faker->phoneNumber('+55(22)9####-####'),

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Pessoa;
+use App\Models\pessoa\utils\Uf;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->string('complemento', 45)->nullable();
             $table->string('bairro', 100)->nullable();
             $table->string('cidade', 100)->nullable();
-            $table->char('estado', 2)->nullable();
+            $table->foreignIdFor(Uf::class);
             $table->char('cep', 12)->nullable();
             $table->string('telefone', 20)->nullable();
             $table->string('celular', 20)->nullable();
