@@ -26,7 +26,7 @@ Cadastro
         </a>
     </li>
     <li class="breadcrumb-item active" aria-current="page">
-        <a href="{{route('listaVoluntarios')}}">
+        <a class="link-light text-decoration-none pointer-event" href="#">
             <i class="fa-solid fa-address-book px-1"></i>Cadastrar Voluntários
         </a>
     </li>

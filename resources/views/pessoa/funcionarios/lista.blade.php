@@ -21,7 +21,7 @@ Lista de Empregados
     </a>
 </li>
 <li class="breadcrumb-item active" aria-current="page">
-    <a href="{{route('listaFuncionarios')}}">
+    <a class="link-light text-decoration-none pointer-event" href="#">
         <i class="far fa-address-book px-1"></i>Listar funcionários
     </a>
 </li>

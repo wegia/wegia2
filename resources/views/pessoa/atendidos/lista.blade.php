@@ -21,7 +21,7 @@
         </a>
     </li>
     <li class="breadcrumb-item active" aria-current="page">
-        <a href="{{route('atendidos.index')}}">
+        <a class="link-light text-decoration-none pointer-event" href="{{route('atendidos.index')}}">
             <i class="far fa-address-book px-1"></i>Listar Atendidos
         </a>
     </li>
