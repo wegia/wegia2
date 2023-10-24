@@ -352,6 +352,64 @@
   <div class="tab-pane fade" id="arquivos" role="tabpanel" aria-labelledby="contact-tab">
     <h3>Arquivos</h3>
 
+        <table>
+            <thead>
+                <th>Arquivo</th>
+                <th>Data</th>
+                <th>Ação</th>
+            </thead>
+            <tbody>
+                @foreach($arquivos as $arquivo)
+                <tr>
+                    <td>{{$arquivo->tipoArquivo->nome}}</td>
+                    <td>{{$arquivo->data_cadastro}}</td>
+                    <td>
+                    <!-- Implementar!!!!!-->
+                        <button>Baixar</button>
+                        <button >Excluir</button>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>    
+
+        <button data-bs-toggle="modal" data-bs-target="#novoArquivoModal">Adicionar</button>
+    
+        <div class="modal fade" id="novoArquivoModal" tabindex="-1"
+         aria-labelledby="novoArquivoModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="arquivoModalLabel">Cadastrar Arquivo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                    <div class="modal-body">
+                    <form action="{{route('atendidos.editarArquivo')}}" method="POST">
+                    @method('put')
+                    @csrf
+                        <input type="hidden" name="atendido_id" value="{{$atendido->id}}">
+                        <input type="hidden" name="pessoa_id" value="{{$atendido->pessoa->id}}">
+                        <label class="d-block mb-2" for="tipoArquivo">TipoArquivo: </label>
+                        <select name="tipoArquivo" id="tipoArquivo">
+                            @foreach($tipoArquivos as $tipo)
+                                <option value="{{$tipo->id}}">{{$tipo->nome}}</option>
+                            @endforeach
+                        </select>
+                        <!-- Adicionar opção para adicionar tipo de arquivo -->
+                        <label for="arquivo">Arquivo:</label>
+                        <input type="file" name="arquivo">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button id="addStatus" type="submit" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+        
   </div>
   <div class="tab-pane fade" id="familiares" role="tabpanel" aria-labelledby="contact-tab">
     <h3>Familiares</h3>

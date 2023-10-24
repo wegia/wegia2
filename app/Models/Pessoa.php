@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Colaborador;
+use App\Models\pessoa\Arquivo;
 use App\Models\pessoa\Contato;
 use App\Models\pessoa\Atendido;
 use App\Models\pessoa\Familiar;
@@ -37,5 +38,9 @@ class Pessoa extends Model {
 
     public function familiares(): HasMany{
         return $this->hasMany(Familiar::class);
+    }
+
+    public function arquivos(): HasMany{
+        return $this->hasMany(Arquivo::class);
     }
 }

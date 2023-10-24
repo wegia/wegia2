@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArquivoController;
 use App\Http\Controllers\AtendidoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FuncionariosController;
@@ -100,13 +101,12 @@ Route::prefix('pessoa/atendidos')->group(function () {
     //Retorna todos os tipos
     Route::get('/tipo', [AtendidoController::class, 'listarTipos'])->name("atendido.tipo.listar");
     //Edita as Informações Pessoais de um Atendido
-    Route::put('/painel/editap', [AtendidoController::class, 'editarPessoais'])->name('atendidos.editarPessoais');
+    Route::put('/painel/editapessoa', [AtendidoController::class, 'editarPessoais'])->name('atendidos.editarPessoais');
     //Edita o Endereço de um Atendido
-    Route::put('/painel/editae', [AtendidoController::class, 'editarEndereco'])->name('atendidos.editarEndereco');
+    Route::put('/painel/editaendereco', [AtendidoController::class, 'editarEndereco'])->name('atendidos.editarEndereco');
     //Edita a Documentação de um Atendido
-    Route::put('/painel/editad', [AtendidoController::class, 'editarDocumentacao'])->name('atendidos.editarDocumentacao');
-    //Edita os Arquivos de um Atendido
-    Route::put('/painel/editaa', [AtendidoController::class, 'editarArquivo'])->name('atendidos.editarArquivo');
-
+    Route::put('/painel/editadocumentacao', [AtendidoController::class, 'editarDocumentacao'])->name('atendidos.editarDocumentacao');
+    //Adiciona um novo arquivo
+    Route::put('/painel/editaarquivo', [ArquivoController::class, 'salvar'])->name('atendidos.editarArquivo');
 });
 

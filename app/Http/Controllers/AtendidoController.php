@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pessoa;
+use App\Models\pessoa\Arquivo;
 use App\Models\pessoa\Atendido;
 use App\Models\pessoa\Contato;
 use App\Models\pessoa\StatusAtendido;
+use App\Models\pessoa\TipoArquivo;
 use App\Models\pessoa\TipoAtendido;
 use App\Models\pessoa\utils\Uf;
 use App\Repositories\Eloquent\AtendidoRepository;
@@ -49,9 +51,11 @@ class AtendidoController extends Controller
         if (!$atendido) {
             return view('pessoa.atendidos.form');        
         }
-       
+
+        $arquivos = Arquivo::with(['tipoArquivo'])->where('pessoa_id', $atendido->pessoa_id)->get();
+        $tipoArquivos = TipoArquivo::all();
         // Retorne a view com os dados        
-        return view('pessoa.atendidos.edita', compact('atendido'));
+        return view('pessoa.atendidos.edita', compact('atendido', 'arquivos', 'tipoArquivos'));
     }
 
     /**
