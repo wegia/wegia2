@@ -38,9 +38,19 @@ class ArquivoController extends Controller
     }
 
     /**
-     * Retorna todos os Arquivos
+     * Função para baixar um arquivo
      */
-    public function listarArquivos(){
-        return Arquivo::all();
-    }
+    // public function download($id) {
+    //     $arquivo = Arquivo::find($id);
+    
+    //     if (!$arquivo) {
+    //         return redirect()->back()->with('error', 'Arquivo não encontrado.');
+    //     }
+    
+    //     // Defina o caminho do arquivo
+    //     $filePath = public_path('caminho/para/seu/arquivo/' . $arquivo->nome);
+    
+    //     return response()->download($filePath, $arquivo->nome_original);
+    // }
+    
 }

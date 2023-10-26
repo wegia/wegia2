@@ -107,6 +107,10 @@ Route::prefix('pessoa/atendidos')->group(function () {
     //Edita a Documentação de um Atendido
     Route::put('/painel/editadocumentacao', [AtendidoController::class, 'editarDocumentacao'])->name('atendidos.editarDocumentacao');
     //Adiciona um novo arquivo
-    Route::put('/painel/editaarquivo', [ArquivoController::class, 'salvar'])->name('atendidos.editarArquivo');
+    Route::post('/painel/editaarquivo', [ArquivoController::class, 'salvar'])->name('atendidos.editarArquivo');
+    //Remover Arquivo
+    Route::delete('/painel/removerArquivo/{id}', [ArquivoController::class, 'remover'])->name('atendidos.removerArquivo');
+    // //Baixa o arquivo
+    // Route::get('/download-arquivo/{id}', [ArquivoController::class, 'download'])->name('arquivo.download');
 });
 

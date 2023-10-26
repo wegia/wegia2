@@ -358,15 +358,15 @@
                 <th>Data</th>
                 <th>Ação</th>
             </thead>
-            <tbody>
+            <tbody id="tabela-arquivos">
                 @foreach($arquivos as $arquivo)
                 <tr>
                     <td>{{$arquivo->tipoArquivo->nome}}</td>
                     <td>{{$arquivo->data_cadastro}}</td>
                     <td>
                     <!-- Implementar!!!!!-->
-                        <button>Baixar</button>
-                        <button >Excluir</button>
+                        <!-- <button><a href="{{ route('arquivo.download', ['id' => $arquivo->id]) }}" >Baixar</a></button> -->
+                        <button class="remover-arquivo" data-id="{{$arquivo->id}}">Excluir</button>
                     </td>
                 </tr>
                 @endforeach
@@ -385,7 +385,7 @@
                 </div>
                     <div class="modal-body">
                     <form action="{{route('atendidos.editarArquivo')}}" method="POST">
-                    @method('put')
+                    @method('post')
                     @csrf
                         <input type="hidden" name="atendido_id" value="{{$atendido->id}}">
                         <input type="hidden" name="pessoa_id" value="{{$atendido->pessoa->id}}">
@@ -419,5 +419,6 @@
 @endsection
 
 @section('scripts-vendors')
+    <script src="/js/pessoa/arquivo.js"></script> 
 
 @endsection
