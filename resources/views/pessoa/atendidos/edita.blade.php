@@ -365,7 +365,7 @@
                     <td>{{$arquivo->data_cadastro}}</td>
                     <td>
                     <!-- Implementar!!!!!-->
-                        <!-- <button><a href="{{ route('arquivo.download', ['id' => $arquivo->id]) }}" >Baixar</a></button> -->
+                        <!-- <button><a href="\{\{ route('arquivo.download', ['id' => $arquivo->id]) \}\}" >Baixar</a></button> -->
                         <button class="remover-arquivo" data-id="{{$arquivo->id}}">Excluir</button>
                     </td>
                 </tr>
