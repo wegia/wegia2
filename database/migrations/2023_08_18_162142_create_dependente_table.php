@@ -23,7 +23,6 @@ return new class extends Migration
             $table->foreignIdFor(Pessoa::class);
             $table->foreignIdFor(Parentesco::class);
 
-            $table->timestamps();
 
         });
     }

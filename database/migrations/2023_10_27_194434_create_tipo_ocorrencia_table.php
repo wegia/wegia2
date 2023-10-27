@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parentesco', function (Blueprint $table) {
-            $table->charset = 'utf8mb4';
-            $table->collation = 'utf8mb4_unicode_ci';
-
-            $table->tinyIncrements('id');
-            $table->string('nome', 45);
+        Schema::create('tipo_ocorrencia', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome', 100);
         });
     }
 
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('parentesco');
+        Schema::dropIfExists('tipo_ocorrencia');
     }
 };

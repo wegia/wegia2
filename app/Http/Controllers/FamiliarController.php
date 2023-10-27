@@ -22,11 +22,16 @@ class FamiliarController extends Controller
         $pessoa = new Pessoa();
         $contato = new Contato();
         
+        $cpf = $request->input('cpf');
+
         //Salvando os dados da pessoa
         $pessoa->nome = $request->input('nome');
-        $pessoa->cpf = $request->input('cpf');
+        $pessoa->cpf = $cpf;
         $pessoa->genero = $request->input('genero'); 
         $pessoa->nascimento = $request->input('nascimento');
+        $pessoa->rg = $request->input('rg');
+        $pessoa->rg_orgao = $request->input('rg_orgao');
+        $pessoa->rg_data_expedicao = $request->input('rg_data_expedicao');
         $pessoa->save();
 
         //Buscando o Uf vazio, pois esse valor não é passado no formulário

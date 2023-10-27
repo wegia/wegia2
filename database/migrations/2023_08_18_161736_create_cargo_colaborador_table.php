@@ -24,7 +24,6 @@ return new class extends Migration
             $table->date('inicio')->default(date("Y-m-d H:i:s"));
             $table->date('fim')->nullable();
             $table->boolean('e_cargo_atual')->default(true);
-            $table->timestamps();
 
         });
     }

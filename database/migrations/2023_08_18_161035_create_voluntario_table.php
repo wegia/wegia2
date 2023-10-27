@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('disponibilidade_horas', 45)->nullable();
             $table->string('descricao', 100)->nullable();
 
-            $table->timestamps();
 
         });
     }

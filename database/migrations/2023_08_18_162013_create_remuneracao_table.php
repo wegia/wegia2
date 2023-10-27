@@ -25,7 +25,6 @@ return new class extends Migration
             $table->date('inicio')->default(date("Y-m-d H:i:s"));
             $table->date('fim')->nullable();
 
-            $table->timestamps();
 
         });
     }

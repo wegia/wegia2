@@ -3,16 +3,6 @@
                     <h5 class="required fs-6 mb-4">Campos Obrigatórios</h5>
                     
                     <div class="row mb-3">
-                        <label class="col-md-3 col-form-label required" for="cpf">CPF
-                        </label>
-                            <div class="col-md-8">
-                            <input type="text" id="inputCheckCPF" name="cpf"
-                                   class="form-control" inputmode="numeric" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-                                   maxlength="14" placeholder="Ex. 222.222.222-22" required>
-                            </div>
-                    </div>
-                    
-                    <div class="row mb-3">
                         <label class="col-md-3 col-form-label required" for="name">Nome
                         </label>
                             <div class="col-md-8">
@@ -77,6 +67,49 @@
                     </div>
                 </div>
 
+                <hr>
+                <h4 class="mb-4">Documentação</h4>
+                <div class="row mb-3">
+                        <label class="col-md-3 col-form-label required" for="cpf">CPF
+                        </label>
+                            <div class="col-md-8">
+                            <input type="text" id="inputCheckCPF" name="cpf"
+                                   class="form-control" inputmode="numeric" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                                   maxlength="14" placeholder="Ex. 222.222.222-22" required>
+                            </div>
+
+                            <div class="form-group">
+                            <label class="col-md-3 control-label" for="rg">
+                                Número do RG<sup class="obrig">*</sup>
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control"
+                                        id="rg" name="rg" required>
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                            <label class="col-md-3 control-label" for="rg_orgao">
+                                Órgão Emissor<sup class="obrig">*</sup>
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control"
+                                        id="rg_orgao" name="rg_orgao" required>
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                            <label class="col-md-3 control-label" for="rg_data_expedicao">
+                                Data de expedição<sup class="obrig">*</sup>
+                            </label>
+                            <div class="col-md-8">
+                                <input type="date" class="form-control"
+                                        id="rg_data_expedicao" name="rg_data_expedicao"
+                                        required>
+                            </div>
+                    </div>
+                </div>
+
                 <!-- <hr>
                     <div class="panel-footer text-center">
                         <div class="row">
@@ -86,6 +119,5 @@
                             </div>
                         </div>
                     </div>     -->
-            </div>        
-        </div>
+           
 

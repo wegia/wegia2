@@ -26,7 +26,6 @@ return new class extends Migration
             $table->string('orgao_reservista', 10)->nullable();
             $table->string('serie_reservista', 5)->nullable();
 
-            $table->timestamps();
         });
     }
 

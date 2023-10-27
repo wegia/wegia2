@@ -14,7 +14,7 @@ class Contato extends Model {
     protected $table = 'contato';
     protected $fillable =['pessoa_id','logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'estado', 'cep','telefone', 'celular', 'email', 'ibge'];
 
-    public $timestamps = true;
+    public $timestamps = false;
 
     public function pessoa(): HasOne
     {

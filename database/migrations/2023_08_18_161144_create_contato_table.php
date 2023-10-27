@@ -31,7 +31,6 @@ return new class extends Migration
             $table->string('email', 200)->nullable();
             $table->string('codigo_ibge', 7)->nullable();
 
-            $table->timestamps();
 
         });
     }

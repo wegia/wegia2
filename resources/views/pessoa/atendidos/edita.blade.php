@@ -417,6 +417,7 @@
     <table>
             <thead>
                 <th>Nome</th>
+                <th>Cpf</th>
                 <th>Parentesco</th>
                 <th>Ação</th>
             </thead>
@@ -424,10 +425,11 @@
                 @foreach($familiares as $familiar)
                 <tr>
                     <td>{{$familiar->pessoa->nome}}</td>
+                    <td>{{$familiar->pessoa->cpf}}</td>
                     <td>{{$familiar->parentesco->nome}}</td>
                     <td>
                     <!-- Implementar!!!!!-->
-                        <!-- <button><a href="\{\{ route('arquivo.download', ['id' => $arquivo->id]) \}\}" >Baixar</a></button> -->
+                        <button><a href="">Editar</a></button>
                         <button class="remover-familiar" data-id="{{$familiar->id}}">Excluir</button>
                     </td>
                 </tr>

@@ -25,7 +25,6 @@ return new class extends Migration
             $table->date('inicio');
             $table->date('fim')->nullable();
             $table->enum('dia_semana',$this->dias_semana);
-            $table->timestamps();
         });
     }
 

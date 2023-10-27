@@ -28,7 +28,6 @@ return new class extends Migration
             $table->string('nome_mae', 100)->nullable();
             $table->string('nome_pai', 100)->nullable();
             $table->char('tipo_sangue', 3)->nullable();
-            $table->timestamps();
         });
     }
 

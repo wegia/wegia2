@@ -18,7 +18,6 @@ return new class extends Migration
             $table->tinyIncrements('id');
             $table->string('nome_estado', 45);
             $table->char('sigla', 2);
-            $table->timestamps();
         });
     }
 

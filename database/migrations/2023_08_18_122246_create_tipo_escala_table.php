@@ -17,7 +17,6 @@ return new class extends Migration
 
             $table->tinyIncrements('id');
             $table->string('nome', 100);
-            $table->timestamps();
         });
     }
 

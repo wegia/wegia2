@@ -16,10 +16,12 @@ use App\Models\pessoa\Dependente;
 use App\Models\pessoa\Familiar;
 use App\Models\pessoa\Horario;
 use App\Models\pessoa\Funcionario;
+use App\Models\pessoa\Ocorrencia;
 use App\Models\pessoa\Remuneracao;
 use App\Models\pessoa\StatusAtendido;
 use App\Models\pessoa\Voluntario;
 use App\Models\pessoa\TipoAtendido;
+use App\Models\pessoa\TipoOcorrencia;
 use Database\Seeders\CargoSeeder;
 use Database\Seeders\ColaboradorSeeder;
 use Database\Seeders\ContatoSeeder;
@@ -37,9 +39,11 @@ use Database\Seeders\FuncionarioSeeder;
 use Database\Seeders\TipoEscalaSeeder;
 use Database\Seeders\TipoRemuneracaoSeeder;
 use Database\Seeders\HorarioSeeder;
+use Database\Seeders\OcorrenciaSeeder;
 use Database\Seeders\RemuneracaoSeeder;
 use Database\Seeders\StatusAtendidoSeeder;
 use Database\Seeders\TipoAtendidoSeeder;
+use Database\Seeders\TipoOcorrenciaSeeder;
 use Database\Seeders\UFSeeder;
 use Database\Seeders\VoluntarioSeeder;
 use Illuminate\Database\Seeder;
@@ -75,6 +79,8 @@ class DatabaseSeeder extends Seeder
             StatusAtendido::truncate();
             Atendido::truncate();
             Familiar::truncate();
+            TipoOcorrencia::truncate();
+            Ocorrencia::truncate();
         Schema::enableForeignKeyConstraints();
 
         $this->call([
@@ -101,7 +107,9 @@ class DatabaseSeeder extends Seeder
             TipoAtendidoSeeder::class,
             StatusAtendidoSeeder::class,
             AtendidoSeeder::class,
-            FamiliarSeeder::class
+            FamiliarSeeder::class,
+            TipoOcorrenciaSeeder::class,
+            OcorrenciaSeeder::class
         ]);
     }
 }
