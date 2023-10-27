@@ -6,9 +6,11 @@ use App\Models\Pessoa;
 use App\Models\pessoa\Arquivo;
 use App\Models\pessoa\Atendido;
 use App\Models\pessoa\Contato;
+use App\Models\pessoa\Familiar;
 use App\Models\pessoa\StatusAtendido;
 use App\Models\pessoa\TipoArquivo;
 use App\Models\pessoa\TipoAtendido;
+use App\Models\pessoa\utils\Parentesco;
 use App\Models\pessoa\utils\Uf;
 use App\Repositories\Eloquent\AtendidoRepository;
 use Illuminate\Http\Request;
@@ -52,10 +54,15 @@ class AtendidoController extends Controller
             return view('pessoa.atendidos.form');        
         }
 
+        //Arquivo
         $arquivos = Arquivo::with(['tipoArquivo'])->where('pessoa_id', $atendido->pessoa_id)->get();
         $tipoArquivos = TipoArquivo::all();
+        
+        //Familiar
+        $familiares = Familiar::with(['parentesco', 'pessoa'])->where('atendido_id', $atendido->id)->get();
+        $parentescos = Parentesco::all();
         // Retorne a view com os dados        
-        return view('pessoa.atendidos.edita', compact('atendido', 'arquivos', 'tipoArquivos'));
+        return view('pessoa.atendidos.edita', compact('atendido', 'arquivos', 'tipoArquivos', 'familiares', 'parentescos'));
     }
 
     /**
@@ -97,6 +104,33 @@ class AtendidoController extends Controller
         $atendido->status_atendido_id = $request->input('status_id');
         $atendido->tipo_atendido_id = $request->input('tipo_id');        
         $atendido->save();
+        //Redirecionar para a tela de listagem
+        return redirect(route('atendidos.listar'));
+    }
+
+    /**
+     * Remove um Atendido
+     * @param int id
+     * @return route
+     */
+    public function remover($id){
+        $atendido = Atendido::find($id);
+        $pessoaAtendido = Pessoa::find($atendido->pessoa_id);
+        $contato = Contato::where('pessoa_id', $pessoaAtendido->id)->first();
+        $familiares = Familiar::where('atendido_id', $atendido->id)->get();
+        $arquivos = Arquivo::where('pessoa_id', $pessoaAtendido->id)->get();
+
+        //Excluindo os arquivos
+        foreach($familiares as $familiar){
+            $familiarController = new FamiliarController();
+            $familiarController->remover($familiar->id);
+        }
+        foreach($arquivos as $arquivo){
+            $arquivo->delete();
+        }
+        $contato->delete();
+        $atendido->delete();
+        $pessoaAtendido->delete();
         //Redirecionar para a tela de listagem
         return redirect(route('atendidos.listar'));
     }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArquivoController;
 use App\Http\Controllers\AtendidoController;
+use App\Http\Controllers\FamiliarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FuncionariosController;
 use App\Http\Controllers\PessoaController;
@@ -100,6 +101,8 @@ Route::prefix('pessoa/atendidos')->group(function () {
     Route::get('/status', [AtendidoController::class, 'listarStatus'])->name("atendido.status.listar");
     //Retorna todos os tipos
     Route::get('/tipo', [AtendidoController::class, 'listarTipos'])->name("atendido.tipo.listar");
+    //Remove um Atendido
+    Route::get('/painel/remover/{id}', [AtendidoController::class, 'remover'])->name('atendidos.remover');
     //Edita as Informações Pessoais de um Atendido
     Route::put('/painel/editapessoa', [AtendidoController::class, 'editarPessoais'])->name('atendidos.editarPessoais');
     //Edita o Endereço de um Atendido
@@ -110,6 +113,10 @@ Route::prefix('pessoa/atendidos')->group(function () {
     Route::post('/painel/editaarquivo', [ArquivoController::class, 'salvar'])->name('atendidos.editarArquivo');
     //Remover Arquivo
     Route::delete('/painel/removerArquivo/{id}', [ArquivoController::class, 'remover'])->name('atendidos.removerArquivo');
+    //Adicionar um familiar
+    Route::post('/painel/editafamiliar', [FamiliarController::class, 'salvar'])->name('atendidos.editarFamiliar');
+    //Remover Arquivo
+    Route::delete('/painel/removerFamiliar/{id}', [FamiliarController::class, 'remover'])->name('atendidos.removerFamiliar');
     // //Baixa o arquivo
     // Route::get('/download-arquivo/{id}', [ArquivoController::class, 'download'])->name('arquivo.download');
 });

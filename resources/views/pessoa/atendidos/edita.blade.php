@@ -160,6 +160,7 @@
         </div>
 
         <button>Editar</button>
+        <button><a href="{{ route('atendidos.remover', ['id' => $atendido->id])}}">Remover</a></button>
     </form>
   </div>
 
@@ -413,6 +414,63 @@
   </div>
   <div class="tab-pane fade" id="familiares" role="tabpanel" aria-labelledby="contact-tab">
     <h3>Familiares</h3>
+    <table>
+            <thead>
+                <th>Nome</th>
+                <th>Parentesco</th>
+                <th>Ação</th>
+            </thead>
+            <tbody id="tabela-arquivos">
+                @foreach($familiares as $familiar)
+                <tr>
+                    <td>{{$familiar->pessoa->nome}}</td>
+                    <td>{{$familiar->parentesco->nome}}</td>
+                    <td>
+                    <!-- Implementar!!!!!-->
+                        <!-- <button><a href="\{\{ route('arquivo.download', ['id' => $arquivo->id]) \}\}" >Baixar</a></button> -->
+                        <button class="remover-familiar" data-id="{{$familiar->id}}">Excluir</button>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>    
+
+        <button data-bs-toggle="modal" data-bs-target="#novoFamiliarModal">Adicionar</button>
+    
+        <div class="modal fade" id="novoFamiliarModal" tabindex="-1"
+         aria-labelledby="novoFamiliarModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="familiarModalLabel">Cadastrar Familiar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                    <div class="modal-body">
+                    <form action="{{route('atendidos.editarFamiliar')}}" method="POST">
+                    @method('post')
+                    @csrf
+                        <input type="hidden" name="atendido_id" value="{{$atendido->id}}">
+                        <input type="hidden" name="pessoa_id" value="{{$atendido->pessoa->id}}">
+                        <!-- formulario -->
+                        <label class="d-block mb-2" for="parentesco">Parentesco: </label>
+                        <select name="parentesco" id="parentesco" required>
+                            @foreach($parentescos as $parentesco)
+                                <option value="{{$parentesco->id}}">{{$parentesco->nome}}</option>
+                            @endforeach
+                        </select>
+                        
+                       
+                        @include('layouts.formPessoa')
+                        
+                    </div>
+                    <div class="panel-footer text-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button id="addStatus" type="submit" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                    </form>
+            </div>
+        </div>
+    </div>
   </div>
 </div>
 
@@ -420,5 +478,5 @@
 
 @section('scripts-vendors')
     <script src="/js/pessoa/arquivo.js"></script> 
-
+    <script src="/js/pessoa/familiar.js"></script>
 @endsection

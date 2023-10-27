@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.remover-arquivo').forEach(a => {
+    document.querySelectorAll('.remover-familiar').forEach(a => {
         a.addEventListener('click', () => {
             let id = a.dataset.id;
             if (confirm('Tem certeza que deseja excluir esse arquivo?')) {
                 // Envie a solicitação para excluir um arquivo
                 let xhr = new XMLHttpRequest();
-                let url = '/pessoa/atendidos/painel/removerArquivo/' + id;
+                let url = '/pessoa/atendidos/painel/removerFamiliar/' + id;
 
                 // Use o método POST com _method=DELETE para lidar com solicitações DELETE
                 xhr.open('DELETE', url, true);
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             // Remova a linha da tabela correspondente ao arquivo excluído
                             a.closest('tr').remove();
                         } else {
-                            alert('Erro ao excluir o arquivo');
+                            alert('Erro ao excluir o familiar');
                         }
                     }
                 };
