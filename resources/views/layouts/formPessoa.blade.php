@@ -77,6 +77,7 @@
                                    class="form-control" inputmode="numeric" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
                                    maxlength="14" placeholder="Ex. 222.222.222-22" required>
                             </div>
+                            <div><p id="cpfInvalido"></p></div>
 
                             <div class="form-group">
                             <label class="col-md-3 control-label" for="rg">

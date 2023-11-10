@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FuncionariosController;
 use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\VoluntariosController;
+use App\Models\pessoa\Familiar;
 use Database\Factories\PessoaFactory;
 use Illuminate\Support\Facades\Route;
 
@@ -117,6 +118,14 @@ Route::prefix('pessoa/atendidos')->group(function () {
     Route::post('/painel/editafamiliar', [FamiliarController::class, 'salvar'])->name('atendidos.editarFamiliar');
     //Remover Arquivo
     Route::delete('/painel/removerFamiliar/{id}', [FamiliarController::class, 'remover'])->name('atendidos.removerFamiliar');
+    //Exibe o formulario para Editar Familiar
+    Route::get('/painel/editarFamiliar/{id}', [FamiliarController::class, 'telaEditar'])->name('familiares.editar');
+    //Edita as informações pessoais de Familiar
+    Route::put('/painel/editarFamiliarPessoais', [FamiliarController::class, 'editarPessoais'])->name('familiares.editarPessoais');
+    //Edita o endereço de Familiar
+    Route::put('/painel/editarFamiliarEndereco', [FamiliarController::class, 'editarEndereco'])->name('familiares.editarEndereco');
+    //Edita o endereço de Familiar
+    Route::put('/painel/editarFamiliarDocumentacao', [FamiliarController::class, 'editarDocumentacao'])->name('familiares.editarDocumentacao');
     // //Baixa o arquivo
     // Route::get('/download-arquivo/{id}', [ArquivoController::class, 'download'])->name('arquivo.download');
 });

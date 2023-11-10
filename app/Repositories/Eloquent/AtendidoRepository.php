@@ -18,7 +18,7 @@ class AtendidoRepository {
         $this->pessoa = $repository;
     }
     
-/**
+    /**
      * Valida o cpf 
      */
     public function validarCpf($cpf) {

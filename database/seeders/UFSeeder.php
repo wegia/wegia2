@@ -43,6 +43,7 @@ class UFSeeder extends Seeder
             ["nome_estado" => "São Paulo", "sigla" => "SP"],
             ["nome_estado" => "Sergipe", "sigla" => "SE"],
             ["nome_estado" => "Tocantins", "sigla" => "TO"],
+            ["nome_estado" => "", "sigla" => ""],
         ];
 
         foreach ($brUF as $key => $uf) {

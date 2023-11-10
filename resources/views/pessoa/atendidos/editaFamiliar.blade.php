@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Editar
+    Editar Familiar
 @endsection
 
 
@@ -28,7 +28,7 @@
 
 
 @section('content')
-<h1>Editar Perfil de {{$atendido->pessoa->nome}}</h1>
+<h1>Editar Informações de {{$familiar->pessoa->nome}}</h1>
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
@@ -46,25 +46,16 @@
           data-bs-toggle="tab" data-bs-target="#documentacao" 
           type="button" role="tab" aria-controls="contact" aria-selected="false">Documentação</button>
   </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="contact-tab" 
-          data-bs-toggle="tab" data-bs-target="#arquivos" 
-          type="button" role="tab" aria-controls="contact" aria-selected="false">Arquivos</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="contact-tab" 
-          data-bs-toggle="tab" data-bs-target="#familiares" 
-          type="button" role="tab" aria-controls="contact" aria-selected="false">Familiares</button>
-  </li>
 </ul>
+
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="infoPessoais" role="tabpanel" aria-labelledby="home-tab">
-    <form method="POST" action="{{route('atendidos.editarPessoais')}}">
+    <form method="POST" action="{{route('familiares.editarPessoais')}}">
       @method('put')
       @csrf
-        <input type="hidden" name="cpf" value="{{$atendido->pessoa->cpf}}">
-        <input type="hidden" name="id" value="{{$atendido->id}}">
-        <input type="hidden" name="contato_id" value="{{$atendido->pessoa->contato->id}}">
+        <input type="hidden" name="cpf" value="{{$familiar->pessoa->cpf}}">
+        <input type="hidden" name="id" value="{{$familiar->id}}">
+        <input type="hidden" name="contato_id" value="{{$familiar->pessoa->contato->id}}">
 
 
         <h4 class="mb-xlg">Informações Pessoais</h4>
@@ -76,7 +67,7 @@
             </label>
             <div class="col-md-8">
                 <input type="text" class="form-control" 
-                        id="nome" name="nome" value="{{$atendido->pessoa->nome}}" required>
+                        id="nome" name="nome" value="{{$familiar->pessoa->nome}}" required>
             </div>
         </div>
 
@@ -90,7 +81,7 @@
                 id="genero" 
                 name="genero"
                 value="m"
-                {{ ($atendido->pessoa->genero == 'm' || $atendido->pessoa->genero == 'M') ? 'checked' : '' }}
+                {{ ($familiar->pessoa->genero == 'm' || $familiar->pessoa->genero == 'M') ? 'checked' : '' }}
                 required>
                 <i class="fa fa-male" style="font-size: 20px;"></i>
             </label>
@@ -100,7 +91,7 @@
                     id="genderF" 
                     name="genero"
                     value="f"
-                    {{ ($atendido->pessoa->genero == 'f' || $atendido->pessoa->genero == 'F') ? 'checked' : '' }}>
+                    {{ ($familiar->pessoa->genero == 'f' || $familiar->pessoa->genero == 'F') ? 'checked' : '' }}>
                 <i class="fa fa-female" style="font-size: 20px;"></i> 
             </label>
 
@@ -109,7 +100,7 @@
                     id="genderO" 
                     name="genero"
                     value="o"
-                    {{ ($atendido->pessoa->genero == 'o' || $atendido->pessoa->genero == 'O') ? 'checked' : '' }}>
+                    {{ ($familiar->pessoa->genero == 'o' || $familiar->pessoa->genero == 'O') ? 'checked' : '' }}>
                     <label class="form-check-label" for="generoO">Não declarado</label>
             </label>
             </div>
@@ -124,7 +115,7 @@
                         id="telefone" name="telefone"
                         maxlength="14" minlength="14" 
                         placeholder="Ex: (22)99999-9999"
-                        value="{{$atendido->pessoa->contato->telefone}}" >
+                        value="{{$familiar->pessoa->contato->telefone}}" >
             </div>
         </div>
         <div class="form-group">
@@ -136,7 +127,7 @@
                         id="nascimento" name="nascimento"
                         maxlength="10" 
                         placeholder="dd/mm/aaaa"
-                        value="{{$atendido->pessoa->nascimento}}"
+                        value="{{$familiar->pessoa->nascimento}}"
                         required>
             </div>
         </div>
@@ -147,30 +138,33 @@
             </label>
             <div class="col-md-8">
                 <select name="tipo_sangue" id="tipo_sangue">
-                    <option value="A+" {{($atendido->pessoa->tipo_sangue == "A+")? 'selected' : ''}}>A+</option>
-                    <option value="A-" {{($atendido->pessoa->tipo_sangue == "A-")? 'selected' : ''}}>A-</option>
-                    <option value="B+" {{($atendido->pessoa->tipo_sangue == "B+")? 'selected' : ''}}>B+</option>
-                    <option value="B-" {{($atendido->pessoa->tipo_sangue == "B-")? 'selected' : ''}}>B-</option>
-                    <option value="AB+" {{($atendido->pessoa->tipo_sangue == "AB+")? 'selected' : ''}}>AB+</option>
-                    <option value="AB-" {{($atendido->pessoa->tipo_sangue == "AB-")? 'selected' : ''}}>AB-</option>
-                    <option value="O+" {{($atendido->pessoa->tipo_sangue == "O+")? 'selected' : ''}}>O+</option>
-                    <option value="O-" {{($atendido->pessoa->tipo_sangue == "O-")? 'selected' : ''}}>O-</option>
+                    <option value="A+" {{($familiar->pessoa->tipo_sangue == "A+")? 'selected' : ''}}>A+</option>
+                    <option value="A-" {{($familiar->pessoa->tipo_sangue == "A-")? 'selected' : ''}}>A-</option>
+                    <option value="B+" {{($familiar->pessoa->tipo_sangue == "B+")? 'selected' : ''}}>B+</option>
+                    <option value="B-" {{($familiar->pessoa->tipo_sangue == "B-")? 'selected' : ''}}>B-</option>
+                    <option value="AB+" {{($familiar->pessoa->tipo_sangue == "AB+")? 'selected' : ''}}>AB+</option>
+                    <option value="AB-" {{($familiar->pessoa->tipo_sangue == "AB-")? 'selected' : ''}}>AB-</option>
+                    <option value="O+" {{($familiar->pessoa->tipo_sangue == "O+")? 'selected' : ''}}>O+</option>
+                    <option value="O-" {{($familiar->pessoa->tipo_sangue == "O-")? 'selected' : ''}}>O-</option>
                 </select>
             </div>
         </div>
 
         <button>Editar</button>
-        <button><a href="{{ route('atendidos.remover', ['id' => $atendido->id])}}">Remover</a></button>
     </form>
   </div>
 
   <div class="tab-pane fade" id="endereco" role="tabpanel" aria-labelledby="profile-tab">
     <h3>Endereço</h3>
-    <form action="{{route('atendidos.editarEndereco')}}" method="POST">
+    <form action="{{route('familiares.editarEndereco')}}" method="POST">
         @method('put')
         @csrf
-        <input type="hidden" name="id" value="{{$atendido->id}}">
-        <input type="hidden" name="contato_id" value="{{$atendido->pessoa->contato->id}}">
+        <input type="hidden" name="cpf" value="{{$familiar->pessoa->cpf}}">
+        <input type="hidden" name="id" value="{{$familiar->id}}">
+        <input type="hidden" name="contato_id" value="{{$familiar->pessoa->contato->id}}">
+
+        <input type="hidden" name="id" value="{{$familiar->id}}">
+        <input type="hidden" name="contato_id" value="{{$familiar->pessoa->contato->id}}">
 
         <div class="form-group">
             <label class="col-md-3 control-label" for="cep">
@@ -181,7 +175,7 @@
                         id="cep" name="cep"
                         maxlength="10" 
                         placeholder="Ex: 22222-22"
-                        value="{{$atendido->pessoa->contato->cep}}"
+                        value="{{$familiar->pessoa->contato->cep}}"
                         required>
             </div>
         </div>
@@ -195,7 +189,7 @@
                         id="estado" name="estado"
                         maxlength="2" 
                         placeholder="Ex: RJ"
-                        value="{{$atendido->pessoa->contato->uf->sigla}}"
+                        value="{{$familiar->pessoa->contato->uf->sigla}}"
                         required>
             </div>
         </div>
@@ -207,7 +201,7 @@
             <div class="col-md-8">
                 <input type="text" class="form-control"
                         id="cidade" name="cidade" 
-                        value="{{$atendido->pessoa->contato->cidade}}"
+                        value="{{$familiar->pessoa->contato->cidade}}"
                         required>
             </div>
         </div>
@@ -219,7 +213,7 @@
             <div class="col-md-8">
                 <input type="text" class="form-control"
                         id="bairro" name="bairro"
-                        value="{{$atendido->pessoa->contato->bairro}}"
+                        value="{{$familiar->pessoa->contato->bairro}}"
                         required>
             </div>
         </div>
@@ -231,7 +225,7 @@
             <div class="col-md-8">
                 <input type="text" class="form-control"
                         id="logradouro" name="logradouro"
-                        value="{{$atendido->pessoa->contato->logradouro}}"
+                        value="{{$familiar->pessoa->contato->logradouro}}"
                         required>
             </div>
         </div>
@@ -243,11 +237,11 @@
             <div class="col-md-8">
                 <input type="number" class="form-control"
                         id="numero" name="numero"
-                        value="{{$atendido->pessoa->contato->numero}}"
-                        {{ ($atendido->pessoa->contato->numero == 'Não possui') ? 'disabled' : '' }}>
+                        value="{{$familiar->pessoa->contato->numero}}"
+                        {{ ($familiar->pessoa->contato->numero == 'Não possui') ? 'disabled' : '' }}>
                 <label for="sem_numero">Não possuo número</label>
                 <input type="checkbox" name="sem_numero" id="sem_numero"
-                {{ ($atendido->pessoa->contato->numero == 'sem_numero') ? 'checked' : '' }}>
+                {{ ($familiar->pessoa->contato->numero == 'sem_numero') ? 'checked' : '' }}>
             </div>
         </div>
 
@@ -258,7 +252,7 @@
             <div class="col-md-8">
                 <input type="text" class="form-control"
                         id="complemento" name="complemento"
-                        value="{{$atendido->pessoa->contato->complemento}}"
+                        value="{{$familiar->pessoa->contato->complemento}}"
                         required>
             </div>
         </div>
@@ -270,7 +264,7 @@
             <div class="col-md-8">
                 <input type="text" class="form-control"
                         id="codigo_ibge" name="codigo_ibge"
-                        value="{{$atendido->pessoa->contato->codigo_ibge}}"
+                        value="{{$familiar->pessoa->contato->codigo_ibge}}"
                         required>
             </div>
         </div>
@@ -278,14 +272,18 @@
         <button>Editar</button>
     </form>
   </div>
-  
+
   <div class="tab-pane fade" id="documentacao" role="tabpanel" aria-labelledby="contact-tab">
     <h3>Documentos</h3>
-    <form action="{{route('atendidos.editarDocumentacao')}}" method="POST">
+    <form action="{{route('familiares.editarDocumentacao')}}" method="POST">
         @method('put')
         @csrf
-        <input type="hidden" name="id" value="{{$atendido->id}}">
-        <input type="hidden" name="contato_id" value="{{$atendido->pessoa->contato->id}}">
+        <input type="hidden" name="cpf" value="{{$familiar->pessoa->cpf}}">
+        <input type="hidden" name="id" value="{{$familiar->id}}">
+        <input type="hidden" name="contato_id" value="{{$familiar->pessoa->contato->id}}">
+
+        <input type="hidden" name="id" value="{{$familiar->id}}">
+        <input type="hidden" name="contato_id" value="{{$familiar->pessoa->contato->id}}">
 
         <div class="form-group">
                 <label class="col-md-3 control-label" for="rg">
@@ -294,7 +292,7 @@
                 <div class="col-md-8">
                     <input type="text" class="form-control"
                             id="rg" name="rg"
-                            value="{{$atendido->pessoa->rg}}"
+                            value="{{$familiar->pessoa->rg}}"
                             required>
                 </div>
         </div>
@@ -306,7 +304,7 @@
                 <div class="col-md-8">
                     <input type="text" class="form-control"
                             id="rg_orgao" name="rg_orgao"
-                            value="{{$atendido->pessoa->rg_orgao}}"
+                            value="{{$familiar->pessoa->rg_orgao}}"
                             required>
                 </div>
         </div>
@@ -318,7 +316,7 @@
                 <div class="col-md-8">
                     <input type="date" class="form-control"
                             id="rg_data_expedicao" name="rg_data_expedicao"
-                            value="{{$atendido->pessoa->rg_data_expedicao}}"
+                            value="{{$familiar->pessoa->rg_data_expedicao}}"
                             required>
                 </div>
         </div>
@@ -330,7 +328,7 @@
                 <div class="col-md-8">
                     <input type="date" class="form-control"
                             id="rg_data_vencimento" name="rg_data_vencimento"
-                            value="{{$atendido->pessoa->rg_data_vencimento}}"
+                            value="{{$familiar->pessoa->rg_data_vencimento}}"
                             required>
                 </div>
         </div>
@@ -342,7 +340,7 @@
                 <div class="col-md-8">
                     <input type="text" class="form-control"
                             id="cpf" name="cpf"
-                            value="{{$atendido->pessoa->cpf}}"
+                            value="{{$familiar->pessoa->cpf}}"
                             disabled>
                 </div>
         </div>
@@ -350,135 +348,6 @@
         <button>Editar</button>
     </form>
   </div>
-  <div class="tab-pane fade" id="arquivos" role="tabpanel" aria-labelledby="contact-tab">
-    <h3>Arquivos</h3>
+</div>  
 
-        <table>
-            <thead>
-                <th>Arquivo</th>
-                <th>Data</th>
-                <th>Ação</th>
-            </thead>
-            <tbody id="tabela-arquivos">
-                @foreach($arquivos as $arquivo)
-                <tr>
-                    <td>{{$arquivo->tipoArquivo->nome}}</td>
-                    <td>{{$arquivo->data_cadastro}}</td>
-                    <td>
-                    <!-- Implementar!!!!!-->
-                        <!-- <button><a href="\{\{ route('arquivo.download', ['id' => $arquivo->id]) \}\}" >Baixar</a></button> -->
-                        <button class="remover-arquivo" data-id="{{$arquivo->id}}">Excluir</button>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>    
-
-        <button data-bs-toggle="modal" data-bs-target="#novoArquivoModal">Adicionar</button>
-    
-        <div class="modal fade" id="novoArquivoModal" tabindex="-1"
-         aria-labelledby="novoArquivoModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="arquivoModalLabel">Cadastrar Arquivo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                    <div class="modal-body">
-                    <form action="{{route('atendidos.editarArquivo')}}" method="POST">
-                    @method('post')
-                    @csrf
-                        <input type="hidden" name="atendido_id" value="{{$atendido->id}}">
-                        <input type="hidden" name="pessoa_id" value="{{$atendido->pessoa->id}}">
-                        <label class="d-block mb-2" for="tipoArquivo">TipoArquivo: </label>
-                        <select name="tipoArquivo" id="tipoArquivo">
-                            @foreach($tipoArquivos as $tipo)
-                                <option value="{{$tipo->id}}">{{$tipo->nome}}</option>
-                            @endforeach
-                        </select>
-                        <!-- Adicionar opção para adicionar tipo de arquivo -->
-                        <label for="arquivo">Arquivo:</label>
-                        <input type="file" name="arquivo">
-                        
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button id="addStatus" type="submit" class="btn btn-primary">Cadastrar</button>
-                    </div>
-                    </form>
-            </div>
-        </div>
-    </div>
-
-        
-  </div>
-  <div class="tab-pane fade" id="familiares" role="tabpanel" aria-labelledby="contact-tab">
-    <h3>Familiares</h3>
-    <table>
-            <thead>
-                <th>Nome</th>
-                <th>Cpf</th>
-                <th>Parentesco</th>
-                <th>Ação</th>
-            </thead>
-            <tbody id="tabela-arquivos">
-                @foreach($familiares as $familiar)
-                <tr>
-                    <td>{{$familiar->pessoa->nome}}</td>
-                    <td>{{$familiar->pessoa->cpf}}</td>
-                    <td>{{$familiar->parentesco->nome}}</td>
-                    <td>
-                    <!-- Implementar!!!!!-->
-                        <button><a href="{{route('familiares.editar', ['id' => $familiar->id])}}">Editar</a></button>
-                        <button class="remover-familiar" data-id="{{$familiar->id}}">Excluir</button>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>    
-
-        <button data-bs-toggle="modal" data-bs-target="#novoFamiliarModal">Adicionar</button>
-    
-        <div class="modal fade" id="novoFamiliarModal" tabindex="-1"
-         aria-labelledby="novoFamiliarModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="familiarModalLabel">Cadastrar Familiar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                    <div class="modal-body">
-                    <form action="{{route('atendidos.editarFamiliar')}}" method="POST">
-                    @method('post')
-                    @csrf
-                        <input type="hidden" name="atendido_id" value="{{$atendido->id}}">
-                        <input type="hidden" name="pessoa_id" value="{{$atendido->pessoa->id}}">
-                        <!-- formulario -->
-                        <label class="d-block mb-2" for="parentesco">Parentesco: </label>
-                        <select name="parentesco" id="parentesco" required>
-                            @foreach($parentescos as $parentesco)
-                                <option value="{{$parentesco->id}}">{{$parentesco->nome}}</option>
-                            @endforeach
-                        </select>
-                        
-                       
-                        @include('layouts.formPessoa')
-                        
-                    </div>
-                    <div class="panel-footer text-center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button id="addStatus" type="submit" class="btn btn-primary">Cadastrar</button>
-                    </div>
-                    </form>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-
-@endsection
-
-@section('scripts-vendors')
-    <script src="/js/pessoa/arquivo.js"></script> 
-    <script src="/js/pessoa/familiar.js"></script>
 @endsection
