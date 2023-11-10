@@ -15,4 +15,8 @@ class Ocorrencia extends Model
     public function tipoOcorrencia(): BelongsTo{
         return $this->belongsTo(TipoOcorrencia::class);
     }
+
+    public function atendido(): BelongsTo{
+        return $this->belongsTo(Atendido::class);
+    }
 }

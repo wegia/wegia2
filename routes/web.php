@@ -5,6 +5,7 @@ use App\Http\Controllers\AtendidoController;
 use App\Http\Controllers\FamiliarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FuncionariosController;
+use App\Http\Controllers\OcorrenciaController;
 use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\VoluntariosController;
 use App\Models\pessoa\Familiar;
@@ -130,3 +131,21 @@ Route::prefix('pessoa/atendidos')->group(function () {
     // Route::get('/download-arquivo/{id}', [ArquivoController::class, 'download'])->name('arquivo.download');
 });
 
+//////////////////////////
+//Modulo Ocorrencias
+//////////////////////////
+Route::prefix('pessoa/ocorrencias')->group(function(){
+    //Redireciona para o painel 
+    Route::get('/painel', [OcorrenciaController::class, 'painel'])->name("ocorrencias.painel");
+    //Redireciona para a tela de cadastro
+    Route::get('/painel/form', [OcorrenciaController::class, 'cadastrar'])->name('ocorrencias.cadastrar');
+    //Redireciona para a lista todos os atendidos
+    Route::get('/painel/lista', [OcorrenciaController::class, 'listar'])->name('ocorrencias.listar');
+    //Cadastrar ocorrencia
+    Route::post('/', [OcorrenciaController::class, 'salvar'])->name('ocorrencias.salvar');
+    //Remove uma ocorrencia
+    Route::get('/painel/remover/{id}', [OcorrenciaController::class, 'remover'])->name('ocorrencias.remover');
+    //Edita uma ocorrencia
+    Route::get('/painel/edita/{id}', [OcorrenciaController::class, 'telaEditar'])->name('ocorrencias.telaEditar');
+
+});
