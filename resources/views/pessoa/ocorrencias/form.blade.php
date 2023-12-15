@@ -9,7 +9,7 @@
 @endsection
 
 @section('breadcrumbs')
-<li class="breadcrumb-item" aria-current="page">
+    <li class="breadcrumb-item" aria-current="page">
         <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="/">
             <i class="fa fa-home px-1"></i>Início
         </a>
@@ -21,8 +21,8 @@
         </a>
     </li>
     <li class="breadcrumb-item active" aria-current="page">
-        <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{route('atendidos.painel')}}">
-            <i class="fa-solid fa-building-user px-1"></i>Atendidos
+        <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{route('ocorrencias.painel')}}">
+            <i class="fa-solid fa-building-user px-1"></i>Ocorrências
         </a>
     </li>
     <li class="breadcrumb-item active" aria-current="page">
@@ -34,8 +34,7 @@
 
 @section('content')
 <div class="content-body">
-
-<div class="row m-5" id="formulario">
+    <div class="row m-5" id="formulario">
         <ul class="nav nav-pills nav-fill pb-2">
             <li class="nav-item">
                 <button class="nav-link bg-dark" id="cadastroOcorrencia" data-bs-toggle="tab"
@@ -101,14 +100,11 @@
                             </div>
                     </div>
 
-                    <button type="submit">Salvar</button>                    
-
+                    <button type="submit">Salvar</button>
+                                        
                 </form>
             </div>
         </div>
-</div>
-
-
-
+    </div>
 </div>
 @endsection

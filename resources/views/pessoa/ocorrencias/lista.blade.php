@@ -47,7 +47,7 @@
                         <td>{{$ocorrencia->data}}</td>
                         <td>
                             <button><a href="{{route('ocorrencias.remover', ['id'=> $ocorrencia->id])}}">Remover</a></button>
-                            <button><a href="{{route('ocorrencias.TelaEditar', ['id'=> $ocorrencia->id])}}">Editar</a></button>
+                            <button><a href="{{route('ocorrencias.telaEditar', ['id'=> $ocorrencia->id])}}">Editar</a></button>
                         </td>
                         <!-- <td><a href="\{\{route('atendidos.telaEditar', ['id' => $atendido->id]) \}\}">Editar</a></td> -->
                     </tr>

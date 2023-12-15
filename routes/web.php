@@ -141,11 +141,14 @@ Route::prefix('pessoa/ocorrencias')->group(function(){
     Route::get('/painel/form', [OcorrenciaController::class, 'cadastrar'])->name('ocorrencias.cadastrar');
     //Redireciona para a lista todos os atendidos
     Route::get('/painel/lista', [OcorrenciaController::class, 'listar'])->name('ocorrencias.listar');
+    //Redireciona para a tela de edição com as informações da ocorrência
+    Route::get('/painel/edita/{id}', [OcorrenciaController::class, 'telaEditar'])->name('ocorrencias.telaEditar');
+    //Edita as Informações das ocorrência
+    Route::put('/painel/editar', [AtendidoController::class, 'editar'])->name('ocorrencias.editar');
     //Cadastrar ocorrencia
     Route::post('/', [OcorrenciaController::class, 'salvar'])->name('ocorrencias.salvar');
+    //Cadastrar um arquivo pretencente a uma ocorrência
     //Remove uma ocorrencia
     Route::get('/painel/remover/{id}', [OcorrenciaController::class, 'remover'])->name('ocorrencias.remover');
-    //Edita uma ocorrencia
-    Route::get('/painel/edita/{id}', [OcorrenciaController::class, 'telaEditar'])->name('ocorrencias.telaEditar');
-
+    
 });

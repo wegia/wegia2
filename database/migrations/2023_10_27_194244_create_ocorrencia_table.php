@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignIdFor(Atendido::class);
             $table->foreignIdFor(TipoOcorrencia::class);
             $table->date('data');
-            $table->binary('arquivo')->nullable();
             $table->string('descricao', 2000);
         });
     }
