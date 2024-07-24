@@ -39,11 +39,11 @@ use Database\Seeders\FuncionarioSeeder;
 use Database\Seeders\TipoEscalaSeeder;
 use Database\Seeders\TipoRemuneracaoSeeder;
 use Database\Seeders\HorarioSeeder;
-use Database\Seeders\OcorrenciaSeeder;
+//use Database\Seeders\OcorrenciaSeeder;
 use Database\Seeders\RemuneracaoSeeder;
 use Database\Seeders\StatusAtendidoSeeder;
 use Database\Seeders\TipoAtendidoSeeder;
-use Database\Seeders\TipoOcorrenciaSeeder;
+//use Database\Seeders\TipoOcorrenciaSeeder;
 use Database\Seeders\UFSeeder;
 use Database\Seeders\VoluntarioSeeder;
 use Illuminate\Database\Seeder;
@@ -79,8 +79,8 @@ class DatabaseSeeder extends Seeder
             StatusAtendido::truncate();
             Atendido::truncate();
             Familiar::truncate();
-            TipoOcorrencia::truncate();
-            Ocorrencia::truncate();
+            //TipoOcorrencia::truncate();
+            //Ocorrencia::truncate();
         Schema::enableForeignKeyConstraints();
 
         $this->call([
@@ -108,8 +108,8 @@ class DatabaseSeeder extends Seeder
             StatusAtendidoSeeder::class,
             AtendidoSeeder::class,
             FamiliarSeeder::class,
-            TipoOcorrenciaSeeder::class,
-            OcorrenciaSeeder::class
+            //TipoOcorrenciaSeeder::class,
+            //OcorrenciaSeeder::class
         ]);
     }
 }
