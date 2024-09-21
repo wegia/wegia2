@@ -10,4 +10,11 @@ Erro composer - /autoload_real.php on line 66?
 3. comando >    composer install.
 4. comando >    composer update.
     
+=====
+Erro ao rodar as migrations
 
+
+1. Vá até a pasta config
+2. Abra o arquivo database.php
+3. Vá até a linha 60, dentro de 'mysql', 
+4. Se 'engine' estiver vazio subistitua por: 'engine' => env('DB_ENGINE', 'InnoDB'),
