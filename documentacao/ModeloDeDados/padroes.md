@@ -15,4 +15,4 @@ Para garantir consistência e clareza nas mensagens de commit, seguimos uma conv
 
 Caso o commit envolva múltiplos tipos de alterações, utilize um ponto (`.`) para separar os prefixos.
  
-Exemplo: feat: Criação do model ExemploModel. feat: Criação do controller ExemploController
+Exemplo: feat: Criação do model ExemploModel. fix: Correções no controller ExemploController
