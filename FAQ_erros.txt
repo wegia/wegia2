@@ -18,3 +18,13 @@ Erro ao rodar as migrations
 2. Abra o arquivo database.php
 3. Vá até a linha 60, dentro de 'mysql', 
 4. Se 'engine' estiver vazio subistitua por: 'engine' => env('DB_ENGINE', 'InnoDB'),
+
+
+=====
+Erro ao rodar testes
+
+Test code or tested code closed output buffers other than its own
+
+1. Va até a view usada usada no teste
+2. Verifique se todas as @section tem um @endsection
+3. Adicione o @endsection se estiver faltando

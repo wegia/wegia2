@@ -119,7 +119,6 @@ class AtendidoController extends Controller
         $contato = Contato::where('pessoa_id', $pessoaAtendido->id)->first();
         $familiares = Familiar::where('atendido_id', $atendido->id)->get();
         $arquivos = Arquivo::where('pessoa_id', $pessoaAtendido->id)->get();
-
         //Excluindo os arquivos
         foreach($familiares as $familiar){
             $familiarController = new FamiliarController();
@@ -129,7 +128,7 @@ class AtendidoController extends Controller
             $arquivo->delete();
         }
         $contato->delete();
-        $atendido->delete();
+        $atendido->delete(); 
         $pessoaAtendido->delete();
         //Redirecionar para a tela de listagem
         return redirect(route('atendidos.listar'));

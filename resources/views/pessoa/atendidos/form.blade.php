@@ -278,3 +278,4 @@
 @endsection
 @section('scripts-vendors')
     <script src="/js/pessoa/atendido.js"></script> 
+@endsection

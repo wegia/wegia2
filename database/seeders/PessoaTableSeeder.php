@@ -14,6 +14,6 @@ class PessoaTableSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Pessoa::factory()->count(20)->create();
+        Pessoa::factory()->count(20)->create();
     }
 }
