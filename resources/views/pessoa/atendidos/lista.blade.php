@@ -31,15 +31,19 @@
 <div class="card col-lg-10 col-md-8 mx-auto m-5 text-bg-dark">
         <h5 class="card-header">Atendidos</h5>
         <div class="card-body">
-            <div class="col-2 d-flex justify-content-end">
-                    <select class="form-select me-1">
+            <form action="{{route('atendidos.filtrar')}}">
+                @csrf
+                <div class="col-2 d-flex justify-content-end">
+                    <select class="form-select me-1" name="status">
                         <option selected disabled hidden>Status</option>
                         @foreach($status as $sta)
-                            <option>{{$sta->status}}</option>
+                            <option value="{{$sta->id}}">{{$sta->status}}</option>
                         @endforeach
                     </select>
-                    <button class="btn btn-primary">Filtrar</button>
-                </div>
+                    <button class="btn btn-primary" type="submit">Filtrar</button>
+            </div>
+            </form>
+            
             <table id="table" class="table table-dark listTable">
                 <thead>
                 <tr>

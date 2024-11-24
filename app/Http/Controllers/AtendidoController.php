@@ -144,14 +144,30 @@ class AtendidoController extends Controller
         return view('pessoa.atendidos.lista')->with('atendidos', $atendidos)->with('status', $status);
     }
 
+    /**
+     * Lista todos os atendidos com o memsmo status
+     */
+    public function filtrar(Request $request){
+        $statusId = $request->input('status');
+        // Verifica se o status ID existe no banco de dados
+        if (!StatusAtendido::where('id', $statusId)->exists()) {
+            return redirect(route('atendidos.listar'))->with('error', 'Status inválido.');
+        }
+
+        // Busca os atendidos com o status especificado
+        $atendidos = Atendido::where('status_atendido_id', $statusId)->with(['pessoa'])->get();
+
+        // Retorna a view de listagem com os atendidos filtrados
+        $status = StatusAtendido::all(); // Repopular o select de status
+        return view('pessoa.atendidos.lista')->with('atendidos', $atendidos)->with('status', $status);
+    }
+
     // public function listarJson(){
     //     $atendidos = Atendido::with(['pessoa','tipoAtendido', 'statusAtendido'])->get();
     //     $status = StatusAtendido::all();
     //     dd(json_encode([$atendidos, 'status'=> $status]));
     //     return  [$atendidos, 'status'=> $status];
     // }
-
-    
 
     /**
      * Edita as Informações Pessoais de um Atendido 

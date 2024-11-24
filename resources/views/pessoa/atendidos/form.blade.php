@@ -161,7 +161,7 @@
                     </label>
                     <div class="col-md-8">
                         <select class="form-select"
-                        name="status.id" id="status" required>
+                        name="status_id" id="status" required>
                             <option selected disabled>Selecionar</option>
                             @foreach ($status as $stat)
                                 <option value="{{$stat->id}}">{{$stat->status}}</option>
@@ -180,7 +180,7 @@
                     </label>
                     <div class="col-md-8">
                         <select class="form-select"
-                        name="tipo.id" id="tipo" required>
+                        name="tipo_id" id="tipo" required>
                             <option selected disabled>Selecionar</option>
                             @foreach ($tipos as $tipo)
                                 <option value="{{$tipo->id}}">{{$tipo->descricao}}</option>
