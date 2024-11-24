@@ -19,7 +19,7 @@ class StatusAtendidoFactory extends Factory
     public function definition(): array
     {
         return [
-            "status" => "Ativo",
+            "status" => $this->faker->unique()->randomElement(['Ativo', 'Inativo', 'Tercerizado', 'Voluntário']),
         ];
     }
 }

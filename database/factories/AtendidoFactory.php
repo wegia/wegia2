@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Pessoa;
 use App\Models\pessoa\Atendido;
+use App\Models\pessoa\StatusAtendido;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,10 +21,11 @@ class AtendidoFactory extends Factory
     public function definition(): array
     {
         $existingPessoaIds = Pessoa::pluck('id')->toArray();
+        $existingStatusIds = StatusAtendido::pluck('id')->toArray();
         return [
             'pessoa_id' => $this->faker->randomElement($existingPessoaIds),
             'tipo_atendido_id' => '1',
-            'status_atendido_id' => '1',
+            'status_atendido_id' => $this->faker->randomElement($existingStatusIds),
         ];
     }
 }
