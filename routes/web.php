@@ -107,6 +107,8 @@ Route::prefix('pessoa/atendidos')->group(function () {
     Route::get('/painel/remover/{id}', [AtendidoController::class, 'remover'])->name('atendidos.remover');
     //Filtra atendidos por status
     Route::get('/painel/lista/filtrar',[AtendidoController::class, 'filtrar'])->name('atendidos.filtrar');
+    //Pesquisa um antedido
+    Route::get('/painel/lista/pesquisar',[AtendidoController::class, 'pesquisar'])->name('atendidos.pesquisar');
     //Edita as Informações Pessoais de um Atendido
     Route::put('/painel/editapessoa', [AtendidoController::class, 'editarPessoais'])->name('atendidos.editarPessoais');
     //Edita o Endereço de um Atendido

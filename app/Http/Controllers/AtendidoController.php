@@ -145,7 +145,7 @@ class AtendidoController extends Controller
     }
 
     /**
-     * Lista todos os atendidos com o memsmo status
+     * Lista todos os atendidos com o mesmo status
      */
     public function filtrar(Request $request){
         $statusId = $request->input('status');
@@ -160,6 +160,27 @@ class AtendidoController extends Controller
         // Retorna a view de listagem com os atendidos filtrados
         $status = StatusAtendido::all(); // Repopular o select de status
         return view('pessoa.atendidos.lista')->with('atendidos', $atendidos)->with('status', $status);
+    }
+
+    /**
+     * Busca um atendido pelo nome ou cpf
+     */
+    public function pesquisar(Request $request){
+        $pesquisa = $request->input('pesquisar');
+        // Verifica se o campo de pesquisa foi preenchido
+        if (empty($pesquisa)) {
+            return redirect(route('atendidos.listar'))->with('error', 'Digite um nome ou CPF para buscar.');
+        }
+
+        // Busca os atendidos com base no nome ou CPF
+        $atendidos = Atendido::whereHas('pessoa', function ($query) use ($pesquisa) {
+            $query->where('nome', 'like', "%$pesquisa%")
+                ->orWhere('cpf', 'like', "%$pesquisa%");
+        })->with('pessoa')->get();
+
+        // Recupera todos os status para repopular o select na view
+        $status = StatusAtendido::all();
+        return view('pessoa.atendidos.lista', compact('atendidos', 'status'));
     }
 
     // public function listarJson(){
