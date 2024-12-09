@@ -21,7 +21,7 @@ jobs:
     - name: Clear Composer Cache
       run: composer dump-autoload
     - name: Install Dependencies
-      run: composer update
+      run: composer install --no-dev --prefer-dist --no-interaction
     - name: Generate key
       run: php artisan key:generate
     - name: Directory Permissions
