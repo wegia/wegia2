@@ -18,3 +18,11 @@ Erro ao rodar as migrations
 2. Abra o arquivo database.php
 3. Vá até a linha 60, dentro de 'mysql', 
 4. Se 'engine' estiver vazio subistitua por: 'engine' => env('DB_ENGINE', 'InnoDB'),
+
+=====
+Erro ao rodar o comando composer install
+
+Your requirements could not be resolved to an installable set of packages.
+
+1. Rode o seguinte comando: composer install --ignore-platform-req=ext-fileinfo
+2. Ou vá até o arquivo php.ini e retire o ";" da frente da seguinte linha "extension=fileinfo"
