@@ -119,7 +119,6 @@ class AtendidoController extends Controller
         $contato = Contato::where('pessoa_id', $pessoaAtendido->id)->first();
         $familiares = Familiar::where('atendido_id', $atendido->id)->get();
         $arquivos = Arquivo::where('pessoa_id', $pessoaAtendido->id)->get();
-
         //Excluindo os arquivos
         foreach($familiares as $familiar){
             $familiarController = new FamiliarController();
@@ -129,7 +128,7 @@ class AtendidoController extends Controller
             $arquivo->delete();
         }
         $contato->delete();
-        $atendido->delete();
+        $atendido->delete(); 
         $pessoaAtendido->delete();
         //Redirecionar para a tela de listagem
         return redirect(route('atendidos.listar'));
@@ -145,14 +144,51 @@ class AtendidoController extends Controller
         return view('pessoa.atendidos.lista')->with('atendidos', $atendidos)->with('status', $status);
     }
 
+    /**
+     * Lista todos os atendidos com o mesmo status
+     */
+    public function filtrar(Request $request){
+        $statusId = $request->input('status');
+        // Verifica se o status ID existe no banco de dados
+        if (!StatusAtendido::where('id', $statusId)->exists()) {
+            return redirect(route('atendidos.listar'))->with('error', 'Status inválido.');
+        }
+
+        // Busca os atendidos com o status especificado
+        $atendidos = Atendido::where('status_atendido_id', $statusId)->with(['pessoa'])->get();
+
+        // Retorna a view de listagem com os atendidos filtrados
+        $status = StatusAtendido::all(); // Repopular o select de status
+        return view('pessoa.atendidos.lista')->with('atendidos', $atendidos)->with('status', $status);
+    }
+
+    /**
+     * Busca um atendido pelo nome ou cpf
+     */
+    public function pesquisar(Request $request){
+        $pesquisa = $request->input('pesquisar');
+        // Verifica se o campo de pesquisa foi preenchido
+        if (empty($pesquisa)) {
+            return redirect(route('atendidos.listar'))->with('error', 'Digite um nome ou CPF para buscar.');
+        }
+
+        // Busca os atendidos com base no nome ou CPF
+        $atendidos = Atendido::whereHas('pessoa', function ($query) use ($pesquisa) {
+            $query->where('nome', 'like', "%$pesquisa%")
+                ->orWhere('cpf', 'like', "%$pesquisa%");
+        })->with('pessoa')->get();
+
+        // Recupera todos os status para repopular o select na view
+        $status = StatusAtendido::all();
+        return view('pessoa.atendidos.lista', compact('atendidos', 'status'));
+    }
+
     // public function listarJson(){
     //     $atendidos = Atendido::with(['pessoa','tipoAtendido', 'statusAtendido'])->get();
     //     $status = StatusAtendido::all();
     //     dd(json_encode([$atendidos, 'status'=> $status]));
     //     return  [$atendidos, 'status'=> $status];
     // }
-
-    
 
     /**
      * Edita as Informações Pessoais de um Atendido 

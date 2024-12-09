@@ -26,3 +26,29 @@ Your requirements could not be resolved to an installable set of packages.
 
 1. Rode o seguinte comando: composer install --ignore-platform-req=ext-fileinfo
 2. Ou vá até o arquivo php.ini e retire o ";" da frente da seguinte linha "extension=fileinfo"
+
+=====
+Erro ao rodar testes
+
+Test code or tested code closed output buffers other than its own
+
+1. Va até a view usada usada no teste
+2. Verifique se todas as @section tem um @endsection
+3. Adicione o @endsection se estiver faltando
+
+
+=====
+Erro ao rodar testes
+
+Test code or tested code closed output buffers other than its own
+
+1. Va até a view usada usada no teste
+2. Verifique se todas as @section tem um @endsection
+3. Adicione o @endsection se estiver faltando
+=====
+Erro ao rodar o comando composer install
+
+Your requirements could not be resolved to an installable set of packages.
+
+1. Rode o seguinte comando: composer install --ignore-platform-req=ext-fileinfo
+2. Ou vá até o arquivo php.ini e retire o ";" da frente da seguinte linha "extension=fileinfo"
